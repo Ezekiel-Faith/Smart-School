@@ -123,32 +123,40 @@ export default function Gallery() {
         )}
         
         <article className='flex items-center justify-center mt-10 mb-10 px-9'>
-          <div className='relative w-full max-w-4xl px-4'>
-            <svg 
-              className="absolute -top-8 -left-4 w-12 h-12 text-gray-300 mt-9" 
-              fill="#ED7884" 
-              viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
-            
-           <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center leading-normal  md:text-2xl mt-10 mb-10 px-4 py-2 text-sm xs:text-base">
-              <p className="mb-4">
-                At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.
-              </p>
-              <footer className="text-base md:text-xl font-semibold">
-                  <span className="block">— XYZ</span>
-                  <span>Principal, Smart School</span>
-              </footer>
-      </blockquote>
-            
-            <svg 
-              className="absolute -bottom-7 -right-3 w-12 h-12 mb-7 text-gray-300 transform rotate-180" 
-              fill="#ED7884" 
-              viewBox="0 0 24 24"
-            >
-              <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-            </svg>
+          <div className='relative w-full max-w-4xl px-4'>            
+        
+        <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center text-sm xs:text-base md:text-lg leading-relaxed mt-10 mb-10 px-4 py-2">
+  {/* The paragraph with integrated quotes */}
+  <p className="relative px-8 md:px-12 mb-4">
+    {/* Opening quote */}
+    <svg 
+      className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8 transform -translate-y-1/2"
+      fill="#ED7884" 
+      viewBox="0 0 24 24"
+    >
+      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+    </svg>
+    
+    {/* Text content */}
+    <span className="block">
+      At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.
+    </span>
+    
+    {/* Closing quote */}
+    <svg 
+      className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8 transform translate-y-1/2 rotate-180"
+      fill="#ED7884" 
+      viewBox="0 0 24 24"
+    >
+      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
+    </svg>
+  </p>
+
+  <footer className="text-base md:text-xl font-semibold">
+    <span className="block">— XYZ</span>
+    <span>Principal, Smart School</span>
+  </footer>
+</blockquote>
           </div>
         </article>
       </div>
