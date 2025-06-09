@@ -105,7 +105,7 @@ export default function Gallery() {
             className={`fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${isZoomed ? 'opacity-100' : 'opacity-0'}`}
             onClick={closeZoom}
           >
-            <div className="relative max-w-6xl w-full max-h-screen">
+            <div className="relative max-w-auto w-fit max-h-auto overflow-hidden">
               <button 
                 className="absolute top-4 right-4 text-white text-3xl z-50 hover:text-gray-300 transition-colors"
                 onClick={closeZoom}
@@ -115,14 +115,14 @@ export default function Gallery() {
               <img 
                 src={selectedImage.src} 
                 alt={selectedImage.alt} 
-                className={`mx-auto max-h-[90vh] max-w-full object-contain transition-transform duration-300 ${isZoomed ? 'scale-100' : 'scale-90'}`}
+                className={`mx-auto max-h-auto max-w-auto object-contain transition-transform duration-300 ${isZoomed ? 'scale-100' : 'scale-90'}`}
               />
               <p className="text-white text-center mt-2 text-lg">{selectedImage.alt}</p>
             </div>
           </div>
         )}
         
-        <article className='flex items-center justify-center mt-10 mb-10'>
+        <article className='flex items-center justify-center mt-10 mb-10 px-9'>
           <div className='relative w-full max-w-4xl px-4'>
             <svg 
               className="absolute -top-8 -left-4 w-12 h-12 text-gray-300 mt-9" 
@@ -132,15 +132,15 @@ export default function Gallery() {
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             
-            <blockquote className='relative text-center w-[1053px] font-project font-[400] leading-[1.2] mt-10 mb-10 md:text-2xl md:w-full text-[31px] px-5 py-2 self-center'>
-              <p className='mb-4'>
+           <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center leading-normal text-lg md:text-2xl mt-10 mb-10 px-4 py-2 text-sm xs:text-base">
+              <p className="mb-4">
                 At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.
               </p>
-              <footer className='text-lg md:text-xl font-[600]'>
-                <span className='block'>— XYZ</span>
-                <span>Principal, Smart School</span>
+              <footer className="text-base md:text-xl font-semibold">
+                  <span className="block">— XYZ</span>
+                  <span>Principal, Smart School</span>
               </footer>
-            </blockquote>
+      </blockquote>
             
             <svg 
               className="absolute -bottom-7 -right-3 w-12 h-12 mb-7 text-gray-300 transform rotate-180" 
