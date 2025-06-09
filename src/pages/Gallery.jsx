@@ -132,7 +132,7 @@ export default function Gallery() {
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
             </svg>
             
-           <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center leading-normal text-lg md:text-2xl mt-10 mb-10 px-4 py-2 text-sm xs:text-base">
+           <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center leading-normal  md:text-2xl mt-10 mb-10 px-4 py-2 text-sm xs:text-base">
               <p className="mb-4">
                 At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.
               </p>
