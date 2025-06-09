@@ -1,11 +1,9 @@
-import About from './pages/About-Us';
-import Home from './pages/Home';
+import Gallery from './pages/Gallery';
 
 function App() {
   return (
     <>
-      <Home />
-      <About />
+    <Gallery />      
     </>
   );
 }
