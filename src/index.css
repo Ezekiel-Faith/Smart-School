@@ -42,6 +42,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
   --font-project: 'Space Grotesk', sans-serif;
+  --color-SoftWhite:#FEFFFB;
+  --color-PurpleBlend:#9055FF;
+  --color-PurpleBlend2:#ED7884;
 }
 
 :root {
