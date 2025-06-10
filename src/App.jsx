@@ -1,11 +1,9 @@
-import About from './pages/About-Us';
-import Home from './pages/Home';
+import Admission from "./pages/Admission";
 
 function App() {
   return (
     <>
-      <Home />
-      <About />
+      <Admission />
     </>
   );
 }
