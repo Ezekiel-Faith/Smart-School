@@ -1,6 +1,127 @@
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 .hero-bg {
   background-image: url('../assets/study-group-african-people 1.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+.Admission-txt{
+  /* Heading 2 */
+  text-align: center;
+  font-family: "Space Grotesk";
+  font-size: 49px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 120%; /* 58.8px */
+}
+.txt{
+    background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.session-txt{
+  text-align: center;
+  font-family: "Space Grotesk";
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 120%; /* 30px */
+}
+.hero-txt{
+  background: var(--Yellow-and-Gold, linear-gradient(46deg, #FFA600 28.24%, #F70 84.64%, #FF2A00 116.48%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+position: relative;
+}
+.hero-txt::before {
+  content: "";
+  position: absolute;
+  left: -15px;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--Yellow-and-Gold, linear-gradient(46deg, #FFA600 28.24%, #F70 84.64%, #FF2A00 116.48%));
+  border-radius: 2px;
+}
+.admission-container{
+  background: var(--Soft-White, #FEFFFB);
+  margin: 2rem auto;
+}
+.apply-btn{
+  display: flex;
+width: 189px;
+height: 57px;
+padding: 12px 24px;
+justify-content: center;
+align-items: center;
+gap: 14.928px;
+}
+.form-container{
+  background-image: url('../assets/image 6.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.download-btn{
+display: inline-flex;
+padding: 12px 24px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 24px;
+background: var(--Red-and-Black-Blend, linear-gradient(66deg, #D30000 -71.32%, #222 116.26%));
+}
+.subscribe-container{
+  border-radius: 8px;
+background: var(--grey-700, #252122);
+}
+.subscribe-form{
+  display: flex;
+padding: 3px 4px 4px 29px;
+justify-content: flex-end;
+align-items: center;
+gap: 118px;
+border-radius: 32px;
+background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
+}
+.email-input{
+  color: var(--primary-100, #F1F1F1);
+font-family: "Open Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 600;
+line-height: 39.711px; /* 248.194% */
+text-transform: capitalize;
+}
+.submit-btn{
+  display: flex;
+width: 144px;
+padding: 16px 24px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+
+border-radius: 32px;
+background: var(--Purple-blend, linear-gradient(233deg, #B70AF0 -127.38%, #28252A -9.59%, #69068A 108.2%));
+}
+
+@media (max-width: 768px) {
+  .Admission-txt {
+    font-size: 32px;
+  }
+  .session-txt {
+    font-size: 20px;
+  }
+  .apply-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .subscribe-container{
+    padding: 120px 40px;
+  }
+  .rec{
+    top: 180px;
+  }
 }
