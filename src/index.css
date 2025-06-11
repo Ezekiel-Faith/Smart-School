@@ -33,6 +33,10 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
+  --color-SoftWhite:#FFF8F9;
+  --color-PurpleBlend:#9055ff;
+  --color-orangeBlend:#ED7882;
+  --color-project:#171652;
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
