@@ -135,4 +135,14 @@
   .chevron {
     @apply -translate-y-1/2 bg-white/80 p-1 rounded-full shadow absolute top-1/2 cursor-pointer hover:bg-blue-500;
   }
+
+  .level-btn {
+    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .level-btn:hover {
+    opacity: 0.87;
+    cursor: pointer;
+  }
 }
