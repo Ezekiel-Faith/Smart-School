@@ -8,7 +8,7 @@ import { faqData } from '../constants/FAQ';
 
 export function AboutFAQ() {
   return (
-    <section className='bg-[var(--primary)] text-white py-16 mb-200 px-4 md:px-8 lg:px-16 flex flex-col lg:flex-row items-start lg:items-center justify-between'>
+    <section className='bg-[var(--primary)] text-white py-16 px-4 md:px-8 lg:px-16 flex flex-col lg:flex-row items-start lg:items-center justify-between'>
       {/* Left Section: Text Content */}
       <div className='lg:w-1/2 mb-12 lg:mb-0 lg:pr-12'>
         <h2 className='text-4xl md:text-5xl font-bold mb-4 about-head'>
