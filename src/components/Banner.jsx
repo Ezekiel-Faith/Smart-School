@@ -1,7 +1,7 @@
 import React from 'react';
 import bannerImage from '../assets/images/image.png';
 
-export default function AboutBanner() {
+export default function Banner() {
   return (
     <div className='relative'>
       <img
@@ -11,7 +11,7 @@ export default function AboutBanner() {
       />
 
       {/* Overlay with Text */}
-      <div className='absolute inset-0 flex items-center pl-30'>
+      <div className='absolute inset-0 flex items-center pl-20'>
         <div className='flex items-center space-x-2'>
           <div className='w-1.5 h-10 bg-[var(--text-color)]' />
           <h1 className='text-[var(--text-color)] text-3xl md:text-4xl lg:text-5xl font-bold pb-2'>
