@@ -3,7 +3,7 @@ import React from 'react';
 
 export default function Academics() {
   return (
-    <div className='mx-20'>
+    <div className='mx-30'>
       <Banner />;
     </div>
   );
