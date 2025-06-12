@@ -23,7 +23,7 @@ export default function AboutHero() {
         <h2 className='about-head text-4xl md:text-5xl font-bold mb-3'>
           About Our School
         </h2>
-        <p className='text-lg md:text-xl text-gray-600 font-semibold'>
+        <p className='about-head text-lg md:text-xl text-gray-600 font-semibold'>
           2025/2026 Session
         </p>
       </div>
