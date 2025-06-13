@@ -1,140 +1,24 @@
-import React, { useState, useEffect, useRef } from 'react';
-import '../Gallery.css'; 
-import '../index.css';
-import { Images } from '../constants/properties';
+import React, { useState, useRef, useEffect } from 'react';
 
-export default function Gallery() {
-  const [selectedImage, setSelectedImage] = useState(null);
-  const [isZoomed, setIsZoomed] = useState(false);
+import { Header } from '@/components/Header';
+import { Gallery } from '@/components/Gallery';
+import { Footer } from '@/components/Footer';
+
+export default function GalleryPage() {
   const [isVisible, setIsVisible] = useState(false);
-  const galleryRef = useRef(null);
 
   useEffect(() => {
-    // Slide-in animation trigger
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 200);
-
-    // Scroll animation for individual images
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeInUp');
-          }
-        });
-      },
-      { threshold: 0.1 }
-    );
-
-    const galleryItems = document.querySelectorAll('.gallery-item');
-    galleryItems.forEach((item) => observer.observe(item));
-
-    return () => {
-      clearTimeout(timer);
-      galleryItems.forEach((item) => observer.unobserve(item));
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  const handleImageClick = (image) => {
-    setSelectedImage(image);
-    setIsZoomed(true);
-  };
-
-  const closeZoom = () => {
-    setIsZoomed(false);
-    setTimeout(() => setSelectedImage(null), 300);
-  };
-
   return (
-    <>
-      <div className={`px-4 sm:px-6 lg:px-8 py-8 transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-        <section className='flex items-center flex-col gap-2 bg-SoftLight' ref={galleryRef}> 
-          <div>
-            <h1 className='text-center text-3xl font-project text-[32px] md:text-[49px] font-[700] leading-[1.2] my-10 bg-linear-to-bl from-PurpleBlend to-PurpleBlend2 bg-clip-text text-transparent'>
-              Explore Our Gallery
-            </h1>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 w-full max-w-[1240px] gallery">
-            {Images.map((image, index) => (
-              <div 
-                key={image.id} 
-                className="gallery-item w-full overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 cursor-pointer opacity-0"
-                onClick={() => handleImageClick(image)}
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                <img 
-                  src={`${image.src}`} 
-                  alt={image.alt} 
-                  className='w-full h-auto object-cover transition-transform duration-500 hover:scale-105'
-                  style={{ aspectRatio: '4/3' }}
-                />
-              </div>
-            ))}
-          </div>
-        </section>
-        
-        {/* Lightbox/Modal for zoomed image */}
-        {selectedImage && (
-          <div 
-            className={`fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4 transition-opacity duration-300 ${isZoomed ? 'opacity-100' : 'opacity-0'}`}
-            onClick={closeZoom}
-          >
-            <div className="relative max-w-auto w-fit max-h-auto overflow-hidden">
-              <button 
-                className="absolute top-4 right-4 text-white text-3xl z-50 hover:text-gray-300 transition-colors"
-                onClick={closeZoom}
-              >
-                &times;
-              </button>
-              <img 
-                src={selectedImage.src} 
-                alt={selectedImage.alt} 
-                className={`mx-auto max-h-auto max-w-auto object-contain transition-transform duration-300 ${isZoomed ? 'scale-100' : 'scale-90'}`}
-              />
-              <p className="text-white text-center mt-2 text-lg">{selectedImage.alt}</p>
-            </div>
-          </div>
-        )}
-        
-        <article className='flex items-center justify-center mt-10 mb-10 px-9'>
-          <div className='relative w-full max-w-4xl px-4'>            
-        
-        <blockquote className="relative max-w-[90vw] mx-auto font-project font-normal text-center text-sm xs:text-base md:text-lg leading-relaxed mt-10 mb-10 px-4 py-2">
-  {/* The paragraph with integrated quotes */}
-  <p className="relative px-8 md:px-12 mb-4">
-    {/* Opening quote */}
-    <svg 
-      className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8 transform -translate-y-1/2"
-      fill="#ED7884" 
-      viewBox="0 0 24 24"
-    >
-      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-    </svg>
-    
-    {/* Text content */}
-    <span className="block">
-      At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.
-    </span>
-    
-    {/* Closing quote */}
-    <svg 
-      className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8 transform translate-y-1/2 rotate-180"
-      fill="#ED7884" 
-      viewBox="0 0 24 24"
-    >
-      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
-    </svg>
-  </p>
-
-  <footer className="text-base md:text-xl font-semibold">
-    <span className="block">— XYZ</span>
-    <span>Principal, Smart School</span>
-  </footer>
-</blockquote>
-          </div>
-        </article>
-      </div>
-    </>
-  )
+   <div className={`transition-all duration-1000 ease-out ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} w-full max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8`}>
+  <Header />
+  <Gallery />
+  <Footer />
+</div>
+  );
 }

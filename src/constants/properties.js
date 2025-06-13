@@ -25,3 +25,12 @@ export const Images = [
     { id: "11", src: image11, alt: 'Image 11' },
     { id: "12", src: image12, alt: 'Image 12' },
   ];
+
+  export const footerProperties = {
+    description: "At Smart School, we believe that every moment captured tells a story of growth, learning, and achievement. This gallery is a reflection of our vibrant school community—our students' creativity, the dedication of our staff, and the joyful atmosphere that defines our everyday experience. I invite you to explore these moments and celebrate the incredible journey we share together.",
+    name:"XYZ",
+    rank:"Principal, Smart School",
+  }
+export const headerProperties = {
+    title: "Explore Our Gallery",
+}
