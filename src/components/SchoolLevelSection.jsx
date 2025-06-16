@@ -32,7 +32,7 @@ export default function SchoolLevelSection() {
               href={level.curriculumLink}
               className='level-btn inline-flex items-center justify-center px-6 py-3 text-white font-semibold rounded-full'
             >
-              {/* Download Icon (SVG) */}
+              {/* Icon (SVG) */}
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 className='h-5 w-5 mr-2'
