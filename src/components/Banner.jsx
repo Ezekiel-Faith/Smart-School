@@ -4,7 +4,7 @@ import bannerImage from '../assets/image/image.png';
 export default function Banner() {
   return (
     <>
-      <div className='relative'>
+      <div className='relative mb-5'>
         <img
           src={bannerImage}
           alt='Three students studying at desks'
@@ -20,15 +20,6 @@ export default function Banner() {
             </h1>
           </div>
         </div>
-      </div>
-
-      <div className='text-center my-10'>
-        <h2 className='about-head text-4xl md:text-5xl font-bold mb-3'>
-          About Our School
-        </h2>
-        <p className='about-head text-lg md:text-xl text-gray-600 font-semibold'>
-          2025/2026 Session
-        </p>
       </div>
     </>
   );
