@@ -118,3 +118,45 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+/* src/index.css or src/globals.css */
+
+/* Basic Swiper Pagination Styles */
+.mySwiper .swiper-pagination {
+  position: absolute;
+  bottom: 0px; /* Adjust this value to control vertical position */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  padding: 10px 0;
+  z-index: 10;
+}
+
+/* Inactive Dots */
+.mySwiper .swiper-pagination-bullet {
+  width: 8px !important; /* Specific size */
+  height: 8px !important; /* Specific size */
+  background-color: #d1c4e9 !important; /* Light purple */
+  opacity: 1 !important; /* Ensure full visibility */
+  margin: 0 4px !important; /* Spacing between dots */
+  border-radius: 50% !important; /* Make them perfectly round */
+  transition: all 0.3s ease !important; /* Smooth transition */
+}
+
+/* Active Dot */
+.mySwiper .swiper-pagination-bullet-active {
+  background-color: #8b5cf6 !important; /* Darker purple for active dot */
+  width: 10px !important; /* Slightly larger */
+  height: 10px !important; /* Slightly larger */
+}
+
+/* Important: Ensure Swiper CSS is imported at the top of your main CSS file
+   if not already imported in your component.
+   Example:
+   @import 'swiper/css';
+   @import 'swiper/css/pagination';
+*/
