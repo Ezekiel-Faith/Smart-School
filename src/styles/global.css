@@ -122,6 +122,54 @@ background: var(--Purple-blend, linear-gradient(233deg, #B70AF0 -127.38%, #28252
     padding: 120px 40px;
   }
   .rec{
-    top: 180px;
+    top: 0px;
+  }
+}
+@media (max-width: 500px){
+  .admission-container{
+    width: 90%;
+    margin: 0 auto;
+  }
+  .form-container{
+    padding: 50px 10px;
+  }
+  .download-btn{
+    font-size: 10px;
+  }
+  .apply-btn{
+    width: 50%;
+    padding: 10px 20px;
+  }
+  .subscribe-container{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 20px;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .subscribe-header {
+    font-size: 10px;
+    align-self: self-start;
+    margin-bottom: 2rem;
+  }
+  .description {
+    font-size: 15px;
+    width: 100%;
+  }
+  .subscribe-form {
+    align-items: center;
+    gap: 0px;
+    width: 100%;
+  }
+  .sub-form{
+    align-self: self-start;
+  }
+  .submit-btn{
+    width: 100%;
+
+  }
+  .rec{
+    top: 250px;
   }
 }
