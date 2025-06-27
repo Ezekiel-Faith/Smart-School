@@ -79,7 +79,7 @@ background: var(--grey-700, #252122);
 }
 .subscribe-form{
   display: flex;
-padding: 3px 4px 4px 29px;
+padding: 3px 4px 4px 20px;
 justify-content: flex-end;
 align-items: center;
 gap: 118px;

@@ -16,9 +16,9 @@ export default function DownloadNews(){
         </button>
       </div>
 
-      <div className='relative subscribe-container w-[1440px] flex flex-row items-center py-50 px-10 mt-20 justify-between md:w-auto md:m-10'>
+      <div className='relative subscribe-container flex flex-row items-center py-50 px-20 mt-20 justify-between md:w-auto md:m-10'>
         <div className='subscribe-header '>
-          <h1 className='self-stretch text-[25px] text-white normal-case font-[500] leading-[30px] font-project mb-2'>{SubscribeProperties.header}</h1>
+          <h1 className='self-stretch text-[25px] text-white normal-case font-[700] leading-[30px] font-project mb-15'>{SubscribeProperties.header}</h1>
           <p className='text-[16px] normal-case font-[400] font-project self-stretch text-white leading-[19.2px] w-[70%] description'>{SubscribeProperties.description}</p>
         </div>
         <div className='sub-form z-10'>
@@ -27,7 +27,7 @@ export default function DownloadNews(){
             <button type='submit' className='submit-btn z-10 text-white'>{SubscribeProperties.subscribeButtonText}</button>
           </form>
         </div>
-        <img src={rec} alt="" srcset="" className='rec absolute z-0 -top-[-112px] right-0 w-full '/>
+        <img src={rec} alt="" srcset="" className='rec absolute z-0 -top-[-134px] right-0 w-full '/>
       </div>
     </section>
     </>

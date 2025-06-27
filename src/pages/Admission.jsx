@@ -8,7 +8,7 @@ export default function Admission(){
 
   return(
     <>
-    <div className='admission-container w-[1440px] flex flex-col justify-center md:w-auto md:m-10'>    
+    <div className='mx-30'>    
     <Hero />
     <Study />
     <DownloadNews />
