@@ -1,11 +1,11 @@
-import About from './pages/About-Us';
-import Home from './pages/Home';
+
+import Footer from './pages/Footer';
+
 
 function App() {
   return (
     <>
-      <Home />
-      <About />
+      < Footer />
     </>
   );
 }
