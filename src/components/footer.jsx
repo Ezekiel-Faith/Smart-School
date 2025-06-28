@@ -9,7 +9,7 @@ export function Footer() {
           <p className="relative px-8 md:px-12 mb-4">
             <svg 
               className="absolute top-0 left-0 w-6 h-6 md:w-8 md:h-8 transform -translate-y-1/2"
-              fill="#ED7884" 
+              fill="#9055FF" 
               viewBox="0 0 24 24"
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />
@@ -21,7 +21,7 @@ export function Footer() {
             
             <svg 
               className="absolute bottom-0 right-0 w-6 h-6 md:w-8 md:h-8 transform translate-y-1/2 rotate-180"
-              fill="#ED7884" 
+              fill="#9055FF" 
               viewBox="0 0 24 24"
             >
               <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" />

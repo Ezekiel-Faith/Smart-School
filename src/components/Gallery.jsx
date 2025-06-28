@@ -14,6 +14,7 @@ export function Gallery() {
           if (entry.isIntersecting) {
             entry.target.classList.add('animate-fadeInUp');
           }
+          
         });
       },
       { threshold: 0.1 }
@@ -51,7 +52,7 @@ export function Gallery() {
               src={image.src} 
               alt={image.alt} 
               className='w-full h-auto object-cover transition-transform duration-500 hover:scale-105'
-              style={{ aspectRatio: '4/3' }}
+              style={{ aspectRatio: 'full' }}
             />
           </div>
         ))}
