@@ -16,7 +16,7 @@ export default function ContactSection() {
   }, []);
 
   const inputClass =
-    'w-full p-3 bg-white/60 rounded-md placeholder-purple-500 text-purple-900 shadow-[0_7px_1px_rgba(128,90,213,3)] focus:outline-none focus:ring-2 focus:ring-purple-500';
+    'w-full p-5 bg-white/40 rounded-md placeholder-white text-white shadow-[0_7px_1px_rgba(128,90,213,3)] focus:outline-none focus:ring-2 focus:ring-purple-500';
 
   return (
     <section className='mt-20'>
@@ -29,13 +29,10 @@ export default function ContactSection() {
         {/* Form */}
         <div className='relative p-8 flex items-center rounded-xl'>
           <div
-            className='absolute inset-0 bg-cover bg-center rounded-xl z-0'
-            style={{ backgroundImage: `url(${bgImage})`, opacity: 0.3 }}
+            className='absolute inset-0 bg-cover bg-center  z-0'
+            style={{ backgroundImage: `url(${bgImage})`, opacity: 0.95 }}
           />
           <form className='relative z-10 w-full space-y-5 max-w-md mx-auto'>
-            <h2 className='text-5xl font-bold text-purple-700 text-center'>
-              Get in Touch
-            </h2>
             <input type='text' placeholder='Your Name' className={inputClass} />
             <input
               type='email'
@@ -49,7 +46,7 @@ export default function ContactSection() {
             />
             <button
               type='submit'
-              className='w-full py-3 bg-purple-700 text-white rounded-md hover:bg-purple-800 transition shadow-md'
+              className='w-full py-3 bg-purple-700 text-white rounded-md level-btn'
             >
               Send Message
             </button>
