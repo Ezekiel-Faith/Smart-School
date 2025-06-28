@@ -145,4 +145,12 @@
     opacity: 0.87;
     cursor: pointer;
   }
+
+  .contact-card-bg {
+    background: #faf7fb;
+  }
+
+  .working-hour-bg {
+    background: linear-gradient(66deg, #d30000 -71.32%, #222 116.26%);
+  }
 }
