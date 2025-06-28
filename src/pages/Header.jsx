@@ -36,9 +36,9 @@ function Header() {
                 to={`${link.path}`}
                 onClick={() => setActiveLink(link.id)}
                 className={`
-                  text-[17px] font-project transition-all text-PurpleBlend duration-300
+                  text-[17px] font-[600] font-project transition-all text-PurpleBlend duration-300
                   ${activeLink === link.id 
-                    ? 'text-[18px] underline underline-offset-8 text-blue-900 decoration-blue-900 decoration-2'
+                    ? 'text-[18px] font-[600] underline underline-offset-8 text-blue-900 decoration-blue-900 decoration-2'
                     : 'text-project hover:text-gray-300 '
                   }
                 `}
