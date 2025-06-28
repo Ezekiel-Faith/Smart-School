@@ -3,31 +3,14 @@
   background: linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%);
   transition: all 0.3s ease-in-out;
 }
+
 .btn:hover{
-  opacity: 0.8;
-  scale: 0.9;
-  color: black;
-  font-weight: bold;
+ background: linear-gradient(233deg, #7246c4 -127.38%, #2b105f 108.2%);
 }
 
 .nav-link {
   position: relative;
 }
-
-.nav-link:hover {
-  text-decoration: underline;
-}
-
-/* Style for active link */
-.nav-link:target,
-:target ~ .nav-link[href="Home.jsx"] { /* Fallback for home */
-  font-size: 18px !important;
-  font-weight: bold;
-  text-decoration: underline;
-  text-decoration-color: #9055ff;
-  text-decoration-thickness: 2px;
-}
-
 
 /* Responsive breakpoints */
 @media (max-width: 1024px) {

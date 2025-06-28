@@ -22,11 +22,12 @@ function Header() {
   };
 
   return (
-    <header className="flex justify-between items-center px-12 py-3 bg-SoftWhite  mb-12">
+    <>
+    <section className='px-12 py-3 bg-SoftWhite border-2 ' >
+    <header className="flex justify-between items-center mx-30">
       <Link to="/" onClick={() => handleNavClick('home')}>
         <img src={logo} alt="Logo" className="w-[98px] h-[92.505px]"/>
       </Link>
-      
       <nav className='flex items-center gap-2'>
         <ul className='flex items-center gap-12'>
           {NavLinks.map((link) => (
@@ -35,10 +36,10 @@ function Header() {
                 to={`${link.path}`}
                 onClick={() => setActiveLink(link.id)}
                 className={`
-                  text-[16px] font-project transition-all duration-300
+                  text-[17px] font-project transition-all text-PurpleBlend duration-300
                   ${activeLink === link.id 
-                    ? 'text-[18px] font-bold underline underline-offset-8 decoration-2 decoration-project text-project'
-                    : 'text-project hover:underline hover:underline-offset-4 hover:decoration-2 hover:decoration-PurpleBlend'
+                    ? 'text-[18px] underline underline-offset-8 text-blue-900 decoration-blue-900 decoration-2'
+                    : 'text-project hover:text-gray-300 '
                   }
                 `}
               >
@@ -55,6 +56,8 @@ function Header() {
         Register
       </button>
     </header>
+    </section>
+    </>
   );
 }
 
