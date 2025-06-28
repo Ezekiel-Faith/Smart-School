@@ -41,7 +41,7 @@ position: relative;
   left: -15px;
   top: 0;
   bottom: 0;
-  width: 4px;
+  width: 8px;
   background: var(--Yellow-and-Gold, linear-gradient(46deg, #FFA600 28.24%, #F70 84.64%, #FF2A00 116.48%));
   border-radius: 2px;
 }
@@ -49,33 +49,11 @@ position: relative;
   background: var(--Soft-White, #FEFFFB);
   margin: 2rem auto;
 }
-.apply-btn{
-  display: flex;
-width: 189px;
-height: 57px;
-padding: 12px 24px;
-justify-content: center;
-align-items: center;
-gap: 14.928px;
-}
 .form-container{
   background-image: url('../assets/image 6.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-.download-btn{
-display: inline-flex;
-padding: 12px 24px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-border-radius: 24px;
-background: var(--Red-and-Black-Blend, linear-gradient(66deg, #D30000 -71.32%, #222 116.26%));
-}
-.subscribe-container{
-  border-radius: 8px;
-background: var(--grey-700, #252122);
 }
 .subscribe-form{
   display: flex;
@@ -105,71 +83,4 @@ align-items: center;
 
 border-radius: 32px;
 background: var(--Purple-blend, linear-gradient(233deg, #B70AF0 -127.38%, #28252A -9.59%, #69068A 108.2%));
-}
-
-@media (max-width: 768px) {
-  .Admission-txt {
-    font-size: 32px;
-  }
-  .session-txt {
-    font-size: 20px;
-  }
-  .apply-btn {
-    width: 100%;
-    justify-content: center;
-  }
-  .subscribe-container{
-    padding: 120px 40px;
-  }
-  .rec{
-    top: 0px;
-  }
-}
-@media (max-width: 500px){
-  .admission-container{
-    width: 90%;
-    margin: 0 auto;
-  }
-  .form-container{
-    padding: 50px 10px;
-  }
-  .download-btn{
-    font-size: 10px;
-  }
-  .apply-btn{
-    width: 50%;
-    padding: 10px 20px;
-  }
-  .subscribe-container{
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 60px 20px;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-  .subscribe-header {
-    font-size: 10px;
-    align-self: self-start;
-    margin-bottom: 2rem;
-  }
-  .description {
-    font-size: 15px;
-    width: 100%;
-  }
-  .subscribe-form {
-    align-items: center;
-    gap: 0px;
-    width: 100%;
-  }
-  .sub-form{
-    align-self: self-start;
-  }
-  .submit-btn{
-    width: 100%;
-
-  }
-  .rec{
-    top: 250px;
-  }
 }
