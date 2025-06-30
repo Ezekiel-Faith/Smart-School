@@ -1,5 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import schoolLogo from '../Asset/school-logo.jpg';
+import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Navigation module
+import { Autoplay, Pagination, Navigation } from 'swiper/modules';
+import { motion } from 'framer-motion';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation'; // <-- Import Swiper Navigation styles
+
+// Import Assets
 import image1 from '../Asset/main-image-1.jpg';
 import image2 from '../Asset/main-image-2.jpg';
 import image3 from '../Asset/main-image-3.jpg';
@@ -18,34 +28,16 @@ import why5 from '../Asset/why-img-4.jpg';
 import why6 from '../Asset/why-img-5.jpg';
 import mission from '../Asset/mission-image.png';
 import vision from '../Asset/vision-image.jpg';
-import principal from '../Asset/principal-img.jpg'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay, Pagination } from 'swiper/modules';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import { motion } from 'framer-motion';
+import principal from '../Asset/principal-img.jpg';
 
-
-
-
-
-
-const NavbarList = [
-  { name: "Home", link: "#" },
-  { name: "About Us", link: "#" },
-  { name: "Gallery", link: "#" },
-  { name: "Admission", link: "#" },
-  { name: "Academy", link: "#" },
-  { name: "Contact Us", link: "#" }
-];
-
+// Testimonials Data
 const testimonials = [
   {
     text: "Since joining Smart School, my daughter has become more engaged with her studies. The learning tools are interactive, and I’ve seen a real boost in her confidence and academic performance.",
     author: "Mrs. Adaobi Okeke"
   },
   {
-    text: "What I appreciate most is how Smart School tailors learning to fit each child. My son now enjoys subjects he used to avoid, and his results have improved significantly.",
+    text: "What I appreciate most is how Smart School tails learning to fit each child. My son now enjoys subjects he used to avoid, and his results have improved significantly.",
     author: "Mr. Emeka Johnson"
   },
   {
@@ -82,6 +74,7 @@ const testimonials = [
   }
 ];
 
+// Image Slider Data
 const images = [image1, image2, image3, image4, image5, image6, image7, image8, image9];
 
 function Home() {
@@ -89,19 +82,19 @@ function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeIndex, setActiveIndex] = useState(0);
-  
 
   const text = "Apply Now! We are now accepting applications for the New Academic Session. Don't miss this prime opportunity to give your child the foundation for a brilliant future. Our school offers a holistic learning environment, state-of-the-art facilities, and a curriculum that builds not just academic excellence but also strong moral character.";
 
-
+  // Toggle Menu Function (declared but not used in the provided JSX)
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
 
+  // Marquee Button Logic
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % 3); // Cycles 0, 1, 2, 0, 1, 2...
-    }, 7000); // Changes every 5 seconds (matches marquee duration)
+    }, 7000); // Changes every 7 seconds (matches marquee duration based on provided style)
 
     return () => clearInterval(interval);
   }, []);
@@ -110,76 +103,12 @@ function Home() {
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-    }, 5000);
+    }, 7000); // Changes every 5 seconds
     return () => clearInterval(timer);
-  }, []);
-
-  // Navbar Scroll Effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) { // when you scroll down more than 50px
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className={`h-20 w-full fixed top-0 z-50 flex items-center justify-between px-4 transition-colors duration-300 ${isScrolled ? 'bg-white shadow-md' : 'bg-transparent'}`}>
-        {/* Logo */}
-        <div className="flex items-center">
-          <img src={schoolLogo} alt="School Logo" className="h-16 ml-10 rounded-full" />
-        </div>
-
-        {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-9">
-          {NavbarList.map((item, index) => (
-            <li key={index}>
-              <a href={item.link} className="text-purple-900 hover:text-purple-500 font-medium text-xl">
-                {item.name}
-              </a>
-            </li>
-          ))}
-        </ul>
-
-        {/* Register Button */}
-        <div className="hidden md:block">
-          <button className="bg-purple-700 text-white rounded-lg h-10 w-36 px-4 py-2 hover:bg-purple-600 mr-2">
-            Register
-          </button>
-        </div>
-
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden cursor-pointer" onClick={toggleMenu}>
-          <svg className="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </div>
-      </nav>
-
-      {/* Mobile Dropdown Menu */}
-      {menuOpen && (
-               <div className="md:hidden bg-white shadow-md absolute top-20 left-0 w-full z-40">          <ul className="flex flex-col items-center space-y-4 py-4">
-            {NavbarList.map((item, index) => (
-              <li key={index}>
-                <a href={item.link} className="text-purple-700 hover:text-purple-500 font-medium" onClick={toggleMenu}>
-                  {item.name}
-                </a>
-              </li>
-            ))}
-            <button className="bg-purple-700 text-white rounded-lg px-4 py-2 hover:bg-purple-600" onClick={toggleMenu}>
-              Register
-            </button>
-          </ul>
-        </div>
-      )}
-
       {/* Image Slider */}
       <div className="w-full h-[500px] sm:h-[500px] md:h-[600px] lg:h-[730px] overflow-hidden relative">
         <img
@@ -188,8 +117,8 @@ function Home() {
           className="w-full h-full object-cover transition-opacity duration-1000 ease-in-out"
         />
       </div>
-      
-  {/* Buttons */}
+
+      {/* Slider Indicator Buttons */}
       <div className='w-full bg-white h-18 flex justify-center items-center gap-2 p-4'>
         {[0, 1, 2].map((index) => (
           <button
@@ -201,155 +130,211 @@ function Home() {
       </div>
 
       {/* Marquee Section */}
-      <section className='bg-purple-950 w-full h-18 mb-20 overflow-hidden'>
+      <section className='bg-purple-950 w-full h-12 mb-20 overflow-hidden'>
         <div
           className='whitespace-nowrap flex'
           style={{
-            animation: 'marquee 21s linear infinite'
+            animation: 'marquee 30s linear infinite'
           }}
         >
-          <p className='text-white text-3xl mx-10 mt-4'>
+          <p className='text-white text-2xl mt-2 font-space-grotesk'>
             {text}
           </p>
         </div>
 
+        {/* Marquee Keyframe Styling */}
         <style>
           {`
             @keyframes marquee {
-              0% { transform: translateX(100%); }
+              100% { transform: translateX(100%); }
               100% { transform: translateX(-100%); }
             }
           `}
         </style>
       </section>
 
-      <section>
-        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-sans-serif '>WHY SMART SCHOOL?</h1>
+      {/* Why Smart School Section */}
+      <section className=''>
+        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk '>WHY SMART SCHOOL?</h1>
         <img src={underline} alt='underline image' className='w-120 h-auto mx-auto flex justify-center items-center mt-2'></img>
-       <div className='grid grid-cols-3 gap-28 py-20 px-60 ' >
-        <div >
-          <img src={why1} alt='why-img-1' className='w-auto h-auto mx-24  '></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Nursery School's curriculum</h2>
-          <p className='text-xl mt-5'>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
-        </div>
-         <div>
-          <img src={why2} alt='why-img-1' className='w-auto h-auto mx-24 '></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Primary School's curriculum</h2>
-          <p className='text-xl mt-5'>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
-        </div>
-        <div>
-          <img src={why3} alt='why-img-1' className='w-auto h-auto mx-24 '></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Secondary School's curriculum</h2>
-          <p className='text-xl mt-5'>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
-        </div>
-        <div>
-          <img src={why4} alt='why-img-1' className='w-auto h-auto mx-24 '></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Modern Facilities</h2>
-          <p className='text-xl mt-5'>We provide a safe,tech enhanced,environment with</p>
-        </div>
-        <div>
-          <img src={why5} alt='why-img-1' className='w-auto h-auto mx-24 '></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Small Class Size</h2>
-          <p className='text-xl mt-5'>Ensuring personalised attention and better student</p>
-        </div>
-        <div>
-          <img src={why6} alt='why-img-1' className='w-auto h-auto mx-24'></img>
-          <h2 className='text-2xl text-gray-650 font-bold ml-6 mb-2.5 pb-0 mt-5'>Parental Involvement</h2>
-          <p className='text-xl mt-5'>we fooster strong partnership with parent for support</p>
-        </div>
-      </div>
-    </section>
-
-    <section className='mt-20'>
-        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-sans-serif '>OUR MISSION STATEMENT</h1>
-        <img src={underline} alt='underline image' className='w-120 h-auto mx-auto flex justify-center items-center mt-2'></img>
-
-        <div className='grid grid-cols-2 gap-25 mt-15 ml-10'>
-          <div className='ml-15'>
-            <p className='text-2xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit,</p>
+        <div className='grid grid-cols-3 gap-28 py-20 px-65'>
+          <div className='grid place-items-center text-center '>
+            <img src={why1} alt='why-img-1' className="mb-5"></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Nursery School's curriculum</h2>
+            <p className='font-space-grotesk'>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
           </div>
+          <div className='grid place-items-center text-center'>
+            <img src={why2} alt='why-img-1' className="mb-5" ></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Primary School's curriculum</h2>
+            <p >Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
+          </div>
+          <div className='grid place-items-center text-center' >
+            <img src={why3} alt='why-img-1' className="mb-5" ></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Secondary School's curriculum</h2>
+            <p >Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
+          </div>
+          <div className='grid place-items-center text-center'>
+            <img src={why4} alt='why-img-1' className="mb-5"></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Modern Facilities</h2>
+            <p >We provide a safe,tech enhanced,environment with</p>
+          </div>
+          <div className='grid place-items-center text-center'>
+            <img src={why5} alt='why-img-1' className="mb-5"></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5 '>Small Class Size</h2>
+            <p >Ensuring personalised attention and better student</p>
+          </div>
+          <div className='grid place-items-center text-center'>
+            <img src={why6} alt='why-img-1' className="mb-5"></img>
+            <h2 className='font-space-grotesk font-bold text-2xl mb-5 '>Parental Involvement</h2>
+            <p >we fooster strong partnership with parent for support</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Our Mission Statement Section */}
+      <section className='mt-20 mx-30'>
+        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk '>OUR MISSION STATEMENT</h1>
+        <img src={underline} alt='underline image' className='w-120 h-auto mx-auto flex justify-center items-center mt-2'></img>
+
+        <div className='grid grid-cols-2 gap-10 mt-15'>
           <div >
-            <img src={mission} alt='mission-image ' className='w-145 ml-12'></img>
+            <p className='text-2xl font-space-grotesk'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit .</p>
+          </div>
+          <div>
+            <img src={mission} alt='mission-image ' className='w-145 '></img>
           </div>
         </div>
+      </section>
 
-    </section>
-
-     <section className='mt-25'>
-        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-sans-serif '>OUR VISSION STATEMENT</h1>
+      {/* Our Vision Statement Section */}
+      <section className='mt-25 mx-30'>
+        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk '>OUR VISSION STATEMENT</h1>
         <img src={underline} alt='underline image' className='w-120 h-auto mx-auto flex justify-center items-center mt-2'></img>
 
-        <div className='grid grid-cols-2 gap-25 mt-15 ml-10'>
-          <div className='ml-15'>
-            <p className='text-2xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit,</p>
-          </div>
+        <div className='grid grid-cols-2 gap-10 mt-15 '>
           <div >
-            <img src={vision} alt='vission-image ' className='w-145 ml-12'></img>
+            <p className='text-2xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dololu m cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit </p>
+          </div>
+          <div>
+            <img src={vision} alt='vission-image ' className='w-145 '></img>
           </div>
         </div>
+      </section>
 
-    </section>
-
-    <section className='mt-25'>
+      {/* Official Statement From The Principal Section */}
+      <section className='mt-25 mx-30'>
         <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-sans-serif '>OFFICIAL STATEMENT FROM THE PRINCIPAL</h1>
         <img src={underline} alt='underline image' className='w-120 h-auto mx-auto flex justify-center items-center mt-2'></img>
 
-        <div className='grid grid-cols-2  mt-15 ml-10'>
-          <div >
-            <img src={principal} alt='principal-image ' className='w-145 ml-12'></img>
+        <div className='grid grid-cols-2 gap-10 mt-15 '>
+          <div>
+            <img src={principal} alt='principal-image ' className='w-145 '></img>
           </div>
-          <div className=''>
-            <p className='text-2xl'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit,Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam.doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit </p>
+          <div>
+            <p className='text-2xl '>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure.Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. </p>
           </div>
         </div>
+      </section>
 
-    </section>
+      {/* Testimonials Section */}
+   <section className="relative mt-20 ">
+        <div className='bg-purple-500 h-50 w-full flex flex-col justify-center items-center'>
+          <h2 className='text-white text-3xl font-bold text-center -mt-20 font-space-grotesk'>TESTIMONIALS</h2>
+          <p className='text-white text-2xl text-center font-space-grotesk'>What parents are saying about us</p>
+        </div>
 
- <section className="relative mt-20">
-  {/* Top Purple Section */}
-  <div className='bg-purple-500 h-70 w-full flex flex-col justify-center items-center'>
-    <h2 className='text-white text-3xl font-semibold text-center -mt-40'>TESTIMONIALS</h2>
-    <p className='text-white text-2xl text-center'>What parents are saying about us</p>
-  </div>
+        <div className='bg-purple-100 w-full pb-16 relative h-120'></div>
 
-  {/* Testimonial Slider Section */}
-  <div className='bg-purple-150 w-full pb-16 relative h-130'></div>
-
-  <div className='max-w-7xl mx-auto -mt-150 h-150'>
-    <Swiper
-      modules={[Autoplay, Pagination]}
-      spaceBetween={30}
-      breakpoints={{
-        640: { slidesPerView: 1 },
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 }
-      }}
-      autoplay={{ delay: 6000, disableOnInteraction: false }}
-      pagination={{ clickable: true, el: '.custom-swiper-pagination' }} // link to external container
-      loop={true}
-      className="mySwiper"
-    >
-      {testimonials.map((item, index) => (
-        <SwiperSlide key={index}>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
-            className="bg-white p-6 md:p-8 rounded-2xl border-b-[7px] border-purple-500 shadow-lg h-100 flex flex-col justify-between mx-auto"
+        <div className="max-w-7xl mx-30 -mt-140 h-100">
+          <Swiper
+            modules={[Autoplay, Pagination, Navigation]}
+            spaceBetween={70}
+            breakpoints={{
+              640: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            autoplay={{ delay: 6000, disableOnInteraction: false }}
+            pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
+            navigation={{
+              nextEl: '.swiper-button-next-custom',
+              prevEl: '.swiper-button-prev-custom',
+            }}
+            loop={true}
+            className="mySwiper"
           >
-            <p className="text-purple-700 text-base md:text-2xl mb-6">“{item.text}”</p>
-            <p className="text-purple-700 font-semibold text-center pl-12 text-xl pt-15">— {item.author}</p>
-          </motion.div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
-  </div>
+            {testimonials.map((item, index) => (
+              <SwiperSlide key={index}>
+                <motion.div
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, ease: 'easeOut' }}
+                  className="bg-white p-6 md:p-8 rounded-2xl border-b-[7px] border-purple-500 shadow-lg h-95 flex flex-col justify-between mx-auto"
+                >
+                  <p className="text-purple-700 text-base md:text-xl font-space-grotesk">
+                    “{item.text}”
+                  </p>
+                  <p className="text-purple-700 font-semibold text-center pl-12 text-xs pt-15 font-space-grotesk">
+                    — {item.author}
+                  </p>
+                </motion.div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-  {/* Only ONE pagination container outside the slides */}
-  <div className="custom-swiper-pagination flex justify-center -mt-25 mb-15 "></div>
-</section>
-</div>
+          <div className="custom-pagination-wrapper flex justify-center items-center mt-30">
+            <div className="swiper-button-prev-custom cursor-pointer p-4 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500  hover:text-white transition duration-300 mr-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+              </svg>
+            </div>
 
+            <div className="custom-swiper-pagination flex justify-center"></div>
+
+            <div className="swiper-button-next-custom cursor-pointer p-4 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500  hover:text-white transition duration-300 ml-4">
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </div>
+          </div>
+
+          <style jsx>{`
+            .custom-pagination-wrapper {
+          background-color: transparent; /* Changed to transparent */
+          border-radius: 9999px;
+          padding: 1rem 2rem;
+          box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.0); /* You might want to remove or adjust the box-shadow if the background is gone */
+          max-width: fit-content;
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 70px;
+          z-index: 10;
+          position: relative;
+        }
+
+            .custom-swiper-pagination .swiper-pagination-bullet {
+              background-color: #d1d5db;
+              opacity: 1;
+              width: 1.1rem;
+              height: 1.1rem;
+              border-radius: 50%;
+              transition: background-color 0.3s ease;
+              margin: 0 0.3rem;
+            }
+
+            .custom-swiper-pagination .swiper-pagination-bullet-active {
+              background-color: #9333ea;
+              transform: scale(1.3);
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+              display: none !important;
+            }
+          `}</style>
+        </div>
+      </section>
+    </div>
   );
 }
 

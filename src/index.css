@@ -117,6 +117,9 @@
   body {
     @apply bg-background text-foreground;
   }
+  body {
+    font-family: 'Space Grotesk';
+  }
 }
 
 
