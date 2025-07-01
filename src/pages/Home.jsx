@@ -10,16 +10,20 @@ import React from 'react'
 
 const Home = () => {
   return (
-    <div >
-      <ImageSlider/>
-      <SliderButton/>
+    <>
+    <div>
+      <ImageSlider />
+      <SliderButton />
       <MarqueeSection/>
+    <div className='mx-30'>
       <WhySmartSchool/>
       <Mission/>
       <Vission/>
       <Principal/>
-      <Testimonials/>
     </div>
+    <Testimonials/>
+    </div>
+    </>
   )
 }
 

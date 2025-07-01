@@ -6,7 +6,7 @@ const Vission = () => {
   return (
     <div>
       {/* Our Vision Statement Section */}
-      <section className='mt-25 mx-30 '>
+      <section className='mt-25'>
         <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'>
           OUR VISSION STATEMENT
         </h1>

@@ -18,7 +18,7 @@ const WhySmartSchool = () => {
           alt='underline image'
           className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
         />
-        <div className='grid grid-cols-3 gap-28 py-20 px-65'>
+        <div className='grid grid-cols-3 gap-28 py-20 px-40'>
           <div className='grid place-items-center text-center'>
             <img src={why1} alt='why-img-1' className="mb-5" />
             <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Nursery School's curriculum</h2>

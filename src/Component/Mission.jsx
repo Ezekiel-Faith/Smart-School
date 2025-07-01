@@ -6,7 +6,7 @@ const Mission = () => {
   return (
     <div>
       {/* Our Mission Statement Section */}
-      <section className='mt-20 mx-30'>
+      <section className='mt-20'>
         <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'>
           OUR MISSION STATEMENT
         </h1>
