@@ -10,7 +10,7 @@ export default function Hero(){
       </div>
       <div className='flex flex-col items-center justify-center p-4 m-7'>
         <h1 className='Admission-txt txt'>{HeroProperties.subtitle}</h1>
-        <p className='txt session-txt'>{HeroProperties.session}</p>
+        <p className='txt bg-clip-text text-transparent session-txt'>{HeroProperties.session}</p>
       </div>
     </section>
     </>

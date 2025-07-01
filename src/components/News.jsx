@@ -21,8 +21,8 @@ export default function DownloadNews(){
           <p className='text-[18px] normal-case font-[400] font-project self-stretch text-white leading-[19.2px] w-[100%] description lg:w-[100%]'>{SubscribeProperties.description}</p>
         </div>
         <div className='sub-form z-10'>
-          <form className='subscribe-form z-10'>
-            <input type="email" placeholder={SubscribeProperties.emailPlaceholder} className='email-input z-10 rounded-3xl px-3.5' required />
+          <form className='subscribe-form flex justify-items-end items-center gap-[118px] rounded-[32px] z-10'>
+            <input type="email" placeholder={SubscribeProperties.emailPlaceholder} className='email-input z-10 text-[16px] rounded-3xl font-[600] leading-[39.711px] px-3.5 capitalize' required />
             <button type='submit' className='submit-btn z-10 text-white'>{SubscribeProperties.subscribeButtonText}</button>
           </form>
         </div>

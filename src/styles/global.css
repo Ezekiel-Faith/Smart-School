@@ -16,9 +16,7 @@
 }
 .txt{
     background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    
 }
 .session-txt{
   text-align: center;
@@ -56,22 +54,12 @@ position: relative;
   background-repeat: no-repeat;
 }
 .subscribe-form{
-  display: flex;
 padding: 3px 4px 4px 20px;
-justify-content: flex-end;
-align-items: center;
-gap: 118px;
-border-radius: 32px;
 background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
 }
 .email-input{
   color: var(--primary-100, #F1F1F1);
-font-family: "Open Sans";
-font-size: 16px;
-font-style: normal;
-font-weight: 600;
-line-height: 39.711px; /* 248.194% */
-text-transform: capitalize;
+  font-family: "Arial";
 }
 .submit-btn{
   display: flex;
