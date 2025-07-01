@@ -4,36 +4,34 @@ import {
   faEnvelope,
   faLocationDot,
 } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import schoolLogo from '../Asset/school-logo.jpg';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export default function FooterTop() {
   return (
-    <div class='grid grid-cols-4 gap-10 mx-30 justify-center py-8 border'>
-      {/* The main grid container. We'll ensure its children align correctly. */}
+    // Parent div: Using Flexbox for 1/3 and 2/3 split
+    // Added 'gap-x-10' (or your desired gap value) to control space between the two main child divs.
+    // Also, corrected 'mx-30' to 'mx-auto' for proper centering if that's the intent.
+    <div className='flex py-12 mx-30 w-full max-w-5xl px-4 md:px-8 gap-x-1'> {/* Added gap-x-10 here */}
 
-      <div class='flex items-start border'>
-        {/* *** CHANGE 1: This column's content (logo and text) is aligned to the start (top). Removed space-x-2 and the outer flex on this div as it will be handled by the inner inline-flex. *** */}
-
-        {/* *** CHANGE 2: This inline-flex container ensures the logo and 'Smart School' text are visually centered relative to each other. *** */}
-        <div class='inline-flex items-center '>
+      {/* First Child Div: School Logo and Name (will take approximately 1/3) */}
+      <div className='w-1/3 flex items-start'> {/* Explicitly set width to 1/3 */}
+        <div className='inline-flex items-center'>
           <img
             src={schoolLogo}
-            alt='School Logo'
-            class='rounded-full h-16 w-16'
+            alt='Smart School Logo'
+            className='rounded-full h-16 w-16'
           />
-          <h1 class='text-purple-500 font-bold text-3xl'>Smart School</h1>
+          <h1 className='text-purple-500 font-bold text-2xl ml-2'>Smart School</h1>
         </div>
       </div>
 
-      <div className='flex justify-between border gap-x-20'>
-        {/* *** CHANGE 1: Added 'gap-x-10' to create horizontal space between the direct children. *** */}
-        {/* Removed 'space-x-5' from children as it was misapplied for column spacing. */}
-
+      {/* Second Child Div: Quick Links, Navigation, Get in touch (will take approximately 2/3) */}
+      {/* This gap-x-2 is correct for the sub-columns within this 2/3 section */}
+      <div className='w-2/3 flex gap-x-2 justify-end'>
         {/* Quick Links Column */}
-        {/* *** CHANGE 2: Removed 'space-x-5' from here. *** */}
-        <div className='border min-w-[350px]'>
+        <div className='min-w-[150px]'>
           <h1 className='footer-head'>Quick Links</h1>
           <p className='quick-link'>Contact Us</p>
           <p className='quick-link'>FAQs</p>
@@ -42,8 +40,7 @@ export default function FooterTop() {
         </div>
 
         {/* Navigation Column */}
-        {/* *** CHANGE 3: Removed 'space-x-5' from here. *** */}
-        <div className='border min-w-[350px]'>
+        <div className='min-w-[150px]'>
           <h1 className='footer-head'>Navigation</h1>
           <p className='quick-link'>Mission</p>
           <p className='quick-link'>Vision</p>
@@ -52,12 +49,12 @@ export default function FooterTop() {
         </div>
 
         {/* Get in touch Column */}
-        {/* *** CHANGE 4: Removed 'space-x-5' from here. *** */}
-        <div className='border min-w-[350px] justify-end'>
+        <div className='min-w-[200px]'>
           <h1 className='footer-head'>Get in touch</h1>
 
+          {/* Location */}
           <div className='flex mb-5 items-start'>
-            <div className='mt-3 mr-2'>
+            <div className='mr-2 mt-4'>
               <FontAwesomeIcon
                 icon={faLocationDot}
                 style={{ color: 'white', fontSize: '18px' }}
@@ -71,9 +68,10 @@ export default function FooterTop() {
                 <br />
                 Nigeria
               </p>
-            </div>
+            </div> {/* Corrected closing div tag here */}
           </div>
 
+          {/* Email */}
           <div className='flex mb-5 items-center'>
             <div className='mr-2'>
               <FontAwesomeIcon
@@ -82,10 +80,11 @@ export default function FooterTop() {
               />
             </div>
             <div>
-              <p className='text-gray-400 text-sm'>info@example.com</p>
+              <p className='quick-link'>info@example.com</p>
             </div>
           </div>
 
+          {/* Phone */}
           <div className='flex items-center'>
             <div className='mr-2'>
               <FontAwesomeIcon
@@ -94,7 +93,7 @@ export default function FooterTop() {
               />
             </div>
             <div>
-              <p className='text-gray-400 text-xs'>07012345677, 07012345677</p>
+              <p className='quick-link'>07012345677, 07012345677</p>
             </div>
           </div>
         </div>
