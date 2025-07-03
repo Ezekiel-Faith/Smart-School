@@ -16,16 +16,11 @@
 }
 .txt{
     background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
-    
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
-.session-txt{
-  text-align: center;
-  font-family: "Space Grotesk";
-  font-size: 25px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 120%; /* 30px */
-}
+
 .hero-txt{
   background: var(--Yellow-and-Gold, linear-gradient(46deg, #FFA600 28.24%, #F70 84.64%, #FF2A00 116.48%));
 background-clip: text;

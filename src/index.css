@@ -110,6 +110,8 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+  --purple-blend:#9055FF;
+    --purple-blend-2:#ED7884;
 }
 
 @layer base {
