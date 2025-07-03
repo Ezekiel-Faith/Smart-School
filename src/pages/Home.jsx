@@ -15,9 +15,11 @@ const Home = () => {
       <SliderButton/>
       <MarqueeSection/>
       <WhySmartSchool/>
-      <Mission/>
-      <Vission/>
-      <Principal/>
+      <div className='md:mx-30'>
+        <Mission/>
+        <Vission/>
+        <Principal/>
+      </div>
       <Testimonials/>
     </div>
   )
