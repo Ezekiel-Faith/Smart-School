@@ -1,3 +1,4 @@
+
 import ImageSlider from '@/Component/imageSlider'
 import MarqueeSection from '@/Component/MarqueeSection'
 import Mission from '@/Component/Mission'
@@ -12,25 +13,16 @@ const Home = () => {
   return (
     <>
     <div>
-      <ImageSlider />
-      <SliderButton />
-      <MarqueeSection/>
-    <div className='mx-30'>
-      <WhySmartSchool/>
-<<<<<<< HEAD
-      <div className='md:mx-30'>
-        <Mission/>
-        <Vission/>
-        <Principal/>
-      </div>
-      <Testimonials/>
-=======
-      <Mission/>
-      <Vission/>
-      <Principal/>
->>>>>>> 706b05ec4c94850c6a78c18f6d984fb3ca64f278
-    </div>
-    <Testimonials/>
+     <ImageSlider/>
+     <SliderButton/>
+     <MarqueeSection/>
+     <WhySmartSchool/>
+     <div className='mx-30'>
+       <Mission/>
+       <Vission/>
+       <Principal/>
+     </div>
+     <Testimonials/>
     </div>
     </>
   )

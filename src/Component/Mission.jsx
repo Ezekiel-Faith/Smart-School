@@ -33,7 +33,6 @@ const Mission = () => {
   return (
     <div>
       {/* Our Mission Statement Section */}
-<<<<<<< HEAD
       <section className='mt-20 '>
         {/* Wrap the entire section content that you want to animate */}
         <motion.div
@@ -56,17 +55,6 @@ const Mission = () => {
             className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
             variants={itemVariants} // Apply itemVariants here
           />
-=======
-      <section className='mt-20'>
-        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'>
-          OUR MISSION STATEMENT
-        </h1>
-        <img
-          src={underline}
-          alt='underline image'
-          className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
-        />
->>>>>>> 706b05ec4c94850c6a78c18f6d984fb3ca64f278
 
           {/* This div is already a motion.div and its children are also motion.divs */}
           <div className="flex justify-between items-start w-full mt-15">
