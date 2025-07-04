@@ -46,7 +46,7 @@ const Principal = () => {
             className='text-purple-500 text-3xl text-center font-bold mt-3 font-sans-serif'
             variants={itemVariants} // Apply itemVariants here
           >
-            OFFICIAL STATEMENT FROM THE PRINCIPAL
+            OFFICIAL STATEMENT FROM THE PRINCIPALss
           </motion.h1>
           {/* Apply itemVariants to the img */}
           <motion.img
