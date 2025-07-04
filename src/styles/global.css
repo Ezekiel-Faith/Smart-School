@@ -56,6 +56,12 @@ background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055F
   color: var(--primary-100, #F1F1F1);
   font-family: "Arial";
 }
+.email-input:focus{
+  border: none;
+}
+.email-input:active{
+  border: none;
+}
 .submit-btn{
   display: flex;
 width: 144px;
