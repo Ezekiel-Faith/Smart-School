@@ -7,26 +7,32 @@ export function Gallery() {
   const [isZoomed, setIsZoomed] = useState(false);
   const galleryRef = useRef(null);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('animate-fadeInUp');
-          }
-          
-        });
-      },
-      { threshold: 0.1 }
-    );
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        const { target } = entry;
+        if (entry.isIntersecting) {
+          // Remove and re-add to retrigger animation
+          target.classList.remove('animate-fadeInUp');
+          void target.offsetWidth; // Force reflow
+          target.classList.add('animate-fadeInUp');
+        } else {
+          target.classList.remove('animate-fadeInUp');
+        }
+      });
+    },
+    { threshold: 0.1 }
+  );
 
-    const galleryItems = galleryRef.current.querySelectorAll('.gallery-item');
-    galleryItems.forEach((item) => observer.observe(item));
+  const galleryItems = galleryRef.current.querySelectorAll('.gallery-item');
+  galleryItems.forEach((item) => observer.observe(item));
 
-    return () => {
-      galleryItems.forEach((item) => observer.unobserve(item));
-    };
-  }, []);
+  return () => {
+    galleryItems.forEach((item) => observer.unobserve(item));
+  };
+}, []);
+
 
   const handleImageClick = (image) => {
     setSelectedImage(image);
