@@ -1,11 +1,11 @@
 import React from 'react';
 import bannerImage from '../assets/image/image.png'; // Make sure this path is correct
-import AnimateOnScroll from './AnimateOnScroll';
+import AnimateOnScroll from './AnimateOnScroll'; // Adjust path if necessary
 
 export default function Banner({ title = 'use param here' }) {
   return (
     <>
-      {/* Main Banner Section (Image and Overlay Text) - NO AnimateOnScroll */}
+      {/* Main Banner Section (Image and Overlay Text) */}
       <div className='relative h-64 md:h-80 lg:h-96'>
         <img
           src={bannerImage}
@@ -13,9 +13,8 @@ export default function Banner({ title = 'use param here' }) {
           className='w-full h-full object-cover'
         />
         {/* Overlay with Text */}
-        {/* Overlay with Text */}
         <div className='absolute inset-0 flex items-center pl-20'>
-          {/* AnimateOnScroll now wraps ONLY the specific div containing the h1 and line */}
+          {/* AnimateOnScroll wraps ONLY the specific div containing the h1 and line */}
           <AnimateOnScroll
             animationClasses='opacity-0 translate-y-8' // Title slides up from bottom
             inViewClasses='opacity-100 translate-y-0'
@@ -31,15 +30,19 @@ export default function Banner({ title = 'use param here' }) {
         </div>
       </div>
 
-      {/* "Our Programs" Header Section - NO AnimateOnScroll */}
-      <div className='text-center my-10'>
+      {/* "Our Programs" Header Section - NOW WITH AnimateOnScroll */}
+      <AnimateOnScroll
+        className='text-center my-10'
+        delay='delay-200' // Add a slight delay for a staggered effect after the banner
+        // Default animation (fade in from bottom) works well here.
+      >
         <h2 className='about-head text-4xl md:text-5xl font-bold mb-3'>
           Our Programs
         </h2>
         <p className='about-head text-lg md:text-xl text-gray-600 font-semibold'>
           2025/2026 Session
         </p>
-      </div>
+      </AnimateOnScroll>
     </>
   );
 }
