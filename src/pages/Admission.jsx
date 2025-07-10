@@ -8,7 +8,7 @@ export default function Admission(){
 
   return(
     <>
-    <div className='mx-30'>    
+    <div className='lg:mx-30 mx-5'>    
     <Hero />
     <Study />
     <DownloadNews />

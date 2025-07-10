@@ -5,15 +5,6 @@
   background-position: center;
   background-repeat: no-repeat;
 }
-.Admission-txt{
-  /* Heading 2 */
-  text-align: center;
-  font-family: "Space Grotesk";
-  font-size: 49px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 120%; /* 58.8px */
-}
 .txt{
     background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
     background-clip: text;
@@ -52,24 +43,20 @@ position: relative;
 padding: 3px 4px 4px 20px;
 background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
 }
+.download-btn{
+  transition: all ease-in-out 0.4s;
+}
+.download-btn:hover{
+  opacity: 0.9;
+}
 .email-input{
   color: var(--primary-100, #F1F1F1);
   font-family: "Arial";
 }
-.email-input:focus{
-  border: none;
-}
-.email-input:active{
-  border: none;
-}
 .submit-btn{
-  display: flex;
-width: 144px;
-padding: 16px 24px;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-
-border-radius: 32px;
 background: var(--Purple-blend, linear-gradient(233deg, #B70AF0 -127.38%, #28252A -9.59%, #69068A 108.2%));
+transition: all ease-in-out 0.4s;
+}
+.submit-btn:hover{
+  opacity: 0.7;
 }
