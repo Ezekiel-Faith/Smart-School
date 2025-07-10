@@ -1,5 +1,6 @@
+
 @import 'tailwindcss';
-@import "tw-animate-css";
+@import 'tw-animate-css';
 
 @custom-variant dark (&:is(.dark *));
 
@@ -116,5 +117,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+  body {
+    font-family: 'Space Grotesk';
+  }
+  .footer-head {
+    @apply text-white text-lg font-bold mb-3;
+  }
+  .quick-link {
+    @apply text-gray-400 mb-1 font-medium text-sm;
   }
 }

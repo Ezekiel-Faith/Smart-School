@@ -1,12 +1,11 @@
-import About from './pages/About-Us';
-import Home from './pages/Home';
+import React from 'react';
+import Footer from './Footer';
 
 function App() {
   return (
-    <>
-      <Home />
-      <About />
-    </>
+    <div>
+      <Footer/>
+    </div>
   );
 }
 
