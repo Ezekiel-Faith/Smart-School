@@ -20,7 +20,7 @@ const SliderButton = () => {
           <button
             key={index}
             onClick={() => setActiveIndex(index)}
-            className={`relative rounded-4xl h-2 w-35 overflow-hidden
+            className={`relative rounded-4xl h-2 w-15 md:w-35 overflow-hidden
               ${activeIndex === index ? 'bg-gray-600' : 'bg-gray-400'}`}
           />
         ))}

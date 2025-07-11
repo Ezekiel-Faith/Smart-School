@@ -43,7 +43,7 @@ const Mission = () => {
         >
           {/* Apply itemVariants to the h1 */}
           <motion.h1
-            className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'
+            className='text-purple-500  text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'
             variants={itemVariants} // Apply itemVariants here
           >
             OUR MISSION STATEMENT
@@ -52,15 +52,15 @@ const Mission = () => {
           <motion.img
             src={underline}
             alt='underline image'
-            className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
+            className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
             variants={itemVariants} // Apply itemVariants here
           />
 
           {/* This div is already a motion.div and its children are also motion.divs */}
-          <div className="flex justify-between items-start w-full mt-15">
+          <div className="flex flex-col-reverse md:flex-row; md:justify-between items-start w-full mt-8 md:mt-15">
             {/* Apply motion to the paragraph container */}
             <motion.div className="flex-1 flex justify-start" variants={itemVariants}>
-              <p className='text-2xl font-space-grotesk'>
+              <p className='text-sm md:text-2xl font-space-grotesk mt-5 md:mt-0'>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit.
               </p>
             </motion.div>

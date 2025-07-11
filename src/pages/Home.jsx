@@ -17,7 +17,7 @@ const Home = () => {
      <SliderButton/>
      <MarqueeSection/>
      <WhySmartSchool/>
-     <div className='mx-30'>
+     <div className='mx-5 md:mx-35'>
        <Mission/>
        <Vission/>
        <Principal/>

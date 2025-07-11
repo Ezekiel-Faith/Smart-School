@@ -63,9 +63,10 @@ const Testimonials = () => {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 1.2, ease: 'easeInOut' }}
         >
+          {/* HEADER SECTION */}
           <div className='bg-purple-500 h-50 w-full flex flex-col justify-center items-center'>
-            <h2 className='text-white text-3xl font-bold text-center -mt-20 font-space-grotesk'>TESTIMONIALS</h2>
-            <p className='text-white text-2xl text-center font-space-grotesk'>What parents are saying about us</p>
+            <h2 className='text-white text-2xl md:text-3xl font-bold text-center -mt-20 font-space-grotesk'>TESTIMONIALS</h2>
+            <p className='text-white text-xl md:text-2xl text-center font-space-grotesk'>What parents are saying about us</p>
           </div>
 
           <div className='bg-purple-100 w-full pb-16 relative h-120'></div>
@@ -73,11 +74,13 @@ const Testimonials = () => {
           <div className="max-w-6xl mx-auto -mt-140 h-100">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
-              spaceBetween={50}
+              // 📝 Smaller spacing on smaller screens
+              spaceBetween={20}
               breakpoints={{
-                640: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
+                320: { slidesPerView: 1 },     // 📝 Mobile view: show 1 card
+                640: { slidesPerView: 1 },     // 📝 Small tablets
+                768: { slidesPerView: 2 },     // 📝 Tablets
+                1024: { slidesPerView: 3 },    // ✅ Leave as-is for laptop/desktop
               }}
               autoplay={{ delay: 6000, disableOnInteraction: false }}
               pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
@@ -94,12 +97,15 @@ const Testimonials = () => {
                     initial={{ opacity: 0, x: 100 }}
                     animate={isInView ? { opacity: 1, x: 0 } : {}}
                     transition={{ duration: 3.0, ease: 'easeInOut' }}
-                    className="bg-white p-6 md:p-8 rounded-2xl border-b-[7px] border-purple-500 shadow-lg h-95 flex flex-col justify-between"
+                    // 📝 Responsive padding & card height for mobile/tablet
+                    className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border-b-[5px] sm:border-b-[6px] md:border-b-[7px] border-purple-500 shadow-lg h-65 mx-12 md:h-85 flex flex-col justify-between"
                   >
-                    <p className="text-purple-700 text-base md:text-xl font-space-grotesk">
+                    {/* 📝 Responsive text size */}
+                    <p className="text-purple-700 text-sm sm:text-base md:text-base font-space-grotesk">
                       “{item.text}”
                     </p>
-                    <p className="text-purple-700 font-semibold text-center pl-12 text-xs pt-15 font-space-grotesk">
+                    {/* 📝 Smaller author text on mobile */}
+                    <p className="text-purple-700 font-semibold text-center pl-4 sm:pl-8 text-xs sm:text-sm pt-10 font-space-grotesk">
                       — {item.author}
                     </p>
                   </motion.div>
@@ -107,22 +113,26 @@ const Testimonials = () => {
               ))}
             </Swiper>
 
+            {/* CUSTOM PAGINATION AND NAVIGATION */}
             <div className="custom-pagination-wrapper flex justify-center items-center mt-30">
-              <div className="swiper-button-prev-custom cursor-pointer p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 mr-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* 📝 Smaller padding & icon for mobile */}
+              <div className="swiper-button-prev-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
               </div>
 
               <div className="custom-swiper-pagination flex justify-center"></div>
 
-              <div className="swiper-button-next-custom cursor-pointer p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 ml-2">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              {/* 📝 Same arrow adjustment here */}
+              <div className="swiper-button-next-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 ml-2">
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 md:w-4 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </div>
             </div>
 
+            {/* SWIPER STYLES */}
             <style jsx>{`
               .custom-pagination-wrapper {
                 background-color: transparent;

@@ -27,7 +27,7 @@ const WhySmartSchool = () => {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 1.5, // Longer duration for a slower animation
+        duration: 3.0, // Longer duration for a slower animation
         ease: 'easeOut', // Slow ease-out effect
       },
     },
@@ -37,15 +37,15 @@ const WhySmartSchool = () => {
     <div>
       {/* Why Smart School Section */}
       <section>
-        <h1 className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'>WHY SMART SCHOOL?</h1>
+        <h1 className='text-purple-500 text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'>WHY SMART SCHOOL?</h1>
         <img
           src={underline}
           alt='underline image'
-          className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
+          className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
         />
         {/* Apply motion to the grid container */}
         <motion.div
-          className='grid grid-cols-3 gap-28 py-20 px-65'
+          className='grid grid-cols-2 md:grid-cols-3 gap-28 py-10 md:py-20 px-2 md:px-65'
           variants={containerVariants}
           initial="hidden"
           whileInView="visible" // Animates when the element comes into view
@@ -54,32 +54,32 @@ const WhySmartSchool = () => {
           {/* Apply motion to each individual item */}
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why1} alt='why-img-1' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Nursery School's curriculum</h2>
-            <p className='font-space-grotesk'>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Nursery School's curriculum</h2>
+            <p className='font-space-grotesk '>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
           </motion.div>
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why2} alt='why-img-2' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Primary School's curriculum</h2>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Primary School's curriculum</h2>
             <p>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
           </motion.div>
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why3} alt='why-img-3' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Secondary School's curriculum</h2>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Secondary School's curriculum</h2>
             <p>Lorem ipsum dolor sit, amet consectetur. sed nulla morbi ellefend placerat convallis</p>
           </motion.div>
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why4} alt='why-img-4' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Modern Facilities</h2>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Modern Facilities</h2>
             <p>We provide a safe, tech-enhanced, environment with</p>
           </motion.div>
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why5} alt='why-img-5' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Small Class Size</h2>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Small Class Size</h2>
             <p>Ensuring personalised attention and better student</p>
           </motion.div>
           <motion.div className='grid place-items-center text-center' variants={itemVariants}>
             <img src={why6} alt='why-img-6' className="mb-5" />
-            <h2 className='font-space-grotesk font-bold text-2xl mb-5'>Parental Involvement</h2>
+            <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>Parental Involvement</h2>
             <p>We foster strong partnership with parents for support</p>
           </motion.div>
         </motion.div>

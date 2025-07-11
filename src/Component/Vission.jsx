@@ -44,7 +44,7 @@ const Vission = () => {
         >
           {/* Apply itemVariants to the h1 */}
           <motion.h1
-            className='text-purple-500 text-4xl text-center font-bold mt-3 font-space-grotesk'
+            className='text-purple-500 text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'
             variants={itemVariants} // Apply itemVariants here
           >
             OUR VISSION STATEMENT
@@ -53,14 +53,14 @@ const Vission = () => {
           <motion.img
             src={underline}
             alt='underline image'
-            className='w-120 h-auto mx-auto flex justify-center items-center mt-2'
+            className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
             variants={itemVariants} // Apply itemVariants here
           />
 
           {/* This div is already a motion.div and its children are also motion.divs */}
-          <div className="flex justify-between items-start w-full mt-15">
-            <motion.div className="flex-1 flex justify-start" variants={itemVariants}>
-              <p className='text-2xl'>
+          <div className="flex flex-col-reverse md:flex-row  md:justify-between items-start w-full mt-10">
+            <motion.div className="flex-1 flex justify-start mt-5 md:mt-0" variants={itemVariants}>
+              <p className='text-sm md:text-2xl'>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque sololu m cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit
               </p>
             </motion.div>
