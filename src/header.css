@@ -8,9 +8,49 @@
  background: linear-gradient(233deg, #7246c4 -127.38%, #2b105f 108.2%);
 }
 
-.nav-link {
-  position: relative;
+.links{
+  position:relative;
 }
+.links::before{
+  content: '';
+  position: absolute;
+  width: 0;
+  opacity: 0;
+  height: 2px;
+  background: #9055FF;
+  bottom: -2px;
+  left: 0;
+  transition: all 0.3s ease-in-out;       
+}
+.links:hover::before{
+  animation-name: hoverSlide;
+  animation-duration: 1s;
+  animation-timing-function: ease-in-out;
+  animation-direction: alternate;
+}
+@keyframes hoverSlide {
+  0%{
+    width: 0;
+    opacity: 0;
+  }
+  30%{
+    width: 50%;
+    opacity: 0.5;
+  }
+  55%{
+    width: 100%;
+    opacity: 1;
+  }
+  70%{
+    width: 50%;
+    opacity: 0.5;
+  }
+  100%{
+    width: 0;
+    opacity: 0;
+  }
+}
+
 
 /* Responsive breakpoints */
 @media (max-width: 1024px) {
