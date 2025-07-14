@@ -22,7 +22,7 @@ export default function DownloadNews(){
         </div>
         <div className='sub-form z-10'>
           <form className='subscribe-form flex justify-items-end items-center md:gap-[10px] gap-[5px] rounded-[32px] z-10'>
-            <input type="email" placeholder={SubscribeProperties.emailPlaceholder} className='email-input z-10 text-[16px] rounded-3xl font-[600] leading-[39.711px] px-3.5 grow' required />
+            <input type="email" placeholder={SubscribeProperties.emailPlaceholder} className='email-input z-10 text-[16px] rounded-3xl font-[600] leading-[39.711px] px-3.5 grow  invalid:text-red-400 focus:invalid:outline-red-500 focus:outline focus:invalid:border-red-400 focus:ring-0 focus:border-transparent active:border-none' required />
             <button type='submit' className='submit-btn z-10 text-white cursor-pointer flex md:w-[144px] w-auto md:px-[24px] px-[12px] py-[8px] md:py-[16px] flex-col justify-center items-center rounded-[32px]'>{SubscribeProperties.subscribeButtonText}</button>
           </form>
         </div>
