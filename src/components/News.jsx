@@ -1,10 +1,17 @@
 import rec from '../assets/Rectangle.png';
 import { DownloadProperties,SubscribeProperties } from '@/constants/properties';
 import React from 'react';
+import AnimateOnScroll from './AnimateOnScroller';
 export default function DownloadNews(){
   return(
-    <>   
+    <> 
+     <AnimateOnScroll
+        inViewClasses='opacity-100 translate-y-10'
+        animationClasses='opacity-0 translate-y-30'
+        transition='transition-all duration-700 ease-out'
+        >  
       <section>
+       
       <div className='form-container p-10 flex flex-col items-center justify-center gap-3 md:w-auto md:m-10 md:p-30'>
         <h1 className='text-center text-white font-[600] text-[31px] normal-case leading-[37.2px] font-project md:mb-20 mb-10'>{DownloadProperties.title}</h1>
         <button className='text-center text-white font-project cursor-pointer inline-flex px-[27px] py-[11px] text-[13px] md:text-2xl md:py-[12px] md:px-[24px] justify-center items-center gap-[10px] rounded-[24px] bg-gradient-to-r from-[#D30000] to-[#222] download-btn'>
@@ -15,20 +22,34 @@ export default function DownloadNews(){
         </button>
       </div>
 
-      <div className='relative subscribe-container md:flex md:flex-row flex-col items-center md:py-40 py-10 px-5 md:px-15 mt-20 justify-between rounded-[8px] bg-black md:w-auto md:m-10'>
+      <div className='relative subscribe-container md:flex lg:flex-row flex-col items-center md:py-30 py-10 px-5 md:px-10 mt-20 justify-between rounded-[8px] bg-black md:w-auto md:m-10'>
         <div className='subscribe-header mx-5 mb-10'>
           <h1 className='self-stretch md:text-[29px] text-2xl text-white normal-case font-[700] leading-[30px] font-project mb-5 md:mb-10'>{SubscribeProperties.header}</h1>
           <p className='text-[18px] normal-case font-[400] font-project self-stretch text-white leading-[19.2px] w-[100%] description lg:w-[100%]'>{SubscribeProperties.description}</p>
         </div>
-        <div className='sub-form z-10'>
-          <form className='subscribe-form flex justify-items-end items-center md:gap-[10px] gap-[5px] rounded-[32px] z-10'>
-            <input type="email" placeholder={SubscribeProperties.emailPlaceholder} className='email-input z-10 text-[16px] rounded-3xl font-[600] leading-[39.711px] px-3.5 grow  invalid:text-red-400 focus:invalid:outline-red-500 focus:outline focus:invalid:border-red-400 focus:ring-0 focus:border-transparent active:border-none' required />
-            <button type='submit' className='submit-btn z-10 text-white cursor-pointer flex md:w-[144px] w-auto md:px-[24px] px-[12px] py-[8px] md:py-[16px] flex-col justify-center items-center rounded-[32px]'>{SubscribeProperties.subscribeButtonText}</button>
-          </form>
+        <div className='sub-form z-10 md:self-start lg:self-center md:w-full '>
+     <form className="subscribe-form  flex justify-items-end items-center md:gap-[10px] gap-[5px] rounded-[32px] z-10">
+
+  <input type="email"placeholder={SubscribeProperties.emailPlaceholder}className="email-input text-[16px] font-[600] px-4 py-2rounded-[32px] flex-[1_1_auto] min-w-0 focus:outline-none focus:ring-0 invalid:text-red-400 focus:invalid:outline-red-500 focus:invalid:border-red-400"
+    required
+  />
+
+  <button
+    type="submit"
+    className="submit-btn text-white font-semibold cursor-pointer
+    px-[12px] py-[8px] text-[14px]
+    md:px-[24px] md:py-[14px] md:text-[16px]
+    rounded-[32px] whitespace-nowrap"
+  >
+    {SubscribeProperties.subscribeButtonText}
+  </button>
+</form>
+
         </div>
         <img src={rec} alt="" srcset="" className='rec absolute z-0 bottom-0 right-0 w-full '/>
       </div>
     </section>
+         </AnimateOnScroll>
     </>
   )
 }
