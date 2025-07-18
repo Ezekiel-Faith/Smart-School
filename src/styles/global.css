@@ -1,10 +1,4 @@
  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
-.hero-bg {
-  background-image: url('../assets/study-group-african-people 1.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
 .txt{
     background: var(--Purple-blend, linear-gradient(233deg, #ED7884 -127.38%, #9055FF 108.2%));
     background-clip: text;
