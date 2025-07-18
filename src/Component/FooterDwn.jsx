@@ -32,7 +32,7 @@ export default function FooterDwn() {
         The flex-col class makes items stack vertically on mobile/tablet.
         lg:flex-row keeps them side-by-side on larger screens as per original.
       */}
-      <div className="flex p-3 lg:py-6 w-full flex-col lg:flex-row justify-between items-center  m-auto">
+      <div className="flex p-3 lg:py-4 w-full flex-col lg:flex-row justify-between items-center  m-auto">
         {/* Left Column: Social Media */}
         {/*
           For mobile/tablet (below lg), order-last will push this div to the bottom.
@@ -122,7 +122,7 @@ export default function FooterDwn() {
         variants={easeOutCenter}
       />
       <motion.p
-        className="text-gray-400 text-sm text-center py-10"
+        className="text-gray-400 text-sm text-center pt-5"
         variants={easeOutCenter}
       >
         &copy; 2025 Smart School | All rights reserved | Terms and Conditions | Privacy Policy

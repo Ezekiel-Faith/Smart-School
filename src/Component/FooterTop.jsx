@@ -26,7 +26,7 @@ export default function FooterTop() {
     // items-center for horizontal centering of stacked items on mobile.
     // lg:items-start to align them to the top on desktop.
     <motion.div
-      className="flex flex-col lg:flex-row py-12 w-full items-center lg:items-start" // Corrected parent container classes
+      className="flex flex-col lg:flex-row py-5 w-full items-center lg:items-start" // Corrected parent container classes
       variants={easeOutCenter}
       initial="hidden"
       animate="visible"
