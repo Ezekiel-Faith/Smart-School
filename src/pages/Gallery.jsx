@@ -7,7 +7,7 @@ import { Footer } from '@/components/Footer';
 export default function GalleryPage() {
 
   return (
-   <div className={` mx-30 px-4 sm:px-6 lg:px-8`}>
+   <div className='lg:mx-30 sm:mx-7 mx-5 px-4 sm:px-6 lg:px-8'>
   <Header />
   <Gallery />
   <Footer />
