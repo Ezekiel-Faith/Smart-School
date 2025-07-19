@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { images } from '../constants/images'; // Ensure this path is correct
-import AnimateOnScroll from '../components/AnimateOnScroll'; // Adjust path if necessary
+import { images } from '../constants/images';
+import AnimateOnScroll from '../components/AnimateOnScroll';
 
 export default function AboutHero() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [direction, setDirection] = useState('right'); // 'left' or 'right'
-  const [anim, setAnim] = useState(false); // For internal carousel image transition
-  const [dotAnim, setDotAnim] = useState(false); // For internal carousel dot transition
+  const [direction, setDirection] = useState('right');
+  const [anim, setAnim] = useState(false);
+  const [dotAnim, setDotAnim] = useState(false);
 
   const nextImage = () => {
     setDirection('right');
@@ -42,34 +42,27 @@ export default function AboutHero() {
   }, [currentIndex]);
 
   return (
-    <section className='py-12'>
-      {/* Header - Wrapped with AnimateOnScroll */}
-      {/* Using different animation for the header to demonstrate customization */}
+    <section className='about-hero'>
       <AnimateOnScroll
-        threshold={0.5} // Trigger when 50% of the header is in view
-        animationClasses='opacity-0 -translate-y-5' // Header comes from slightly above
+        threshold={0.5}
+        animationClasses='opacity-0 -translate-y-5'
         inViewClasses='opacity-100 translate-y-0'
-        className='text-center mb-10' // Keep existing styling
+        className='about-hero-text-container'
       >
         <div>
-          <h2 className='about-head text-4xl md:text-5xl font-bold mb-3'>
+          <h2 className='about-head-title-color about-head-title-text'>
             About Our School
           </h2>
-          <p className='about-head text-lg md:text-xl text-gray-600 font-semibold'>
+          <p className='about-head-title-color about-head-title-paragraph'>
             2025/2026 Session
           </p>
         </div>
       </AnimateOnScroll>
 
       {/* Main content flex container */}
-      <div className='flex flex-col md:flex-row md:space-x-12 items-start'>
-        {/* Text content - Wrapped with AnimateOnScroll */}
-        <AnimateOnScroll
-          className='md:w-1/2 text-gray-700 leading-relaxed mb-8 md:mb-0 text-justify'
-          // Default animationClasses and inViewClasses (opacity-0 translate-y-10 and opacity-100 translate-y-0) are used here
-          // You can explicitly set them like in the header if you want something different
-        >
-          <p>
+      <div className='about-hero-container'>
+        <AnimateOnScroll className='about-hero-content'>
+          <p className='about-hero-content-paragraph text-[var(--color-gray-700)]'>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. In suscipit
             explicabo, omnis officia sint non, asperiores itaque velit veritatis
             iure eius sunt. Tenetur a dicta, debitis numquam ea alias fuga
@@ -87,16 +80,16 @@ export default function AboutHero() {
 
         {/* Carousel - Wrapped with AnimateOnScroll */}
         <AnimateOnScroll
-          className='md:w-1/2 relative'
-          delay='delay-200' // Adds a slight delay for staggered animation
+          className='relative about-hero-content'
+          delay='delay-200'
         >
-          <div className='w-full h-64 md:h-80 lg:h-96 bg-gray-200 rounded-lg overflow-hidden relative'>
+          <div className='w-full h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden relative'>
             <img
               src={images[currentIndex]}
               alt='School'
               className={`w-full h-full object-cover transition-all duration-700 ease-in-out
                 ${
-                  anim // This is for the internal carousel image transition
+                  anim
                     ? direction === 'right'
                       ? 'opacity-100 translate-x-0'
                       : 'opacity-100 -translate-x-0'
