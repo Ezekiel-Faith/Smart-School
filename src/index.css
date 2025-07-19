@@ -74,7 +74,14 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --text-color: #facc15;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-700: #374151;
+  --color-gray-600: #4b5563;
+  --color-gray-300: #d1d5db;
+  --color-primary-color: #facc15;
+  --color-pink: #ed7884;
+  --color-purple: #9055ff;
 }
 
 .dark {
@@ -124,24 +131,86 @@
 }
 
 @layer utilities {
-  .about-head {
-    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+  /* about */
+  .academics-container {
+    @apply w-[90%] md:w-[85%] mx-auto py-4;
+  }
+
+  .banner-container {
+    @apply relative h-24 md:h-54 lg:h-74;
+  }
+
+  .banner-img {
+    @apply w-full h-full object-cover;
+  }
+
+  .banner-overlay-container {
+    @apply absolute inset-0 flex items-center pl-8 sm:pl-12 md:pl-20;
+  }
+
+  .banner-side-bar {
+    @apply w-1.5 h-8 sm:h-10 md:h-12 bg-[var(--color-primary-color)];
+  }
+
+  .banner-title {
+    @apply text-[var(--color-primary-color)] text-xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .banner-text-container {
+    @apply flex items-center space-x-2;
+  }
+
+  /* hero */
+  .about-hero {
+    @apply my-5 md:my-10;
+  }
+
+  .about-head-title-color {
+    background: linear-gradient(
+      233deg,
+      var(--color-pink) -127.38%,
+      var(--color-purple) 108.2%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
     color: transparent;
   }
 
-  .chevron {
-    @apply -translate-y-1/2 bg-white/80 p-1 rounded-full shadow absolute top-1/2 cursor-pointer hover:bg-blue-500;
+  .about-head-title-text {
+    @apply text-2xl md:text-4xl lg:text-5xl font-bold mb-0 md:mb-2;
   }
 
-  .level-btn {
+  .about-head-title-paragraph {
+    @apply text-lg md:text-xl font-semibold;
+  }
+
+  .academic-level-container {
+    @apply mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8;
+  }
+
+  .academic-level-img-container {
+    @apply w-full mb-4;
+  }
+
+  .academic-level-img {
+    @apply w-full h-[250px] md:h-[400px] object-cover rounded-lg;
+  }
+
+  .academic-level-title {
+    @apply text-xl md:text-4xl font-bold text-[var(--color-gray-700)] mb-2;
+  }
+
+  .academic-level-paragraph {
+    @apply text-[var(--color-gray-600)] text-lg md:text-2xl lg:text-xl mb-6 text-center;
+  }
+
+  .academic-level-btn {
     background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
     transition: all 0.3s ease-in-out;
   }
 
-  .level-btn:hover {
+  .academic-level-btn:hover {
     opacity: 0.87;
     cursor: pointer;
   }

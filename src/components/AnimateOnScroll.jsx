@@ -1,4 +1,3 @@
-// src/components/AnimateOnScroll.jsx
 import React from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -6,8 +5,8 @@ import { useInView } from 'react-intersection-observer';
  * A reusable component to apply scroll-based animations to its children.
  * Content will animate in when entering the viewport and out when leaving.
  *
- * @param {object} props - Component props.
- * @param {React.ReactNode} props.children - The content to be animated.
+ * @param {object}
+ * @param {React.ReactNode}
  * @param {number} [props.threshold=0.2] - The percentage of the element that must be visible to trigger the animation.
  * @param {string} [props.animationClasses='opacity-0 translate-y-10'] - Tailwind CSS classes for the element when it's out of view.
  * @param {string} [props.inViewClasses='opacity-100 translate-y-0'] - Tailwind CSS classes for the element when it's in view.
