@@ -2,11 +2,22 @@ import Banner from '@/components/Banner';
 import Card from '@/components/Card';
 import ContactSection from '@/components/ContactSection';
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 export default function Contact() {
+  const { pageTitle } = useParams();
+
+  const formattedTitle = pageTitle
+    ? pageTitle
+        .replace(/-/g, ' ')
+        .split(' ')
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ')
+    : 'About Us';
+
   return (
-    <div className='mx-30'>
-      <Banner />
+    <div className='about-container'>
+      <Banner title={formattedTitle} />
       <Card />
       <ContactSection />
     </div>
