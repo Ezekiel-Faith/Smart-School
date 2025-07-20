@@ -74,7 +74,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
-  --text-color: #facc15;
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-700: #374151;
+  --color-gray-300: #d1d5db;
+  --color-primary-color: #facc15;
+  --color-pink: #ed7884;
+  --color-purple: #9055ff;
 }
 
 .dark {
@@ -124,6 +130,35 @@
 }
 
 @layer utilities {
+  /* contact */
+  .about-container {
+    @apply w-[90%] md:w-[85%] mx-auto py-4;
+  }
+
+  .banner-container {
+    @apply relative h-24 md:h-54 lg:h-74;
+  }
+
+  .banner-img {
+    @apply w-full h-full object-cover;
+  }
+
+  .banner-overlay-container {
+    @apply absolute inset-0 flex items-center pl-8 sm:pl-12 md:pl-20;
+  }
+
+  .banner-side-bar {
+    @apply w-1.5 h-8 sm:h-10 md:h-12 bg-[var(--color-primary-color)];
+  }
+
+  .banner-title {
+    @apply text-[var(--color-primary-color)] text-xl md:text-3xl lg:text-4xl font-bold;
+  }
+
+  .banner-text-container {
+    @apply flex items-center space-x-2;
+  }
+
   .about-head {
     background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
     -webkit-background-clip: text;
