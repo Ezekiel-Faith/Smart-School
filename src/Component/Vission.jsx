@@ -6,26 +6,25 @@ import { motion } from 'framer-motion'; // Import motion
 const Vission = () => {
   // Define variants for the animation
   const containerVariants = {
-    hidden: { opacity: 0, scale: 0.95 }, // Slightly less scale for the whole section
+    hidden: { opacity: 0, scale: 0.95 },
     visible: {
       opacity: 1,
       scale: 1,
       transition: {
         duration: 1.9,
         ease: 'easeOut',
-        staggerChildren: 0.2, // Stagger children for a subtle delay
+        staggerChildren: 0.2,
       },
     },
   };
 
-  // Variants for individual items within the staggered animation
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 }, // Start slightly below and invisible
+    hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,
-      y: 0, // Move to original position
+      y: 0,
       transition: {
-        duration: 1, // Shorter duration for individual items to keep flow
+        duration: 1,
         ease: 'easeOut',
       },
     },
@@ -34,38 +33,35 @@ const Vission = () => {
   return (
     <div>
       {/* Our Vision Statement Section */}
-      <section className='mt-25 '>
-        {/* Wrap the entire section content that you want to animate */}
+      <section className='mt-25'>
         <motion.div
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: false, amount: 0.3 }} // ✅ Enables scroll-up animation
         >
-          {/* Apply itemVariants to the h1 */}
           <motion.h1
             className='text-purple-500 text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'
-            variants={itemVariants} // Apply itemVariants here
+            variants={itemVariants}
           >
             OUR VISSION STATEMENT
           </motion.h1>
-          {/* Apply itemVariants to the img */}
+
           <motion.img
             src={underline}
             alt='underline image'
             className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
-            variants={itemVariants} // Apply itemVariants here
+            variants={itemVariants}
           />
 
-          {/* This div is already a motion.div and its children are also motion.divs */}
-          <div className="flex flex-col-reverse md:flex-row  md:justify-between items-start w-full mt-10">
+          <div className="flex flex-col-reverse xl:flex-row md:justify-between items-start w-full mt-10">
             <motion.div className="flex-1 flex justify-start mt-5 md:mt-0" variants={itemVariants}>
               <p className='text-sm md:text-2xl'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque sololu m cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque sololu m cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure. 
               </p>
             </motion.div>
             <motion.div className="flex-1 flex justify-end" variants={itemVariants}>
-              <img src={vision} alt='vission-image' />
+              <img src={vision} alt='vission-image' className='md:w-200 xl:w-auto  mb-8' />
             </motion.div>
           </div>
         </motion.div>

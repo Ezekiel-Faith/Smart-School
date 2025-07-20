@@ -1,78 +1,72 @@
 import React from 'react';
 import underline from '../Asset/title_shape-underline.jpg';
 import mission from '../Asset/mission-image.png';
-import { motion } from 'framer-motion'; // Import motion
+import { motion } from 'framer-motion';
 
 const Mission = () => {
-  // Define variants for the animation
   const containerVariants = {
-    hidden: { opacity: 0, scale: 0.95 }, // Start slightly smaller and invisible for the whole section
-    visible: {
-      opacity: 1,
-      scale: 1, // Scale to normal size
-      transition: {
-        duration: 1.9, // Long duration for a slow ease out
-        ease: 'easeOut', // Easing function
-        staggerChildren: 0.2, // Stagger children for a subtle delay
+      hidden: { opacity: 0, scale: 0.95 },
+      visible: {
+        opacity: 1,
+        scale: 1,
+        transition: {
+          duration: 1.9,
+          ease: 'easeOut',
+          staggerChildren: 0.2,
+        },
       },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 }, // Start slightly below and invisible
-    visible: {
-      opacity: 1,
-      y: 0, // Move to original position
-      transition: {
-        duration: 1, // Shorter duration for individual items to keep flow
-        ease: 'easeOut', // Easing for individual items
+    };
+  
+    const itemVariants = {
+      hidden: { opacity: 0, y: 30 },
+      visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 1,
+          ease: 'easeOut',
+        },
       },
-    },
-  };
-
-  return (
-    <div>
-      {/* Our Mission Statement Section */}
-      <section className='mt-20 '>
-        {/* Wrap the entire section content that you want to animate */}
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible" // Animate when it enters the viewport
-          viewport={{ once: true, amount: 0.3 }} // Animate once when 30% visible
-        >
-          {/* Apply itemVariants to the h1 */}
-          <motion.h1
-            className='text-purple-500  text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'
-            variants={itemVariants} // Apply itemVariants here
+    };
+  
+    return (
+      <div>
+        {/* Our Mision Statement Section */}
+        <section className='mt-25'>
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.3 }} // ✅ Enables scroll-up animation
           >
-            OUR MISSION STATEMENT
-          </motion.h1>
-          {/* Apply itemVariants to the img */}
-          <motion.img
-            src={underline}
-            alt='underline image'
-            className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
-            variants={itemVariants} // Apply itemVariants here
-          />
-
-          {/* This div is already a motion.div and its children are also motion.divs */}
-          <div className="flex flex-col-reverse md:flex-row; md:justify-between items-start w-full mt-8 md:mt-15">
-            {/* Apply motion to the paragraph container */}
-            <motion.div className="flex-1 flex justify-start" variants={itemVariants}>
-              <p className='text-sm md:text-2xl font-space-grotesk mt-5 md:mt-0'>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque soluta dolorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit.
-              </p>
-            </motion.div>
-            {/* Apply motion to the image container */}
-            <motion.div className="flex-1 flex justify-end" variants={itemVariants}>
-              <img src={mission} alt='mission-image' />
-            </motion.div>
-          </div>
-        </motion.div>
-      </section>
-    </div>
-  );
-};
+            <motion.h1
+              className='text-purple-500 text-xl md:text-4xl text-center font-bold mt-3 font-space-grotesk'
+              variants={itemVariants}
+            >
+              OUR MISSION STATEMENT
+            </motion.h1>
+  
+            <motion.img
+              src={underline}
+              alt='underline image'
+              className='w-60 md:w-120 h-auto mx-auto flex justify-center items-center mt-2'
+              variants={itemVariants}
+            />
+  
+            <div className="flex flex-col-reverse xl:flex-row md:justify-between  items-start w-full mt-10">
+              <motion.div className="flex-1 flex justify-start mt-2 md:mt-0" variants={itemVariants}>
+                <p className='text-sm md:text-2xl'>
+                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque sololu m cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure.
+                </p>
+              </motion.div>
+              <motion.div className="flex-1 flex justify-end" variants={itemVariants}>
+                <img src={mission} alt='vission-image'className='md:w-200 xl:w-auto  mb-8' />
+              </motion.div>
+            </div>
+          </motion.div>
+        </section>
+      </div>
+    );
+  };
 
 export default Mission;
