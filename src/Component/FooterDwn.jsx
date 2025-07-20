@@ -44,7 +44,7 @@ export default function FooterDwn() {
           className="mb-5 lg:mb-0 lg:w-1/2 flex flex-col items-center  order-last lg:order-none" // Added order-last for mobile, lg:order-none to reset for desktop
           variants={easeOutCenter}
         >
-          <p className="text-gray-400 text-xs lg:text-xl mb-1 lg:mb-6 text-center">
+          <p className="text-gray-400 text-xs lg:text-xl mb-1 lg:mb-6 text-start">
             Questions or updates? Follow us on social media,
             <br />
             Connect with us!
