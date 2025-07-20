@@ -1,76 +1,95 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import bgImage from '../assets/image/gown.png'; // Ensure this path is correct
-import AnimateOnScroll from './AnimateOnScroll'; // Adjust path as necessary
+import bgImage from '../assets/image/gown.png';
+import AnimateOnScroll from './AnimateOnScroll';
 
 export default function ContactSection() {
+  const mapInstanceRef = useRef(null);
+
   useEffect(() => {
-    // This part ensures Leaflet map initializes correctly without issues on re-renders
-    const existingMap = L.DomUtil.get('map');
-    if (existingMap && existingMap._leaflet_id) {
-      existingMap._leaflet_id = null;
+    const mapElement = document.getElementById('map');
+    if (!mapElement) {
+      return;
     }
-    const map = L.map('map').setView([6.5244, 3.3792], 11); // Coordinates for Lagos, Nigeria
+
+    if (mapInstanceRef.current) {
+      mapInstanceRef.current.remove();
+      mapInstanceRef.current = null;
+    }
+    if (mapElement._leaflet_id) {
+      L.map(mapElement).remove();
+    }
+
+    const map = L.map('map').setView([6.5244, 3.3792], 11);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors',
     }).addTo(map);
 
-    // Optional: Add a marker for your school's location if you have one
-    // L.marker([6.5244, 3.3792]).addTo(map)
-    //   .bindPopup('Smart School Location')
-    //   .openPopup();
-  }, []); // Empty dependency array means this runs once on mount
+    L.marker([6.5568768, 3.3292288])
+      .addTo(map)
+      .bindPopup('School Location')
+      .openPopup();
+
+    // Store the map instance in the ref
+    mapInstanceRef.current = map;
+
+    // Clean up map on component unmount
+    return () => {
+      if (mapInstanceRef.current) {
+        mapInstanceRef.current.remove();
+        mapInstanceRef.current = null;
+      }
+    };
+  }, []);
 
   const inputClass =
-    'w-full p-5 bg-white/40 rounded-md placeholder-white text-white shadow-[0_7px_1px_rgba(128,90,213,3)] focus:outline-none focus:ring-2 focus:ring-purple-500';
+    'w-full p-2 md:p-5 bg-white/40 md:text-2xl lg:text-[20px] rounded-md placeholder-black shadow-[0_7px_1px_rgba(128,90,213,3)] focus:outline-none focus:ring-2 focus:ring-purple-500';
 
   return (
-    <section className='mt-20'>
-      <div className='grid grid-cols-1 lg:grid-cols-2 min-h-[520px] gap-6'>
-        {/* Map Section - Wrapped with AnimateOnScroll */}
-        <AnimateOnScroll
-          className='h-full rounded-xl overflow-hidden shadow-md'
-          animationClasses='opacity-0 scale-95' // Map scales in and fades
-          inViewClasses='opacity-100 scale-100'
-          transition='transition-all duration-700 ease-out'
-        >
-          <div id='map' className='w-full h-full' />
-        </AnimateOnScroll>
+    <div className='contact-section-container'>
+      {/* Map Section */}
+      <AnimateOnScroll
+        className='contact-section-map-container'
+        animationClasses='opacity-0 scale-95'
+        inViewClasses='opacity-100 scale-100'
+        transition='transition-all duration-700 ease-out'
+      >
+        <div id='map' className='contact-section-map' />
+      </AnimateOnScroll>
 
-        {/* Form Section - Wrapped with AnimateOnScroll */}
-        <AnimateOnScroll
-          className='relative p-8 flex items-center rounded-xl'
-          delay='delay-200' // Staggered delay after the map
-          animationClasses='opacity-0 translate-y-10' // Form slides up and fades
-          inViewClasses='opacity-100 translate-y-0'
-          transition='transition-all duration-700 ease-out'
-        >
-          <div
-            className='absolute inset-0 bg-cover bg-center z-0'
-            style={{ backgroundImage: `url(${bgImage})`, opacity: 0.95 }}
+      {/* Form Section */}
+      <AnimateOnScroll
+        className='contact-section-form-container'
+        delay='delay-200'
+        animationClasses='opacity-0 translate-y-10'
+        inViewClasses='opacity-100 translate-y-0'
+        transition='transition-all duration-700 ease-out'
+      >
+        <div
+          className='absolute inset-0 bg-cover bg-center z-0'
+          style={{ backgroundImage: `url(${bgImage})`, opacity: 0.95 }}
+        />
+        <form className='contact-section-form'>
+          <input type='text' placeholder='Your Name' className={inputClass} />
+          <input
+            type='email'
+            placeholder='Your E-mail'
+            className={inputClass}
           />
-          <form className='relative z-10 w-full space-y-5 max-w-md mx-auto'>
-            <input type='text' placeholder='Your Name' className={inputClass} />
-            <input
-              type='email'
-              placeholder='Your E-mail'
-              className={inputClass}
-            />
-            <input type='text' placeholder='Subject' className={inputClass} />
-            <textarea
-              placeholder='Message'
-              className={`${inputClass} h-32 resize-none`}
-            />
-            <button
-              type='submit'
-              className='w-full py-3 bg-purple-700 text-white rounded-md level-btn'
-            >
-              Send Message
-            </button>
-          </form>
-        </AnimateOnScroll>
-      </div>
-    </section>
+          <input type='text' placeholder='Subject' className={inputClass} />
+          <textarea
+            placeholder='Message'
+            className={`${inputClass} h-32 resize-none`}
+          />
+          <button
+            type='submit'
+            className='w-full py-3 text-white rounded-md md:text-2xl lg:text-xl level-btn'
+          >
+            Send Message
+          </button>
+        </form>
+      </AnimateOnScroll>
+    </div>
   );
 }

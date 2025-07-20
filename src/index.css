@@ -81,6 +81,13 @@
   --color-primary-color: #facc15;
   --color-pink: #ed7884;
   --color-purple: #9055ff;
+  --color-custom-color: #faf7fb;
+  --color-orange-500: #f97316;
+  --color-working-hour-bg: linear-gradient(
+    66deg,
+    #d30000 -71.32%,
+    #222 116.26%
+  );
 }
 
 .dark {
@@ -159,16 +166,80 @@
     @apply flex items-center space-x-2;
   }
 
-  .about-head {
-    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    color: transparent;
+  .contact-card-container {
+    @apply flex items-center justify-center bg-[var(--color-custom-color)] p-6;
   }
 
-  .chevron {
-    @apply -translate-y-1/2 bg-white/80 p-1 rounded-full shadow absolute top-1/2 cursor-pointer hover:bg-blue-500;
+  .contact-card-content {
+    @apply mx-auto flex flex-col lg:flex-row overflow-hidden;
+  }
+
+  .contact-card-image-container {
+    @apply w-full lg:w-1/3 h-72 lg:h-auto;
+  }
+
+  .contact-card-image {
+    @apply w-full h-full object-cover rounded-xl;
+  }
+
+  .contact-card-info {
+    @apply w-full lg:w-1/2 py-6 flex flex-col items-center;
+  }
+
+  .contact-card-into-title {
+    @apply text-lg md:text-3xl lg:text-4xl font-bold text-gray-800 mb-2 md:mb-5 lg:mb-7;
+  }
+
+  .contact-card-info-container {
+    @apply space-y-8 text-gray-700 text-[20px];
+  }
+
+  .contact-card-info-content {
+    @apply flex items-center space-x-3;
+  }
+
+  .contact-card-info-icon {
+    @apply text-xl text-[var(--color-orange-500)] mt-1;
+  }
+
+  .contact-card-working-hours {
+    @apply text-white p-6 flex flex-col w-full lg:w-1/4 rounded-b-xl;
+  }
+
+  .working-hour-bg {
+    background: var(--color-working-hour-bg);
+  }
+
+  .working-hour-title {
+    @apply text-3xl font-semibold mb-6;
+  }
+
+  .working-hour-days {
+    @apply space-y-7 text-xl;
+  }
+
+  .working-hour-day {
+    @apply flex items-center gap-2;
+  }
+
+  .contact-section-container {
+    @apply mt-10 grid grid-cols-1 lg:grid-cols-2 min-h-[520px] gap-6;
+  }
+
+  .contact-section-map-container {
+    @apply rounded-xl overflow-hidden;
+  }
+
+  .contact-section-map {
+    @apply w-full h-full min-h-[300px] md:min-h-[520px];
+  }
+
+  .contact-section-form-container {
+    @apply relative p-0 md:py-8 flex items-center rounded-xl;
+  }
+
+  .contact-section-form {
+    @apply relative z-10 w-full space-y-5 max-w-[100%] lg:max-w-[70%] mx-auto;
   }
 
   .level-btn {
@@ -179,13 +250,5 @@
   .level-btn:hover {
     opacity: 0.87;
     cursor: pointer;
-  }
-
-  .contact-card-bg {
-    background: #faf7fb;
-  }
-
-  .working-hour-bg {
-    background: linear-gradient(66deg, #d30000 -71.32%, #222 116.26%);
   }
 }

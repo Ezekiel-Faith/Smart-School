@@ -15,7 +15,7 @@ export default function Contact() {
         .split(' ')
         .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
         .join(' ')
-    : 'About Us';
+    : 'Contact Us';
 
   return (
     <div className='about-container'>
