@@ -34,15 +34,23 @@ export default function Card() {
           <div className='contact-card-info-container'>
             <div className='contact-card-info-content'>
               <FaMapMarkerAlt className='contact-card-info-icon' />
-              <span>123 Example Street, Victoria Island, Lagos, Nigeria.</span>
+              <span className='contact-card-info-details'>
+                123 Example Street, Victoria Island, Lagos, Nigeria.
+              </span>
             </div>
+
             <div className='contact-card-info-content'>
               <FaPhone className=' contact-card-info-icon ' />
-              <span>07012345677, 07012345677</span>
+              <span className='contact-card-info-details'>
+                07012345677, 07012345677
+              </span>
             </div>
+
             <div className='contact-card-info-content'>
               <FaEnvelope className=' contact-card-info-icon' />
-              <span>info@example.com</span>
+              <span className='contact-card-info-details'>
+                info@example.com
+              </span>
             </div>
           </div>
         </AnimateOnScroll>

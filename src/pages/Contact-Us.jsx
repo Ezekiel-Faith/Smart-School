@@ -7,8 +7,6 @@ import { useParams } from 'react-router-dom';
 export default function Contact() {
   const { pageTitle } = useParams();
 
-  console.log(pageTitle);
-
   const formattedTitle = pageTitle
     ? pageTitle
         .replace(/-/g, ' ')
