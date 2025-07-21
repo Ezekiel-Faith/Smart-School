@@ -4,7 +4,6 @@ import DesktopNav from '../components/Desktop';
 import MobileNav from '../components/Mobile';
 
 export default function NavBar() {
-  // State to manage mobile menu visibility
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   // Hook to detect when navbar enters viewport
@@ -21,7 +20,6 @@ export default function NavBar() {
         inView ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'
       }`}
     >
-      {/* Header with flex layout for desktop and mobile nav */}
       <header className='nav-container flex items-center justify-between'>
         <DesktopNav />
         <MobileNav
