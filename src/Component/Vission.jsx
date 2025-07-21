@@ -22,8 +22,8 @@ const Vission = () => {
           </AnimateOnScroll>
           
           
-          <div className="flex flex-col-reverse xl:flex-row md:justify-between items-start w-full mt-10">
-            <div className="flex-1 flex justify-start mt-5 md:mt-0">
+          <div className="flex flex-col-reverse xl:flex-row md:justify-between items-start w-full mt-5 md:mt-10">
+            <div className="flex-1 flex justify-start mt-2 md:mt-0">
               <AnimateOnScroll>
               <p className='text-sm md:text-2xl'>
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque sololu m cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit assumenda adipisci, odit, praesentium porro culpa sequi magnam, doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Unde suscipit optio labore consequatur facere ullam. Reprehenderit doloremque solorum cum nam iure.

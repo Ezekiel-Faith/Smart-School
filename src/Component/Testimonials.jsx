@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
@@ -54,9 +54,20 @@ const Testimonials = () => {
   const prevButtonRef = useRef(null);
   const nextButtonRef = useRef(null);
 
+  // Ensure Swiper navigation works with refs
+  useEffect(() => {
+    const swiper = document.querySelector('.mySwiper')?.swiper;
+    if (swiper && prevButtonRef.current && nextButtonRef.current) {
+      swiper.params.navigation.prevEl = prevButtonRef.current;
+      swiper.params.navigation.nextEl = nextButtonRef.current;
+      swiper.navigation.init();
+      swiper.navigation.update();
+    }
+  }, []);
+
   return (
     <div>
-      <section className="relative mt-10 xl:mt-20">
+      <section className="relative mt-5 xl:mt-20">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -91,7 +102,6 @@ const Testimonials = () => {
                 swiper.params.navigation.prevEl = prevButtonRef.current;
                 swiper.params.navigation.nextEl = nextButtonRef.current;
               }}
-              // loop={true} // This line is commented out/removed to prevent looping behavior
               className="mySwiper"
             >
               {testimonials.map((item, index) => (

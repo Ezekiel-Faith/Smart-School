@@ -33,7 +33,7 @@ const Mission = () => {
           </div>
           <div className="flex-1 flex justify-end">
             <AnimateOnScroll>
-            <img src={mission} alt='vission-image' className='md:w-200 xl:w-auto mb-8' />
+            <img src={mission} alt='vission-image' className='md:w-200 xl:w-auto mb-2 xl:mb-8' />
             </AnimateOnScroll>
           </div>
         </div>
