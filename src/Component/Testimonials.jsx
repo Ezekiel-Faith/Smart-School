@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, Navigation } from 'swiper/modules';
 import { motion } from 'framer-motion';
@@ -51,9 +51,12 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const prevButtonRef = useRef(null);
+  const nextButtonRef = useRef(null);
+
   return (
     <div>
-      <section className="relative mt-20">
+      <section className="relative mt-10 xl:mt-20">
         <motion.div
           initial={{ opacity: 0, y: 100 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,10 +84,14 @@ const Testimonials = () => {
               autoplay={{ delay: 6000, disableOnInteraction: false }}
               pagination={{ clickable: true, el: '.custom-swiper-pagination' }}
               navigation={{
-                nextEl: '.swiper-button-next-custom',
-                prevEl: '.swiper-button-prev-custom',
+                prevEl: prevButtonRef.current,
+                nextEl: nextButtonRef.current,
               }}
-              loop={true}
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevButtonRef.current;
+                swiper.params.navigation.nextEl = nextButtonRef.current;
+              }}
+              // loop={true} // This line is commented out/removed to prevent looping behavior
               className="mySwiper"
             >
               {testimonials.map((item, index) => (
@@ -109,7 +116,10 @@ const Testimonials = () => {
 
             {/* CUSTOM PAGINATION AND NAVIGATION */}
             <div className="custom-pagination-wrapper flex justify-center items-center mt-30">
-              <div className="swiper-button-prev-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 mr-2">
+              <div
+                className="swiper-button-prev-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 mr-2"
+                ref={prevButtonRef}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                 </svg>
@@ -117,7 +127,10 @@ const Testimonials = () => {
 
               <div className="custom-swiper-pagination flex justify-center"></div>
 
-              <div className="swiper-button-next-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 ml-2">
+              <div
+                className="swiper-button-next-custom cursor-pointer p-1 sm:p-2 rounded-full bg-purple-200 border-2 border-orange-500 text-orange-500 hover:text-white transition duration-300 ml-2"
+                ref={nextButtonRef}
+              >
                 <svg xmlns="http://www.w3.org/2000/svg" className="h-4 sm:h-5 w-4 md:w-4 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>

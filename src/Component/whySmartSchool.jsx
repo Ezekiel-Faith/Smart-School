@@ -59,7 +59,7 @@ const WhySmartSchool = () => {
         />
 
         {/* Grid without containerVariants */}
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-10 py-10 md:py-20 px-2 md:px-10 xl:px-65 mx-5'>
+        <div className='grid grid-cols-1 xl:grid-cols-3 gap-10 py-10 md:py-10 px-2 md:px-10 xl:px-65 mx-5'>
           {items.map((item, index) => (
             <motion.div
               key={index}

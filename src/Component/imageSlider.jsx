@@ -27,7 +27,7 @@ const ImageSlider = () => {
   }, []);
 
   return (
-    <div className="w-full h-[500px] sm:h-[500px] md:h-[600px] lg:h-[730px] overflow-hidden relative">
+    <div className="w-full h-[300px] sm:h-[500px] md:h-[600px] lg:h-[730px] overflow-hidden relative">
       <img
         src={images[currentIndex]}
         alt="Slider"

@@ -74,6 +74,13 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-700: #374151;
+  --color-gray-300: #d1d5db;
+  --color-primary-color: #facc15;
+  --color-pink: #ed7884;
+  --color-purple: #9055ff;
 }
 
 .dark {
@@ -119,6 +126,10 @@
   }
   body {
     font-family: 'Space Grotesk';
+  }
+   /* about */
+  .about-container {
+    @apply w-[90%] md:w-[85%] mx-auto py-4;
   }
 }
 

@@ -12,18 +12,19 @@ import React from 'react'
 const Home = () => {
   return (
     <>
-    <div>
      <ImageSlider/>
      <SliderButton/>
      <MarqueeSection/>
+
+     <div className='about-container'>
+      
      <WhySmartSchool/>
-     <div className='mx-5 md:mx-15 xl:mx-35'>
-       <Mission/>
-       <Vission/>
-       <Principal/>
-     </div>
+     <Mission/>
+      <Vission/>
+      <Principal/>
+      </div>
+
      <Testimonials/>
-    </div>
     </>
   )
 }

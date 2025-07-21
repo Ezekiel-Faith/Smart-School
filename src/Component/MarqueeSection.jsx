@@ -15,14 +15,14 @@ const MarqueeSection = () => {
   return (
     <div>
       {/* Marquee Section */}
-      <section className='bg-purple-950 w-full h-12 mb-20 overflow-hidden'>
+      <section className='bg-purple-950 w-full h-8 md:h-10 xl:h-12 mb-5 xl:20 overflow-hidden'>
         <div
           className='whitespace-nowrap flex'
           style={{
             animation: 'marquee 30s linear infinite'
           }}
         >
-          <p className='text-white text-2xl mt-2 font-space-grotesk'>
+          <p className='text-white text-2xl  md:mt-1 xl:mt-2 font-space-grotesk'>
             {text}
           </p>
         </div>
