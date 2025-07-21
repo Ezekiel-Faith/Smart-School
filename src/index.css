@@ -131,7 +131,7 @@
 
 @layer utilities {
   /* about */
-  .about-container {
+  .container {
     @apply w-[90%] md:w-[85%] mx-auto py-4;
   }
 
@@ -159,7 +159,7 @@
     @apply flex items-center space-x-2;
   }
 
-  /* about-hero */
+  /* hero */
   .about-hero {
     @apply my-5 md:my-10;
   }
@@ -231,5 +231,36 @@
 
   .faq-accordion-content {
     @apply text-[var(--color-gray-300)] px-6 py-4;
+  }
+
+  /* academics */
+  .academic-level-container {
+    @apply mx-auto grid grid-cols-1 lg:grid-cols-3 gap-8;
+  }
+
+  .academic-level-img-container {
+    @apply w-full mb-4;
+  }
+
+  .academic-level-img {
+    @apply w-full h-[250px] md:h-[400px] object-cover rounded-lg;
+  }
+
+  .academic-level-title {
+    @apply text-xl md:text-4xl font-bold text-[var(--color-gray-700)] mb-2;
+  }
+
+  .academic-level-paragraph {
+    @apply text-[var(--color-gray-600)] text-lg md:text-2xl lg:text-xl mb-6 text-center;
+  }
+
+  .academic-level-btn {
+    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .academic-level-btn:hover {
+    opacity: 0.87;
+    cursor: pointer;
   }
 }
