@@ -4,43 +4,52 @@ import { Menu, X } from 'lucide-react';
 import { NavLinks } from '@/constants/properties';
 
 export default function MobileNav({ isOpen, toggleMenu }) {
+  // Handle smooth scrolling to section and close menu
   const handleScroll = (e, id) => {
     e.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     toggleMenu();
   };
 
+  // Size for nav button icons
   const navBtnSize = 42;
 
   return (
     <>
-      <button className={`mobile-nav-btn`} onClick={toggleMenu}>
+      {/* Mobile nav button with spin animation */}
+      <button
+        className={`mobile-nav-btn ${isOpen ? 'rotate-180' : 'rotate-0'}`}
+        onClick={toggleMenu}
+      >
         {isOpen ? <X size={navBtnSize} /> : <Menu size={navBtnSize} />}
       </button>
-      {isOpen && (
-        <nav className='mobile-nav'>
-          <div className='mobile-nav-container'>
-            {NavLinks.map((link) => (
-              <Link
-                key={link.id}
-                to={link.path}
-                className={`desktop-nav-menu ${
-                  link.id === 'home'
-                    ? 'underline underline-offset-4 active-link'
-                    : 'nav-menu-color'
-                }`}
-                onClick={(e) => handleScroll(e, link.id)}
-              >
-                {link.name}
-              </Link>
-            ))}
 
-            <button className='desktop-nav-actions-btn mobile-nav-actions'>
-              Register
-            </button>
-          </div>
-        </nav>
-      )}
+      {/* Mobile nav menu with slide-in/out transition */}
+      <nav
+        className={`mobile-nav ${
+          isOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className='mobile-nav-container'>
+          {NavLinks.map((link) => (
+            <Link
+              key={link.id}
+              to={link.path}
+              className={`mobile-nav-container-menu ${
+                link.id === 'home'
+                  ? 'underline underline-offset-4 active-link'
+                  : 'nav-menu-color'
+              }`}
+              onClick={(e) => handleScroll(e, link.id)}
+            >
+              {link.name}
+            </Link>
+          ))}
+
+          {/* Register button with gradient styling */}
+          <button className='desktop-nav-actions-btn'>Register</button>
+        </div>
+      </nav>
     </>
   );
 }

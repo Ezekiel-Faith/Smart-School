@@ -102,7 +102,7 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground lg:overflow-hidden;
     font-family: 'Space Grotesk', sans-serif;
   }
 }
@@ -186,19 +186,19 @@
 
   /* transition here */
   .mobile-nav-btn {
-    @apply lg:hidden text-[var(--color-purple)] cursor-pointer z-50;
+    @apply lg:hidden text-[var(--color-purple)] cursor-pointer z-50 transition-transform duration-600 ease-in-out;
   }
 
   /* transition here */
   .mobile-nav {
-    @apply fixed top-0 right-0 h-full w-3/4 md:w-1/2 bg-white/60 z-40;
+    @apply fixed top-0 right-0 h-full w-3/4 md:w-1/2 bg-white/60 z-40 transition-transform duration-500 ease-in-out;
   }
 
   .mobile-nav-container {
-    @apply flex flex-col mt-10 p-3 md:p-6 space-y-4;
+    @apply lg:hidden flex flex-col mt-10 p-3 md:p-6 space-y-4 mr-3 md:mr-7;
   }
 
   .mobile-nav-container-menu {
-    @apply bg-[var(--color-bg-gray-100)] py-2 px-4 rounded-3xl text-sm transition-all duration-300;
+    @apply bg-[var(--color-bg-gray-100)] py-2 px-4 rounded-3xl text-base md:text-lg lg:text-base transition-all duration-300;
   }
 }
