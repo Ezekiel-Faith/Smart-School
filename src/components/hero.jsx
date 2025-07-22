@@ -3,33 +3,32 @@ import bannerImage from '../assets/study-group-african-people 1.png'; // Ensure 
 import { HeroProperties } from "@/constants/properties";
 import AnimateOnScroll from "./AnimateOnScroller";
 
-export default function Hero(){
+export default function Banner({ title = 'use param here' }) {
   return(
     <>
-        <section className='lg:mb-25 md:mb-18 mb-10 md:w-auto'>
-      <div className='relative h-64 md:h-80 lg:h-96'>
-        <img
-          src={bannerImage}
-          alt='Three students studying at desks'
-          className='w-full h-full object-cover'
-        />
-        {/* Overlay with Text */}
-        <div className='absolute inset-0 flex items-center pl-20'>
-          {/* AnimateOnScroll wraps ONLY the specific div containing the h1 and line */}
-          <AnimateOnScroll
-            animationClasses='opacity-0 translate-y-8' // Title slides up from bottom
-            inViewClasses='opacity-100 translate-y-0'
-            transition='transition-all duration-700 ease-out' // Smooth transition
-          >
-            <div className='flex items-center space-x-2'>
-              <div className='w-1.5 h-10 bg-[var(--text-color)]' />
-              <h1 className='text-[var(--text-color)] text-3xl md:text-4xl lg:text-5xl font-bold pb-2'>
-                {HeroProperties.title}
-              </h1>
-            </div>
-          </AnimateOnScroll>
-        </div>
+        <section className='lg:mb-20 md:mb-13 mb-5 md:w-auto'>
+    <div className='banner-container'>
+      <img
+        src={bannerImage}
+        alt='Three students studying at desks'
+        className='banner-img'
+      />
+
+      {/* Overlay with Text */}
+      <div className='banner-overlay-container'>
+        <AnimateOnScroll
+          animationClasses='opacity-0 translate-y-8'
+          inViewClasses='opacity-100 translate-y-0'
+          transition='transition-all duration-700 ease-out'
+        >
+          <div className='banner-text-container'>
+            <div className='banner-side-bar' />
+
+            <h1 className='banner-title'>{HeroProperties.title}</h1>
+          </div>
+        </AnimateOnScroll>
       </div>
+    </div>
       <AnimateOnScroll
             animationClasses='opacity-0 translate-y-8' // Title slides up from bottom
             inViewClasses='opacity-100 translate-y-0'
