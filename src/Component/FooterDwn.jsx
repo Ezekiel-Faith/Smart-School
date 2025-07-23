@@ -20,7 +20,6 @@ const easeOutCenter = {
 
 export default function FooterDwn() {
   return (
-    // left side
     <motion.section
       className='bg-gray-900'
       variants={easeOutCenter}
@@ -28,18 +27,8 @@ export default function FooterDwn() {
       animate='visible'
     >
       {/* Main Container */}
-      {/*
-        The flex-col class makes items stack vertically on mobile/tablet.
-        lg:flex-row keeps them side-by-side on larger screens as per original.
-      */}
-      <div className='flex p-3 lg:py-6 w-full flex-col lg:flex-row justify-between items-center  m-auto'>
+      <div className='flex p-3 lg:py-4 w-full flex-col lg:flex-row justify-between items-center m-auto'>
         {/* Left Column: Social Media */}
-        {/*
-          For mobile/tablet (below lg), order-last will push this div to the bottom.
-          For lg: and upward, order-first (or no order class if it's the first in source order)
-          will ensure it appears on the left as intended.
-          Added text-center for mobile alignment.
-        */}
         <motion.div
           className='mb-5 lg:mb-0 lg:w-1/2 flex flex-col items-center  order-last lg:order-none' // Added order-last for mobile, lg:order-none to reset for desktop
           variants={easeOutCenter}
@@ -100,11 +89,6 @@ export default function FooterDwn() {
         </motion.div>
 
         {/* Right Column: Newsletter */}
-        {/*
-          For mobile/tablet (below lg), order-first will push this div to the top.
-          For lg: and upward, order-first will ensure it appears on the right as intended.
-          Added text-center for mobile alignment.
-        */}
         <motion.div
           className='justify-end lg:w-1/2 flex flex-col items-center lg:items-start  mb-6 lg:mb-0 order-first lg:order-none' // Added order-first for mobile, lg:order-none to reset for desktop
           variants={easeOutCenter}
