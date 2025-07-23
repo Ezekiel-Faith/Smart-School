@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
 @import 'tailwindcss';
 @import 'tw-animate-css';
+
+* {
+  box-sizing: border-box;
+}
 
 @custom-variant dark (&:is(.dark *));
 
@@ -32,6 +37,10 @@
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
   --color-sidebar: var(--sidebar);
+  --color-SoftWhite: #fff8f9;
+  --color-PurpleBlend: #9055ff;
+  --color-orangeBlend: #ed7882;
+  --color-project: #171652;
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
   --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
@@ -39,6 +48,14 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+  --color-white: #fff;
+  --color-black: #000;
+  --color-gray-700: #374151;
+  --color-gray-600: #4b5563;
+  --color-gray-300: #d1d5db;
+  --color-primary-color: #facc15;
+  --color-pink: #ed7884;
+  --color-purple: #9055ff;
 }
 
 :root {
@@ -71,7 +88,7 @@
   --sidebar-primary: oklch(0.205 0 0);
   --sidebar-primary-foreground: oklch(0.985 0 0);
   --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
   --color-white: #fff;
@@ -123,12 +140,117 @@
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground lg:overflow-x-hidden;
+    font-family: 'Space Grotesk', sans-serif;
   }
+}
+
+@layer utilities {
+  /* navbar */
+  .nav-container {
+    @apply w-[90%] md:w-[83%] mx-auto py-2 md:py-4 flex items-center justify-between;
+  }
+
+  .nav-img {
+    @apply flex items-center font-semibold text-sm space-x-2;
+  }
+
+  .nav-menu-color {
+    background: linear-gradient(
+      233deg,
+      var(--color-pink) -127.38%,
+      var(--color-purple) 108.2%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .desktop-nav-menu-container {
+    @apply hidden lg:flex items-center lg:space-x-8 xl:space-x-15;
+  }
+
+  .desktop-nav-menu {
+    @apply relative py-2 md:text-xl lg:text-base font-semibold transition-all duration-300;
+    overflow: hidden;
+  }
+
+  .desktop-nav-menu:not(.underline)::after {
+    content: '';
+    @apply absolute bottom-1 h-[2px] bg-[var(--color-purple)] transition-all duration-600 ease-in-out;
+    width: 0;
+    left: 0;
+  }
+
+  /* Hovering (entry animation) */
+  .desktop-nav-menu:not(.underline):hover::after {
+    width: 100%;
+  }
+
+  .desktop-nav-menu:not(.underline).from-left:hover::after {
+    left: 0;
+    right: auto;
+  }
+
+  .desktop-nav-menu:not(.underline).from-right:hover::after {
+    right: 0;
+    left: auto;
+  }
+
+  /* Exiting (exit animation) */
+  .desktop-nav-menu:not(.underline).leave-left::after {
+    left: 0;
+    width: 0;
+    right: auto;
+  }
+
+  .desktop-nav-menu:not(.underline).leave-right::after {
+    right: 0;
+    width: 0;
+    left: auto;
+  }
+
+  .active-link {
+    color: rgba(144, 85, 255, 0.8); /* --color-purple with 80% opacity */
+    text-decoration-color: rgba(
+      144,
+      85,
+      255,
+      0.8
+    ); /* Same color for underline */
+  }
+
+  .desktop-nav-actions {
+    @apply hidden lg:flex items-center;
+  }
+
+  .desktop-nav-actions-btn {
+    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+    color: var(--color-white);
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .desktop-nav-actions-btn:hover {
+    opacity: 0.87;
+    cursor: pointer;
+  }
+
+  .mobile-nav-btn {
+    @apply lg:hidden text-[var(--color-purple)] cursor-pointer z-[101] transition-transform duration-600 ease-in-out;
+  }
+
+  .mobile-nav-container {
+    @apply fixed inset-0 bg-white/97 z-[100] top-0 left-0 h-full w-full bg-white z-[999] overflow-x-hidden transition-transform duration-500 ease-in-out;
+  }
+
+  .mobile-nav-container-menu {
+    @apply py-2 px-4 rounded-3xl text-base md:text-lg lg:text-base transition-all duration-300;
+  }
+
   body {
     font-family: 'Space Grotesk';
   }
@@ -137,11 +259,11 @@
 @layer utilities {
   /* about */
   .container {
-    @apply w-[90%] md:w-[85%] mx-auto py-4;
+    @apply relative w-[90%] md:w-[85%] mx-auto py-4;
   }
 
   .banner-container {
-    @apply relative h-24 md:h-54 lg:h-74;
+    @apply relative h-24 md:h-54 lg:h-74 mt-11 md:mt-15;
   }
 
   .banner-img {
@@ -358,5 +480,11 @@
   .level-btn:hover {
     opacity: 0.87;
     cursor: pointer;
+  }
+}
+
+@media (max-height: 600px) {
+  .height-6 {
+    @apply space-y-0.5;
   }
 }
