@@ -21,7 +21,7 @@ export default function AnimateOnScroll({
   threshold = 0.2,
   animationClasses = 'opacity-0 translate-y-10', // Classes when out of view
   inViewClasses = 'opacity-100 translate-y-0', // Classes when in view
-  transition = 'transition-all duration-1500 ease-out', // Common transition
+  transition = 'transition-all duration-1000 ease-out', // Common transition
   delay = '', // Optional delay, e.g., 'delay-200'
   className = '', // Additional classes for the wrapper
   ...props // Pass any other props like id, data-testid etc. to the wrapper div

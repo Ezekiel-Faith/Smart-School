@@ -1,4 +1,4 @@
-import Admission from "./pages/Admission";
+import Admission from './pages/Admission';
 
 function App() {
   return (
