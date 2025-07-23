@@ -52,7 +52,7 @@ export function GallerySection() {
   ];
 
   return (
-    <div ref={galleryRef}>
+    <div ref={galleryRef} >
       <div className='grid grid-cols-1  lg:grid-cols-3 gap-4 gallery'>
         {Images.map((image, index) => {
           const animationClass =
