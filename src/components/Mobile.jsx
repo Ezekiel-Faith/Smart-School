@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { NavLinks } from '@/constants/properties';
+import { NavLinks } from '@/constants/navlinks';
 
 export default function MobileNav({ isOpen, toggleMenu }) {
   const location = useLocation();

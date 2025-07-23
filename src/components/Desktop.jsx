@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import logo from '../asset/logo.png';
-import { NavLinks } from '@/constants/properties';
+import { NavLinks } from '@/constants/navlinks';
 
 export default function DesktopNav() {
   const [entryDirection, setEntryDirection] = useState({});

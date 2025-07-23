@@ -19,9 +19,13 @@
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+<<<<<<< HEAD
     "react-icons": "^5.5.0",
     "react-intersection-observer": "^9.16.0",
     "react-router-dom": "^7.7.0",
+=======
+    "react-intersection-observer": "^9.16.0",
+>>>>>>> gallery
     "tailwind-merge": "^3.3.0",
     "tailwindcss": "^4.1.8"
   },
