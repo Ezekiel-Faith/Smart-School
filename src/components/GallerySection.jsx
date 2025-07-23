@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import '../Gallery.css';
 import { Images } from '../constants/properties';
 
-export function Gallery() {
+export function GallerySection() {
   const [selectedImage, setSelectedImage] = useState(null);
   const [isZoomed, setIsZoomed] = useState(false);
   const galleryRef = useRef(null);
@@ -45,13 +45,18 @@ export function Gallery() {
   };
 
   // Animation cycle
-  const animationClasses = ['animate-fadeInLeft', 'animate-fadeInRight', 'animate-fadeInDown'];
+  const animationClasses = [
+    'animate-fadeInLeft',
+    'animate-fadeInRight',
+    'animate-fadeInDown',
+  ];
 
   return (
     <div ref={galleryRef}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 gallery">
+      <div className='grid grid-cols-1  lg:grid-cols-3 gap-4 gallery'>
         {Images.map((image, index) => {
-          const animationClass = animationClasses[index % animationClasses.length];
+          const animationClass =
+            animationClasses[index % animationClasses.length];
 
           return (
             <div
@@ -64,7 +69,7 @@ export function Gallery() {
               <img
                 src={image.src}
                 alt={image.alt}
-                className="w-full h-auto object-cover transition-transform duration-500 hover:scale-105"
+                className='w-full h-auto object-cover transition-transform duration-500 hover:scale-105'
                 style={{ aspectRatio: 'full' }}
               />
             </div>
@@ -79,9 +84,9 @@ export function Gallery() {
           }`}
           onClick={closeZoom}
         >
-          <div className="relative max-w-auto w-fit max-h-auto overflow-hidden">
+          <div className='relative max-w-auto w-fit max-h-auto overflow-hidden'>
             <button
-              className="absolute top-4 right-4 text-white text-3xl z-50 hover:text-gray-300 transition-colors"
+              className='absolute top-4 right-4 text-white text-3xl z-50 hover:text-gray-300 transition-colors'
               onClick={closeZoom}
             >
               &times;
@@ -93,7 +98,9 @@ export function Gallery() {
                 isZoomed ? 'scale-100' : 'scale-90'
               }`}
             />
-            <p className="text-white text-center mt-2 text-lg">{selectedImage.alt}</p>
+            <p className='text-white text-center mt-2 text-lg'>
+              {selectedImage.alt}
+            </p>
           </div>
         </div>
       )}
