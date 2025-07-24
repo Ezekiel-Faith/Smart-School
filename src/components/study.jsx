@@ -6,12 +6,28 @@ export default function Study() {
   return (
     <section className='about-hero'>
       <AnimateOnScroll
+        threshold={0.5}
+        animationClasses='opacity-0 -translate-y-5'
+        inViewClasses='opacity-100 translate-y-0'
+        className='about-hero-text-container'
+      >
+        <div>
+          <h2 className='about-head-title-color about-head-title-text'>
+            Admission Is On Now
+          </h2>
+          <p className='about-head-title-color about-head-title-paragraph'>
+            2025/2026 Session
+          </p>
+        </div>
+      </AnimateOnScroll>
+
+      <AnimateOnScroll
         inViewClasses='opacity-100 translate-y-10'
         animationClasses='opacity-0 translate-y-30'
         transition='transition-all duration-700 ease-out'
       >
-        <div className='flex flex-col items-center justify-center space-y-5'>
-          <h1 className=' about-head-title-color about-head-title-text'>
+        <div className='flex flex-col items-center justify-center space-y-5 -mt-10'>
+          <h1 className='about-head-title-text text-[var(--color-gray-700)]'>
             {StudentProperties.heading}
           </h1>
           <p className='about-hero-content-paragraph text-[var(--color-gray-700)]'>
