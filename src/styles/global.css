@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+.txt {
+  background: var(
+    --Purple-blend,
+    linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-txt {
+  background: var(
+    --Yellow-and-Gold,
+    linear-gradient(46deg, #ffa600 28.24%, #f70 84.64%, #ff2a00 116.48%)
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+}
+.hero-txt::before {
+  content: '';
+  position: absolute;
+  left: -15px;
+  top: 0;
+  bottom: 0;
+  width: 8px;
+  background: var(
+    --Yellow-and-Gold,
+    linear-gradient(46deg, #ffa600 28.24%, #f70 84.64%, #ff2a00 116.48%)
+  );
+  border-radius: 2px;
+}
+.admission-container {
+  background: var(--Soft-White, #fefffb);
+  margin: 2rem auto;
+}
+.form-container {
+  background-image: url('../assets/image 6.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.subscribe-form {
+  padding: 3px 4px 4px 20px;
+  background: var(
+    --Purple-blend,
+    linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%)
+  );
+}
+.download-btn {
+  transition: all ease-in-out 0.4s;
+}
+.download-btn:hover {
+  opacity: 0.9;
+}
+.email-input {
+  color: var(--primary-100, #f1f1f1);
+  font-family: 'Arial';
+}
+.submit-btn {
+  background: var(
+    --Purple-blend,
+    linear-gradient(233deg, #b70af0 -127.38%, #28252a -9.59%, #69068a 108.2%)
+  );
+  transition: all ease-in-out 0.4s;
+}
+.submit-btn:hover {
+  opacity: 0.7;
+}
