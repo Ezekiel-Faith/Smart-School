@@ -80,9 +80,9 @@ const Testimonials = () => {
             <p className='text-white text-xl md:text-2xl text-center font-space-grotesk'>What parents are saying about us</p>
           </div>
 
-          <div className='bg-purple-100 w-full pb-16 relative h-120'></div>
+          <div className='bg-purple-100 w-full pb-16 relative h-80 md:h-100'></div>
 
-          <div className="max-w-6xl mx-auto -mt-140 h-100">
+          <div className="max-w-6xl mx-auto -mt-100 md:-mt-120 h-100">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
               spaceBetween={20}
@@ -111,12 +111,12 @@ const Testimonials = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false, amount: 0.3 }}
                     transition={{ duration: 1.2, ease: 'easeOut' }}
-                    className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border-b-[5px] sm:border-b-[6px] md:border-b-[7px] border-purple-500 shadow-lg h-65 mx-12 md:h-85 flex flex-col justify-between"
+                    className="bg-white p-4 sm:p-6 md:p-8 rounded-2xl border-b-[5px] sm:border-b-[6px] md:border-b-[7px] border-purple-500 shadow-lg h-65 mx-12 md:h-90 flex flex-col justify-between"
                   >
-                    <p className="text-purple-700 text-sm sm:text-base md:text-base font-space-grotesk">
+                    <p className="text-purple-700 text-lg sm:text-base md:text-lg font-space-grotesk">
                       “{item.text}”
                     </p>
-                    <p className="text-purple-700 font-semibold text-center pl-4 sm:pl-8 text-xs sm:text-sm pt-10 font-space-grotesk">
+                    <p className="text-purple-700 font-semibold text-center pl-4 sm:pl-8 text-base sm:text-sm md:text-lg lg:text-sm pt-10 font-space-grotesk">
                       — {item.author}
                     </p>
                   </motion.div>

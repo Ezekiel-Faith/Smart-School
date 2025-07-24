@@ -81,6 +81,7 @@
   --color-primary-color: #facc15;
   --color-pink: #ed7884;
   --color-purple: #9055ff;
+  --color-gray-700: #374151;
 }
 
 .dark {
@@ -127,10 +128,26 @@
   body {
     font-family: 'Space Grotesk';
   }
-   /* about */
+   /* home */
   .about-container {
     @apply w-[90%] md:w-[85%] mx-auto py-4;
   }
+  .about-head-title-color {
+    background: linear-gradient(
+      233deg,
+      var(--color-pink) -127.38%,
+      var(--color-purple) 108.2%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+  }
+
+ .about-hero-content-paragraph {
+    @apply md:leading-relaxed md:text-justify md:text-2xl lg:text-base;
+  }
+
 }
 
 

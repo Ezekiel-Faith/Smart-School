@@ -71,8 +71,8 @@ const WhySmartSchool = () => {
               custom={index}
             >
               <img src={item.img} alt={`why-img-${index + 1}`} className="mb-5" />
-              <h2 className='font-space-grotesk font-bold text-xl md:text-2xl mb-5'>{item.title}</h2>
-              <p className='font-space-grotesk'>{item.desc}</p>
+              <h2 className='font-space-grotesk text-gray-500 font-bold text-xl md:text-2xl mb-5'>{item.title}</h2>
+              <p className='font-space-grotesk text-gray-500 text-lg md:text-xl lg:text-base'>{item.desc}</p>
             </motion.div>
           ))}
         </div>
