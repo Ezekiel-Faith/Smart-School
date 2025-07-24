@@ -14,11 +14,15 @@ export default function DownloadNews() {
         transition='transition-all duration-700 ease-out'
       >
         <section>
-          <div className='form-container p-10 flex flex-col items-center justify-center gap-3 md:w-auto md:m-10 md:p-30'>
+          <div className='form-container p-10 flex flex-col items-center justify-center'>
             <h1 className='text-center text-white font-[600] text-[31px] normal-case leading-[37.2px] font-project md:mb-20 mb-10'>
               {DownloadProperties.title}
             </h1>
-            <button className='text-center text-white font-project cursor-pointer inline-flex px-[27px] py-[11px] text-[13px] md:text-2xl md:py-[12px] md:px-[24px] justify-center items-center gap-[10px] rounded-[24px] bg-gradient-to-r from-[#D30000] to-[#222] download-btn'>
+            {/* ---> VIEW THE SVG AND THE TEXT ON SMALL SCREEN AND SEE THE DIFFERENCE ON LARGE SCREE, KINDLY FIX THIS
+
+                ---> ALSO THE SUBSCRIBE, REMOVE THE MARGIN(MX) LEFT AND RIGHT
+            */}
+            <button className='text-center text-white font-project cursor-pointer inline-flex px-5 py-5 text-[13px] md:text-xl justify-center items-center gap-[10px] rounded-[24px] bg-gradient-to-r from-[#D30000] to-[#222] download-btn'>
               <svg
                 xmlns='http://www.w3.org/2000/svg'
                 width='16'

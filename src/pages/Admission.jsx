@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import '../styles/global.css';
 import Banner from '@/components/Banner';
-import Study from '@/components/study';
+import Study from '@/components/Study';
 import DownloadNews from '@/components/News';
 
 export default function Admission() {

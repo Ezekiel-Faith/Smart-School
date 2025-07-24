@@ -131,6 +131,7 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk';
   }
 }
 
@@ -168,10 +169,6 @@
     @apply my-5 md:my-10;
   }
 
-  .about-hero-text-container {
-    @apply text-center mb-5 lg:mb-10;
-  }
-
   .about-head-title-color {
     background: linear-gradient(
       233deg,
@@ -190,5 +187,18 @@
 
   .about-hero-content-paragraph {
     @apply md:leading-relaxed md:text-justify;
+  }
+
+  .desktop-nav-actions-btn {
+    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+    color: var(--color-white);
+    padding: 10px 30px;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .desktop-nav-actions-btn:hover {
+    opacity: 0.87;
+    cursor: pointer;
   }
 }
