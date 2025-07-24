@@ -188,7 +188,7 @@
     @apply text-2xl md:text-4xl lg:text-5xl font-bold mb-0 md:mb-2;
   }
 
-  .about-head-title-paragraph {
-    @apply text-lg md:text-xl font-semibold;
+  .about-hero-content-paragraph {
+    @apply md:leading-relaxed md:text-justify;
   }
 }
