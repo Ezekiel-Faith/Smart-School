@@ -1,16 +1,16 @@
-import ImageSlider from '@/Component/imageSlider';
-import MarqueeSection from '@/Component/MarqueeSection';
-import Mission from '@/Component/Mission';
-import Principal from '@/Component/Principal';
-import SliderButton from '@/Component/sliderButton';
-import Testimonials from '@/Component/Testimonials';
-import Vission from '@/Component/Vission';
-import WhySmartSchool from '@/Component/whySmartSchool';
+import ImageSlider from '@/components/imageSlider';
+import MarqueeSection from '@/components/MarqueeSection';
+import Mission from '@/components/Mission';
+import Principal from '@/components/Principal';
+import SliderButton from '@/components/sliderButton';
+import Testimonials from '@/components/Testimonials';
+import Vission from '@/components/Vission';
+import WhySmartSchool from '@/components/whySmartSchool';
 import React from 'react';
 
 const Home = () => {
   return (
-    <d>
+    <>
       <ImageSlider />
       <SliderButton />
       <MarqueeSection />
@@ -23,7 +23,7 @@ const Home = () => {
       </div>
 
       <Testimonials />
-    </d>
+    </>
   );
 };
 

@@ -115,7 +115,7 @@ export default function DownloadNews() {
           </AnimateOnScroll>
 
           {/* Newsletter Section */}
-          <div className='w-full relative md:flex lg:flex-row flex-col items-center faq-container py-10 px-5 md:px-10 mt-20 justify-between rounded-[8px] bg-black'>
+          <div className='w-full mb-10 relative md:flex lg:flex-row flex-col items-center faq-container py-10 px-5 md:px-10 mt-20 justify-between rounded-[8px] bg-black'>
             <div className='subscribe-header mx-5 mb-10 lg:w-1/2'>
               <h1 className='self-stretch md:text-[29px] text-2xl text-white normal-case font-[700] leading-[30px] font-project mb-5 md:mb-10'>
                 {SubscribeProperties.header}

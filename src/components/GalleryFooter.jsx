@@ -2,7 +2,7 @@ import React from 'react';
 import { footerProperties } from '../constants/properties';
 import AnimateOnScroll from './AnimateOnScroll';
 
-export function Footer() {
+export function GalleryFooter() {
   return (
     <AnimateOnScroll className='flex items-center justify-center mt-3 md:mt-5'>
       <div className='relative w-full max-w-4xl sm:px-4'>

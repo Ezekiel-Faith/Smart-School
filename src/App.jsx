@@ -7,6 +7,7 @@ import NavBar from './pages/NavBar';
 import Admission from './pages/Admission';
 import Gallery from './pages/Gallery';
 import Home from './pages/Home';
+import Footer from './pages/Footer';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path='/gallery' element={<Gallery />} />
         <Route path='/admission' element={<Admission />} />
       </Routes>
+      <Footer />
     </>
   );
 }
