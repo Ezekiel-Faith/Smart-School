@@ -1,6 +1,6 @@
 import React from 'react';
-import FooterTop from './Component/FooterTop';
-import FooterDwn from './Component/FooterDwn';
+import FooterTop from './components/FooterTop';
+import FooterDwn from './components/FooterDwn';
 
 const Footer = () => {
   return (
