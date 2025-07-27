@@ -278,6 +278,22 @@
   .mobile-accordion-content a {
     @apply md:text-base;
   }
+
+  .footer-down-main-container {
+    @apply flex items-center justify-center space-y-5 lg:space-y-0 flex-col lg:flex-row w-full text-white;
+  }
+
+  .columns {
+    @apply mb-5 lg:mb-0 w-full;
+  }
+
+  .columns-paragraph {
+    @apply text-sm md:text-base text-center;
+  }
+
+  .left-column-icon {
+    @apply text-4xl;
+  }
 }
 
 @layer utilities {
