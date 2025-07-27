@@ -1,6 +1,5 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Link } from 'react-router-dom';
 import logo from '../Asset/school-logo.png';
 import MobileFooter from './MobileFooter';
 import DesktopFooter from './DesktopFooter';

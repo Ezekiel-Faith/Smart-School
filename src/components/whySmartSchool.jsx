@@ -1,7 +1,7 @@
 import React from 'react';
 import underline from '../Asset/title_shape-underline.jpg';
 import why1 from '../Asset/why-img-1.jpg';
-import why2 from '../Asset/why-img-1.jpg'; // Note: why2 and why1 are the same image, as per your code
+import why2 from '../Asset/why-img-1.jpg';
 import why3 from '../Asset/why-img-2.jpg';
 import why4 from '../Asset/why-img-3.jpg';
 import why5 from '../Asset/why-img-4.jpg';
