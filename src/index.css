@@ -122,9 +122,9 @@
     font-family: 'Space Grotesk';
   }
   .footer-head {
-    @apply text-white text-lg font-bold mb-3;
+    @apply text-white  text-lg font-bold mb-4 ;
   }
   .quick-link {
-    @apply text-gray-400 mb-1 font-medium text-sm;
+    @apply text-gray-400  font-medium text-sm;
   }
 }
