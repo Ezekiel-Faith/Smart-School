@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * Represents a Frequently Asked Question (FAQ) item in the database.
+ * This entity will store the question and its corresponding answer.
+ */
 @Entity
 @Table(name = "faqs")
 @Data

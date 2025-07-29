@@ -5,6 +5,11 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
+/**
+ * Represents a Testimonial from a parent or guardian in the database.
+ * This entity will store the testimonial text and the author's name.
+ */
 @Entity
 @Table(name = "testimonials")
 @Data
@@ -13,12 +18,12 @@ import lombok.NoArgsConstructor;
 public class Testimonial {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto-increments the ID for new entities
     private Long id;
 
-    @Column(nullable = false, columnDefinition = "TEXT")
-    private String testimony;
+    @Column(nullable = false, columnDefinition = "TEXT") //Column for the testimonial text
+    private String testimonialText;
 
-    @Column(nullable = false, length = 255)
+    @Column(nullable = false, length = 255) //Column for the author's name
     private String author;
 }
