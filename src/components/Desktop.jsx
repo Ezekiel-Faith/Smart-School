@@ -71,7 +71,7 @@ export default function DesktopNav() {
       </nav>
 
       <div className='desktop-nav-actions'>
-        <button className='desktop-nav-actions-btn'>Register</button>
+        <button className='desktop-nav-actions-btn'>Login</button>
       </div>
     </>
   );

@@ -174,7 +174,7 @@ const Testimonials = () => {
             </div>
 
             {/* STYLES */}
-            <style jsx>{`
+            <style>{`
               .custom-pagination-wrapper {
                 background-color: transparent;
                 border-radius: 9999px;
