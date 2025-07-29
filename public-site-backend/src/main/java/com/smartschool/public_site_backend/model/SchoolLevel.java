@@ -27,12 +27,12 @@ public class SchoolLevel {
     @Column(nullable = false, columnDefinition = "TEXT") //description of the program
     private String description;
 
-    @Column(length = 2048) // URL to an image representing this school level (optional, as per our discussion)
+    @Column(length = 2048) //URL to an image representing this school level
     private String imageUrl;
 
-    @Column(nullable = false, length = 100) // Text for the download button (e.g., "Download Curriculum")
+    @Column(nullable = false, length = 100) //text for the download button
     private String buttonText;
 
-    @Column(length = 2048) // URL to the downloadable curriculum file (e.g., PDF)
+    @Column(length = 2048) //URL to the downloadable curriculum file
     private String curriculumDownloadUrl;
 }
