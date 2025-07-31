@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Exposes API endpoints for receiving newsletter subscription requests from the public website.
  */
 @RestController
-@RequestMapping("newsletter")
+@RequestMapping("/public/newsletter")
 public class NewsletterController {
 
     @Autowired

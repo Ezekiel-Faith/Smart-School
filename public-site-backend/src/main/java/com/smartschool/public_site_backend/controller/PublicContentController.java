@@ -18,7 +18,7 @@ import java.util.Optional;
  * Exposes API endpoints for fetching various text blocks for the public website.
  */
 @RestController
-@RequestMapping("/public-content")
+@RequestMapping("/public/public-content")
 public class PublicContentController {
 
     @Autowired

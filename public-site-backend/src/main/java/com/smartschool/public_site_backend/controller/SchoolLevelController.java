@@ -18,7 +18,7 @@ import java.util.Optional;
  * Exposes API endpoints for fetching academic program data for the public website.
  */
 @RestController
-@RequestMapping("/school-levels")
+@RequestMapping("/public/school-levels")
 public class SchoolLevelController {
 
     @Autowired

@@ -17,7 +17,7 @@ import java.util.Optional;
  * Exposes API endpoints for fetching testimonial data for the public website.
  */
 @RestController
-@RequestMapping("/testimonials") //base path for all endpoints in this controller class
+@RequestMapping("/public/testimonials") //base path for all endpoints in this controller class
 public class TestimonialController {
 
     @Autowired

@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Exposes API endpoints for receiving contact messages from the public website.
  */
 @RestController
-@RequestMapping("/contact")
+@RequestMapping("/public/contact")
 public class ContactController {
 
     @Autowired

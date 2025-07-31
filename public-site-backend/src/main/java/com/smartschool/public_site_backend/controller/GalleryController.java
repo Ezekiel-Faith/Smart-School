@@ -18,7 +18,7 @@ import java.util.Optional;
  * Exposes API endpoints for fetching gallery data for the public website.
  */
 @RestController
-@RequestMapping("/gallery") //base path for all endpoints in this controller class
+@RequestMapping("/public/gallery") //base path for all endpoints in this controller class
 public class GalleryController {
 
     @Autowired

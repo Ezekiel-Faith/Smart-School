@@ -18,7 +18,7 @@ import java.util.Optional;
  * Exposes API endpoints for fetching FAQ data for the public website.
  */
 @RestController
-@RequestMapping("/faqs") //base path for all endpoints in this controller class
+@RequestMapping("public/faqs") //base path for all endpoints in this controller class
 public class FaqController {
 
     @Autowired
