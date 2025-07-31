@@ -24,7 +24,7 @@ public class TestimonialService {
      * Retrieves all testimonials from the database.
      * @return A list of all Testimonial objects.
      */
-    public List<Testimonial> getTestimonials() {
+    public List<Testimonial> getAllTestimonials() {
         return testimonialRepository.findAll();
     }
 
