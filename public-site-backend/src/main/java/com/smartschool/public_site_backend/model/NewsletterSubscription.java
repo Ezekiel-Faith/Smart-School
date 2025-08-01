@@ -28,4 +28,7 @@ public class NewsletterSubscription {
 
     @Column(nullable = false) //timestamp of the subscription
     private LocalDateTime subscriptionDate = LocalDateTime.now();
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

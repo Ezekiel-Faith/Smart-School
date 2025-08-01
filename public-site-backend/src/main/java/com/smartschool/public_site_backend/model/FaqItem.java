@@ -26,4 +26,7 @@ public class FaqItem {
 
     @Column(nullable = false, columnDefinition = "TEXT") //column for answers, uses TEXT type for longer content
     private String answer;
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

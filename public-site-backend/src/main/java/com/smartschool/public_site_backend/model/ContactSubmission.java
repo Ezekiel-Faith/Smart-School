@@ -40,4 +40,7 @@ public class ContactSubmission {
 
     @Column(nullable = false) //flag to track if the submission has been read by an admin
     private boolean isRead = false;
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

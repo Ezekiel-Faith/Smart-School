@@ -36,4 +36,7 @@ public class PublicContent {
 
     @Column //timestamp of the last update
     private LocalDateTime lastUpdated = LocalDateTime.now();
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

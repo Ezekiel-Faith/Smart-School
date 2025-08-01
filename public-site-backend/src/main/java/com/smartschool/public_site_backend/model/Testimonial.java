@@ -26,4 +26,7 @@ public class Testimonial {
 
     @Column(nullable = false, length = 255) //Column for the author's name
     private String author;
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

@@ -36,4 +36,7 @@ public class GalleryItem {
 
     @Column(nullable = false) //timestamp when the item was uploaded/added
     private LocalDateTime uploadDate = LocalDateTime.now();
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }

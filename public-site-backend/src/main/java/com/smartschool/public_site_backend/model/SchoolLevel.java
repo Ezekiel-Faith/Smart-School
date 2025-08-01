@@ -35,4 +35,7 @@ public class SchoolLevel {
 
     @Column(length = 2048) //URL to the downloadable curriculum file
     private String curriculumDownloadUrl;
+
+    @Column(nullable = false)
+    private Long schoolId; // The discriminator column for multi-tenancy
 }
