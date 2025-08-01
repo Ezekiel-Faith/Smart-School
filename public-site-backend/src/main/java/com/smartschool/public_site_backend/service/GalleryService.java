@@ -5,72 +5,97 @@ import com.smartschool.public_site_backend.model.GalleryItem;
 import com.smartschool.public_site_backend.repository.GalleryItemRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for managing Gallery items.
- * Handles business logic related to fetching and potentially managing gallery images.
+ * Service class for managing GalleryItem entities.
+ * Handles business logic and data retrieval for the public gallery section.
+ * All methods now require a schoolId to ensure data is scoped correctly for each tenant.
  */
 @Service
 public class GalleryService {
 
+    private final GalleryItemRepository galleryItemRepository;
+
     @Autowired
-    private GalleryItemRepository galleryItemRepository;
-
-    /**
-     * Retrieves all gallery items from the database.
-     * @return A list of all GalleryItem objects.
-     */
-    public List<GalleryItem> getAllGalleryItem() {
-        return galleryItemRepository.findAll();
+    public GalleryService(GalleryItemRepository galleryItemRepository) {
+        this.galleryItemRepository = galleryItemRepository;
     }
 
     /**
-     * Retrieves a single gallery item by its ID.
-     * @param id The ID of the gallery item to retrieve.
-     * @return An Optional containing the GalleryItem if found, or empty if not.
+     * Retrieves all gallery items for a given school.
+     * @param schoolId The ID of the school.
+     * @return A list of GalleryItem entities.
      */
-    public Optional<GalleryItem> getGalleryItemById(Long id) {
-        return galleryItemRepository.findById(id);
+    public List<GalleryItem> getAllGalleryItems(Long schoolId) {
+        return galleryItemRepository.findBySchoolId(schoolId);
     }
 
     /**
-     * Adds a new gallery item.
-     * This method would typically be used by an administrative interface.
-     * @param galleryItem The GalleryItem object to save.
-     * @return The saved GalleryItem object.
+     * Retrieves all gallery items for a given school, filtered by category.
+     * @param schoolId The ID of the school.
+     * @param category The category to filter by.
+     * @return A list of GalleryItem entities.
      */
-    public GalleryItem addGalleryItem(GalleryItem galleryItem){
+    public List<GalleryItem> getGalleryItemsByCategory(Long schoolId, String category) {
+        return galleryItemRepository.findBySchoolIdAndCategory(schoolId, category);
+    }
+
+    /**
+     * Retrieves a single gallery item by its ID for a given school.
+     * @param schoolId The ID of the school.
+     * @param id The ID of the gallery item.
+     * @return An Optional containing the GalleryItem if found, otherwise empty.
+     */
+    public Optional<GalleryItem> getGalleryItemById(Long schoolId, Long id) {
+        return Optional.ofNullable(galleryItemRepository.findBySchoolIdAndId(schoolId, id));
+    }
+
+    /**
+     * Creates a new gallery item for a given school.
+     * @param schoolId The ID of the school.
+     * @param galleryItem The GalleryItem entity to be created.
+     * @return The newly created GalleryItem.
+     */
+    public GalleryItem createGalleryItem(Long schoolId, GalleryItem galleryItem) {
+        galleryItem.setSchoolId(schoolId);
         return galleryItemRepository.save(galleryItem);
     }
 
     /**
-     * Updates an existing gallery item.
-     * This method would typically be used by an administrative interface.
+     * Updates an existing gallery item for a given school.
+     * @param schoolId The ID of the school.
      * @param id The ID of the gallery item to update.
-     * @param updatedGalleryItem The GalleryItem object with updated details.
-     * @return An Optional containing the updated GalleryItem if found and updated, or empty if not found.
+     * @param updatedGalleryItem The GalleryItem entity with updated information.
+     * @return The updated GalleryItem, or an empty Optional if not found.
      */
-    public Optional<GalleryItem> updateGalleryItem(Long id, GalleryItem updatedGalleryItem) {
-        return galleryItemRepository.findById(id)
-                .map(galleryItem -> {
-                    galleryItem.setTitle(updatedGalleryItem.getTitle());
-                    galleryItem.setDescription(updatedGalleryItem.getDescription());
-                    galleryItem.setImageUrl(updatedGalleryItem.getImageUrl());
-                    galleryItem.setCategory(updatedGalleryItem.getCategory());
-
-                    return galleryItemRepository.save(galleryItem);
+    @Transactional
+    public Optional<GalleryItem> updateGalleryItem(Long schoolId, Long id, GalleryItem updatedGalleryItem) {
+        return Optional.ofNullable(galleryItemRepository.findBySchoolIdAndId(schoolId, id))
+                .map(existingItem -> {
+                    existingItem.setTitle(updatedGalleryItem.getTitle());
+                    existingItem.setDescription(updatedGalleryItem.getDescription());
+                    existingItem.setImageUrl(updatedGalleryItem.getImageUrl());
+                    existingItem.setCategory(updatedGalleryItem.getCategory());
+                    return galleryItemRepository.save(existingItem);
                 });
     }
 
     /**
-     * Deletes a gallery item by its ID.
-     * This method would typically be used by an administrative interface.
+     * Deletes a gallery item for a given school.
+     * @param schoolId The ID of the school.
      * @param id The ID of the gallery item to delete.
+     * @return true if the item was deleted, false otherwise.
      */
-    public void deleGalleryItem(Long id) {
-        galleryItemRepository.deleteById(id);
+    @Transactional
+    public boolean deleteGalleryItem(Long schoolId, Long id) {
+        if (galleryItemRepository.findBySchoolIdAndId(schoolId, id) != null) {
+            galleryItemRepository.deleteBySchoolIdAndId(schoolId, id);
+            return true;
+        }
+        return false;
     }
 }

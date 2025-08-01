@@ -5,64 +5,77 @@ import com.smartschool.public_site_backend.model.NewsletterSubscription;
 import com.smartschool.public_site_backend.repository.NewsletterSubscriptionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for managing Newsletter Subscriptions.
- * Handles business logic related to saving and retrieving subscriber emails.
+ * Service class for managing NewsletterSubscription entities.
+ * Handles business logic for newsletter sign-ups.
+ * All methods now require a schoolId to ensure data is scoped correctly for each tenant.
  */
 @Service
 public class NewsletterService {
 
+    private final NewsletterSubscriptionRepository newsletterSubscriptionRepository;
+
     @Autowired
-    private NewsletterSubscriptionRepository newsletterSubscriptionRepository;
+    public NewsletterService(NewsletterSubscriptionRepository newsletterSubscriptionRepository) {
+        this.newsletterSubscriptionRepository = newsletterSubscriptionRepository;
+    }
 
     /**
-     * Subscribes a new email to the newsletter.
-     * Checks if the email already exists before saving.
-     * @param email The email address to subscribe.
-     * @return The saved NewsletterSubscription object, or null if the email already exists.
+     * Retrieves all newsletter subscriptions for a given school.
+     * @param schoolId The ID of the school.
+     * @return A list of all NewsletterSubscription entities.
      */
-    public NewsletterSubscription subscribeNewsletter(String email) {
-        // Check if email already exists to prevent duplicates
-        if (newsletterSubscriptionRepository.findByEmail(email).isPresent()) {
-            throw new IllegalArgumentException("Email already subscribed.");
+    public List<NewsletterSubscription> getAllSubscriptions(Long schoolId) {
+        return newsletterSubscriptionRepository.findBySchoolId(schoolId);
+    }
+
+    /**
+     * Retrieves a single newsletter subscription by its ID for a given school.
+     * @param schoolId The ID of the school.
+     * @param id The ID of the subscription.
+     * @return An Optional containing the NewsletterSubscription if found, otherwise empty.
+     */
+    public Optional<NewsletterSubscription> getSubscriptionById(Long schoolId, Long id) {
+        return newsletterSubscriptionRepository.findBySchoolIdAndId(schoolId, id);
+    }
+
+    /**
+     * Creates a new newsletter subscription for a given school.
+     * Checks if the email is already subscribed for that school before creating.
+     * @param schoolId The ID of the school.
+     * @param email The email to subscribe.
+     * @return An Optional containing the newly created NewsletterSubscription if successful, otherwise empty.
+     */
+    public Optional<NewsletterSubscription> createSubscription(Long schoolId, String email) {
+        // Check if a subscription with this email already exists for this school
+        if (newsletterSubscriptionRepository.findBySchoolIdAndEmail(schoolId, email).isPresent()) {
+            return Optional.empty(); // Subscription already exists, return empty
         }
 
-        NewsletterSubscription subscription = new NewsletterSubscription();
-        subscription.setEmail(email);
-        subscription.setSubscriptionDate(LocalDateTime.now());
-        return newsletterSubscriptionRepository.save(subscription);
+        NewsletterSubscription newSubscription = new NewsletterSubscription();
+        newSubscription.setSchoolId(schoolId);
+        newSubscription.setEmail(email);
+        return Optional.of(newsletterSubscriptionRepository.save(newSubscription));
     }
 
     /**
-     * Retrieves all newsletter subscriptions.
-     * This method would typically be an administrative function.
-     * @return A list of all NewsletterSubscription objects.
-     */
-    public List<NewsletterSubscription> getAllSubscriptions() {
-        return newsletterSubscriptionRepository.findAll();
-    }
-
-    /**
-     * Retrieves a single subscription by its ID.
-     * This method would typically be an administrative function.
-     * @param id The ID of the subscription to retrieve.
-     * @return An Optional containing the NewsletterSubscription if found, or empty if not.
-     */
-    public Optional<NewsletterSubscription> getSubscriptionById(Long id) {
-        return newsletterSubscriptionRepository.findById(id);
-    }
-
-    /**
-     * Deletes a newsletter subscription by its ID.
-     * This method would typically be an administrative function.
+     * Deletes a newsletter subscription by its ID for a given school.
+     * @param schoolId The ID of the school.
      * @param id The ID of the subscription to delete.
+     * @return true if the subscription was deleted, false otherwise.
      */
-    public void deleteSubscription(Long id) {
-        newsletterSubscriptionRepository.deleteById(id);
+    @Transactional
+    public boolean deleteSubscription(Long schoolId, Long id) {
+        return newsletterSubscriptionRepository.findBySchoolIdAndId(schoolId, id)
+                .map(subscription -> {
+                    newsletterSubscriptionRepository.deleteBySchoolIdAndId(schoolId, id);
+                    return true;
+                }).orElse(false);
     }
 }

@@ -22,7 +22,7 @@ public class Testimonial {
     private Long id;
 
     @Column(nullable = false, columnDefinition = "TEXT") //Column for the testimonial text
-    private String testimonialText;
+    private String text;
 
     @Column(nullable = false, length = 255) //Column for the author's name
     private String author;

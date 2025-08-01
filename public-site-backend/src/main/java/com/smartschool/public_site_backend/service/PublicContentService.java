@@ -4,67 +4,70 @@ import com.smartschool.public_site_backend.model.PublicContent;
 import com.smartschool.public_site_backend.repository.PublicContentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 /**
- * Service class for managing generic Public Content items.
- * Handles business logic related to fetching and managing various text blocks.
+ * Service class for managing PublicContent entities.
+ * All methods now require a schoolId to ensure data is scoped correctly for each tenant.
  */
 @Service
 public class PublicContentService {
 
+    private final PublicContentRepository publicContentRepository;
+
     @Autowired
-    private PublicContentRepository publicContentRepository;
-
-    /**
-     * Retrieves all public content items.
-     * @return A list of all PublicContent objects.
-     */
-    public List<PublicContent> getAllPublicContents(){
-        return publicContentRepository.findAll();
+    public PublicContentService(PublicContentRepository publicContentRepository) {
+        this.publicContentRepository = publicContentRepository;
     }
 
     /**
-     * Retrieves a single public content item by its ID.
-     * @param id The ID of the public content item to retrieve.
-     * @return An Optional containing the PublicContent if found, or empty if not.
+     * Retrieves all public content for a given school.
+     * @param schoolId The ID of the school.
+     * @return A list of PublicContent entities.
      */
-    public Optional<PublicContent> getPublicContentById(Long id) {
-        return publicContentRepository.findById(id);
+    public List<PublicContent> getAllPublicContent(Long schoolId) {
+        return publicContentRepository.findBySchoolId(schoolId);
     }
 
     /**
-     * Retrieves a public content item by its unique identifier.
-     * This is useful for fetching specific content blocks like "home-mission" or "marquee-text".
-     * @param identifier The unique identifier of the public content item.
-     * @return An Optional containing the PublicContent if found, or empty if not.
+     * Retrieves a single public content item by its identifier for a given school.
+     * @param schoolId The ID of the school.
+     * @param identifier The unique identifier of the content item.
+     * @return An Optional containing the PublicContent if found, otherwise empty.
      */
-    public Optional<PublicContent> getPublicContentByIdentifier(String identifier) {
-        return publicContentRepository.findByIdentifier(identifier);
+    public Optional<PublicContent> getPublicContentByIdentifier(Long schoolId, String identifier) {
+        return publicContentRepository.findBySchoolIdAndIdentifier(schoolId, identifier);
     }
 
     /**
-     * Saves a new public content item or updates an existing one.
-     * If an item with the same identifier exists, it will be updated.
-     * This method would typically be used by an administrative interface.
-     * @param publicContent The PublicContent object to save.
-     * @return The saved PublicContent object.
+     * Creates or updates a public content item for a given school.
+     * This method handles both creation and updates.
+     * @param schoolId The ID of the school.
+     * @param publicContent The PublicContent entity to be saved.
+     * @return The newly created or updated PublicContent.
      */
-    public PublicContent savePublicContent(PublicContent publicContent) {
-        // Ensure lastUpdated is set on save/update
-        publicContent.setLastUpdated(LocalDateTime.now());
+    public PublicContent savePublicContent(Long schoolId, PublicContent publicContent) {
+        publicContent.setSchoolId(schoolId);
         return publicContentRepository.save(publicContent);
     }
 
     /**
-     * Deletes a public content item by its ID.
-     * This method would typically be used by an administrative interface.
+     * Deletes a public content item by its ID for a given school.
+     * @param schoolId The ID of the school.
      * @param id The ID of the public content item to delete.
+     * @return true if the item was deleted, false otherwise.
      */
-    public void deletePublicContent(Long id) {
-        publicContentRepository.deleteById(id);
+    @Transactional
+    public boolean deletePublicContent(Long schoolId, Long id) {
+        return publicContentRepository.findById(id)
+                .filter(content -> content.getSchoolId().equals(schoolId))
+                .map(content -> {
+                    publicContentRepository.deleteById(id);
+                    return true;
+                }).orElse(false);
     }
 }

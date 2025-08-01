@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 /**
  * JPA Repository for the ContactSubmission entity.
@@ -16,6 +17,9 @@ public interface ContactSubmissionRepository extends JpaRepository<ContactSubmis
 
     // Retrieves all contact submissions for a specific school
     List<ContactSubmission> findBySchoolId(Long schoolId);
+
+    // Retrieves a single contact submission by its ID and school ID
+    Optional<ContactSubmission> findBySchoolIdAndId(Long schoolId, Long id);
 
     // Deletes a contact submission by its ID and school ID
     void deleteBySchoolIdAndId(Long schoolId, Long id);
