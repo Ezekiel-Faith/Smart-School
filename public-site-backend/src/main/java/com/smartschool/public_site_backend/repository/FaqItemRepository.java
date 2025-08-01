@@ -4,6 +4,7 @@ import com.smartschool.public_site_backend.model.FaqItem;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 
 
 /**
@@ -13,5 +14,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository //marks this interface as a Spring Data JPA repository
 public interface FaqItemRepository extends JpaRepository<FaqItem, Long> {
-    // JpaRepository provides methods like save(), findById(), findAll(), deleteById(), etc.
+    // Retrieves all FAQ items for a specific school
+    List<FaqItem> findBySchoolId(Long schoolId);
+
+    // Retrieves a single FAQ item by its ID and school ID
+    FaqItem findBySchoolIdAndId(Long schoolId, Long id);
+
+    // Deletes an FAQ item by its ID and school ID
+    void deleteBySchoolIdAndId(Long schoolId, Long id);
 }

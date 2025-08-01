@@ -5,6 +5,7 @@ import com.smartschool.public_site_backend.model.PublicContent;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -14,6 +15,12 @@ import java.util.Optional;
  */
 @Repository
 public interface PublicContentRepository extends JpaRepository<PublicContent, Long> {
-    // Custom method to find PublicContent by its unique identifier (e.g., "home-mission", "marquee-text")
-    Optional<PublicContent> findByIdentifier(String identifier);
+    // Retrieves all public content items for a specific school
+    List<PublicContent> findBySchoolId(Long schoolId);
+
+    // Retrieves a public content item by its identifier and school ID
+    Optional<PublicContent> findBySchoolIdAndIdentifier(Long schoolId, String identifier);
+
+    // Deletes a public content item by its ID and school ID
+    void deleteBySchoolIdAndId(Long schoolId, Long id);
 }

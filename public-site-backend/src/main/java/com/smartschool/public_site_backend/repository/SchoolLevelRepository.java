@@ -4,6 +4,7 @@ import com.smartschool.public_site_backend.model.SchoolLevel;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -13,6 +14,15 @@ import java.util.Optional;
  */
 @Repository
 public interface SchoolLevelRepository extends JpaRepository<SchoolLevel, Long> {
-    // Custom method to find a SchoolLevel by its unique title (e.g., "Pre-School", "Primary")
-    Optional<SchoolLevel> findByTitle(String title);
+    // Retrieves all school levels for a specific school
+    List<SchoolLevel> findBySchoolId(Long schoolId);
+
+    // Retrieves a single school level by its ID and school ID, returning an Optional
+    Optional<SchoolLevel> findBySchoolIdAndId(Long schoolId, Long id);
+
+    // Deletes a school level by its ID and school ID
+    void deleteBySchoolIdAndId(Long schoolId, Long id);
+
+    // Find a SchoolLevel by its unique title for a specific school
+    Optional<SchoolLevel> findBySchoolIdAndTitle(Long schoolId, String title);
 }

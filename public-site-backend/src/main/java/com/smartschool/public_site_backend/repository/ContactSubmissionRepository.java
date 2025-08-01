@@ -5,11 +5,18 @@ import com.smartschool.public_site_backend.model.ContactSubmission;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * JPA Repository for the ContactSubmission entity.
  * Provides standard CRUD operations for contact form submissions.
  */
 @Repository
 public interface ContactSubmissionRepository extends JpaRepository<ContactSubmission, Long> {
-    // No custom methods needed for basic contact submission management.
+
+    // Retrieves all contact submissions for a specific school
+    List<ContactSubmission> findBySchoolId(Long schoolId);
+
+    // Deletes a contact submission by its ID and school ID
+    void deleteBySchoolIdAndId(Long schoolId, Long id);
 }

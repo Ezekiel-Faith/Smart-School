@@ -5,6 +5,7 @@ import com.smartschool.public_site_backend.model.NewsletterSubscription;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 /**
@@ -13,6 +14,15 @@ import java.util.Optional;
  */
 @Repository
 public interface NewsletterSubscriptionRepository extends JpaRepository<NewsletterSubscription, Long> {
-    // Custom method to find a subscription by email, useful for checking if an email already exists
-    Optional<NewsletterSubscription> findByEmail(String email);
+    // Retrieves all newsletter subscriptions for a specific school
+    List<NewsletterSubscription> findBySchoolId(Long schoolId);
+
+    // Retrieves a single newsletter subscription by its ID and school ID
+    Optional<NewsletterSubscription> findBySchoolIdAndId(Long schoolId, Long id);
+
+    // Deletes a newsletter subscription by its ID and school ID
+    void deleteBySchoolIdAndId(Long schoolId, Long id);
+
+    // Find a subscription by email for a specific school
+    Optional<NewsletterSubscription> findBySchoolIdAndEmail(Long schoolId, String email);
 }
