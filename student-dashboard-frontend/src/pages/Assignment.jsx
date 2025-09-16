@@ -1,5 +1,10 @@
-import React from 'react';
+import TopPart from "@/components/myComponents/TopPart";
+import React from "react";
 
 export default function Assignment() {
-  return <div className='bg-[var(--color-purple)]'>Assignment</div>;
+  return (
+    <section className="m-5">
+      <TopPart />
+    </section>
+  );
 }
