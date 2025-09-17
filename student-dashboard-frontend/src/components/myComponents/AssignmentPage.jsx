@@ -1,22 +1,23 @@
+// components/myComponents/AssignmentPage.jsx
 import React, { useState } from "react";
 import FilterBar from "./FilterBar";
 import MyPagination from "../shadcn/MyPagination";
 import { Badge } from "../ui/badge";
 import { MdOutlineTimer } from "react-icons/md";
 import Pdf from "../../assets/Frame.svg";
+import UploadModal from "./UploadModal";
 
 const ITEMS_PER_PAGE = 4;
 
-const AssignmentPage = ({ assignments }) => {
+const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
   const [filter, setFilter] = useState("all");
   const [currentPage, setCurrentPage] = useState(1);
+  const [selectedAssignment, setSelectedAssignment] = useState(null);
 
-  // Filter assignments
   const filtered = assignments.filter((a) =>
     filter === "all" ? true : a.status === filter
   );
 
-  // Slice per page
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentAssignments = filtered.slice(
     startIndex,
@@ -25,28 +26,24 @@ const AssignmentPage = ({ assignments }) => {
 
   return (
     <section className="md:max-w-[1072px] md:max-h-[760px] mx-auto">
-      {/* Filter Bar (separate file) */}
       <FilterBar
         filter={filter}
         setFilter={(tab) => {
           setFilter(tab);
-          setCurrentPage(1); // reset page when switching filters
+          setCurrentPage(1);
         }}
       />
 
-      {/* Assignment List */}
       <div className="flex flex-col md:gap-[32px] gap-6">
         {currentAssignments.map((a) => (
           <div
             key={a.id}
             className="lg:p-5 md:p-4 p-2 border rounded-xl shadow-sm flex justify-between items-center "
           >
-            {/* Left: Assignment title + status */}
             <div className="flex lg:gap-4 items-center ">
               <img
                 src={Pdf}
                 alt="pdf icon"
-                typeof="svg"
                 className="w-10 h-10 md:h-auto md:w-auto"
               />
               <div className="flex flex-col gap-2">
@@ -68,14 +65,16 @@ const AssignmentPage = ({ assignments }) => {
               </div>
             </div>
 
-            {/* Right: Actions */}
             <div className="flex lg:gap-3 gap-2 ">
               <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
                 Download
               </button>
 
               {a.status === "pending" ? (
-                <button className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90">
+                <button
+                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90"
+                  onClick={() => setSelectedAssignment(a)}
+                >
                   Upload
                 </button>
               ) : (
@@ -88,7 +87,6 @@ const AssignmentPage = ({ assignments }) => {
         ))}
       </div>
 
-      {/* Pagination */}
       <div className="mt-6 flex justify-center">
         <MyPagination
           totalItems={filtered.length}
@@ -96,6 +94,20 @@ const AssignmentPage = ({ assignments }) => {
           onPageChange={setCurrentPage}
         />
       </div>
+
+      {selectedAssignment && (
+        <UploadModal
+          assignment={selectedAssignment}
+          onClose={() => setSelectedAssignment(null)}
+          // important: we pass an id to the parent updater
+          onUploadComplete={(assignmentId) => {
+            if (typeof onAssignmentCompleted === "function") {
+              onAssignmentCompleted(assignmentId);
+            }
+            setSelectedAssignment(null);
+          }}
+        />
+      )}
     </section>
   );
 };
