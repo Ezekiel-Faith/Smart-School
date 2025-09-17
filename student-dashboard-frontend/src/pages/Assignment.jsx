@@ -26,7 +26,7 @@ export default function Assignment() {
   ).length;
 
   return (
-    <section className="m-5">
+    <section className="md:m-5 m-4">
       {/* ✅ Dynamic counts */}
       <TopPart pendingCount={pendingCount} completedCount={completedCount} />
 

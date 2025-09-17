@@ -58,9 +58,9 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
               e.preventDefault();
               if (currentPage > 1) handlePageChange(currentPage - 1);
             }}
-            className={
+            className={`${
               currentPage === 1 ? "pointer-events-none opacity-50" : ""
-            }
+            } hover:bg-(--color-purple)`}
           />
         </PaginationItem>
 
@@ -82,6 +82,9 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
                   e.preventDefault();
                   handlePageChange(p);
                 }}
+                className={`hover:bg-purple-500 hover:text-white transition-colors duration-200 ${
+                  currentPage === p ? "bg-(--color-purple) text-white" : ""
+                }`}
               >
                 {p}
               </PaginationLink>
@@ -97,9 +100,9 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
               e.preventDefault();
               if (currentPage < totalPages) handlePageChange(currentPage + 1);
             }}
-            className={
+            className={`${
               currentPage === totalPages ? "pointer-events-none opacity-50" : ""
-            }
+            } hover:bg-(--color-purple)`}
           />
         </PaginationItem>
       </PaginationContent>

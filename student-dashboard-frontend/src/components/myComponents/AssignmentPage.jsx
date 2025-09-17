@@ -24,7 +24,7 @@ const AssignmentPage = ({ assignments }) => {
   );
 
   return (
-    <section className="lg:max-w-[1072px] lg:max-h-[760px] mx-auto">
+    <section className="md:max-w-[1072px] md:max-h-[760px] mx-auto">
       {/* Filter Bar (separate file) */}
       <FilterBar
         filter={filter}
@@ -35,25 +35,32 @@ const AssignmentPage = ({ assignments }) => {
       />
 
       {/* Assignment List */}
-      <div className="flex flex-col gap-[32px]">
+      <div className="flex flex-col md:gap-[32px] gap-6">
         {currentAssignments.map((a) => (
           <div
             key={a.id}
-            className="p-4 border rounded-xl shadow-sm flex justify-between items-center"
+            className="lg:p-5 md:p-4 p-2 border rounded-xl shadow-sm flex justify-between items-center "
           >
             {/* Left: Assignment title + status */}
-            <div className="flex -gap-4 items-center">
-              <img src={Pdf} alt="pdf icon" typeof="svg" />
-              <div className="flex flex-col gap-1">
-                <h3 className="font-medium text-[15.059px]">{a.title}</h3>
-                <aside className="flex gap-2 items-center">
+            <div className="flex lg:gap-4 items-center ">
+              <img
+                src={Pdf}
+                alt="pdf icon"
+                typeof="svg"
+                className="w-10 h-10 md:h-auto md:w-auto"
+              />
+              <div className="flex flex-col gap-2">
+                <h3 className="font-medium lg:text-[15.059px] md:text-[16px] text-[11px]">
+                  {a.title}
+                </h3>
+                <aside className="flex lg:gap-3 md:gap-4 gap-1 items-center">
                   <MdOutlineTimer />
                   {a.status === "pending" ? (
-                    <Badge className="bg-(--color-project-red) text-white">
+                    <Badge className="bg-(--color-project-red) text-white md:text-[15px]">
                       Pending
                     </Badge>
                   ) : (
-                    <Badge className="bg-(--color-project-green) text-(--color-darkgray)">
+                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px]">
                       Completed
                     </Badge>
                   )}
@@ -62,17 +69,17 @@ const AssignmentPage = ({ assignments }) => {
             </div>
 
             {/* Right: Actions */}
-            <div className="flex gap-3">
-              <button className="px-[24.2px] py-[11.116px] rounded-[7.53px] bg-gray-100 text-(--color-darkgray) text-[15.059px] hover:bg-gray-200">
+            <div className="flex lg:gap-3 gap-2 ">
+              <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
                 Download
               </button>
 
               {a.status === "pending" ? (
-                <button className="px-[22.6px] py-[11.3px] rounded-[7.529px] bg-(--color-purple) cursor-pointer text-white text-[15.059px] hover:opacity-90">
+                <button className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90">
                   Upload
                 </button>
               ) : (
-                <button className="px-4 py-2 rounded-lg text-[15.059px] bg-green-100 text-green-700 cursor-not-allowed">
+                <button className="lg:px-4 lg:py-2 rounded-md text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] bg-green-100 text-green-700 cursor-not-allowed">
                   Submitted
                 </button>
               )}
