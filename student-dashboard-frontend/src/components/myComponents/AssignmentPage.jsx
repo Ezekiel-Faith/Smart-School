@@ -6,7 +6,7 @@ import { Badge } from "../ui/badge";
 import { MdOutlineTimer } from "react-icons/md";
 import Pdf from "../../assets/Frame.svg";
 import UploadModal from "./UploadModal";
-
+import "@/components/util/css/breakpoint.css";
 const ITEMS_PER_PAGE = 4;
 
 const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
@@ -34,11 +34,11 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
         }}
       />
 
-      <div className="flex flex-col md:gap-[32px] gap-6">
+      <div className="flex flex-col md:gap-[32px] gap-6 holderCss">
         {currentAssignments.map((a) => (
           <div
             key={a.id}
-            className="lg:p-5 md:p-4 p-2 border rounded-xl shadow-sm flex justify-between items-center "
+            className="lg:p-5 md:p-4 p-2 border rounded-xl shadow-sm flex justify-between items-center max-h-[85px] md:min-h-[100px] lg:min-h-[120px]"
           >
             <div className="flex lg:gap-4 items-center ">
               <img
@@ -46,18 +46,18 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
                 alt="pdf icon"
                 className="w-10 h-10 md:h-auto md:w-auto"
               />
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-2 ">
                 <h3 className="font-medium lg:text-[15.059px] md:text-[16px] text-[11px]">
                   {a.title}
                 </h3>
-                <aside className="flex lg:gap-3 md:gap-4 gap-1 items-center">
+                <aside className="flex lg:gap-3 md:gap-4 gap-1 items-center ">
                   <MdOutlineTimer />
                   {a.status === "pending" ? (
-                    <Badge className="bg-(--color-project-red) text-white md:text-[15px] w-[80px]">
+                    <Badge className="bg-(--color-project-red) text-white md:text-[15px] w-[80px] badgeCss">
                       Pending
                     </Badge>
                   ) : (
-                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px] w-[80px]">
+                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px] w-[80px] badgeCss">
                       Completed
                     </Badge>
                   )}
@@ -65,14 +65,14 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
               </div>
             </div>
 
-            <div className="flex lg:gap-3 gap-2 ">
+            <div className="flex lg:gap-3 gap-2 btnHolderCss">
               <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] lg:w-[120px] md:w-[120px] w-[80px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
                 Download
               </button>
 
               {a.status === "pending" ? (
                 <button
-                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] lg:w-[120px] md:w-[120px] w-[80px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90"
+                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] lg:w-[120px] md:w-[120px] w-[80px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90 buttonCss"
                   onClick={() => setSelectedAssignment(a)}
                 >
                   Upload

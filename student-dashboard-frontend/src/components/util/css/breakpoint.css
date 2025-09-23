@@ -1,0 +1,40 @@
+/* ========== Smallest devices: 370px and below ========== */
+@media (max-width: 390px) {
+  /* Container holding assignments */
+  .holderCss {
+    gap: 12px !important; /* tighten spacing */
+    padding: 0.25rem !important; /* reduce padding */
+    /* align-items: center !important; */
+  }
+  .btnHolderCss {
+    align-self: center !important;
+  }
+
+  /* Badge (Pending/Completed) */
+  .badgeCss {
+    font-size: 10px !important;
+    width: 60px !important;
+    padding: 2px 4px !important;
+  }
+
+  /* Upload button (make sure it fits small screens) */
+  .buttonCss {
+    font-size: 10px !important;
+    width: 65px !important;
+    padding: 4px 6px !important;
+  }
+
+  /* Generic assignment card wrapper */
+  .holderCss > div {
+    flex-direction: row !important;
+    align-items: flex-start !important;
+    gap: 8px !important;
+  }
+
+  /* Make buttons stack properly */
+  .holderCss button {
+    font-size: 10px !important;
+    padding: 4px 6px !important;
+    width: 65px !important;
+  }
+}
