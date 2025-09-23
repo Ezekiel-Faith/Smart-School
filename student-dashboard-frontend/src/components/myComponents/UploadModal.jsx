@@ -5,27 +5,20 @@ import pdf from "../../assets/Frame.svg";
 import upload from "../../assets/Frame2.svg";
 
 const UploadModal = ({ assignment, onClose, onUploadComplete }) => {
-  const [progress, setProgress] = useState(40); // starting at 40%
+  const [progress, setProgress] = useState(40);
   const intervalRef = useRef(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
-    // start interval once
     intervalRef.current = setInterval(() => {
-      setProgress((prev) => {
-        const next = Math.min(100, prev + 5);
-        return next;
-      });
+      setProgress((prev) => Math.min(100, prev + 5));
     }, 500);
 
     return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-        intervalRef.current = null;
-      }
+      if (intervalRef.current) clearInterval(intervalRef.current);
     };
   }, []);
 
-  // clear interval when it reaches 100
   useEffect(() => {
     if (progress >= 100 && intervalRef.current) {
       clearInterval(intervalRef.current);
@@ -33,27 +26,39 @@ const UploadModal = ({ assignment, onClose, onUploadComplete }) => {
     }
   }, [progress]);
 
-  const handleDone = () => {
-    if (progress < 100) return; // safety
-    // call parent updater (pass id)
-    if (typeof onUploadComplete === "function") {
-      try {
-        onUploadComplete(assignment?.id);
-      } catch (err) {
-        // keep UX predictable — still try to close
-        // eslint-disable-next-line no-console
-        console.error("onUploadComplete threw:", err);
+  // Close on outside click or Esc
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        onClose?.();
       }
-    }
-    // close modal
-    if (typeof onClose === "function") {
-      onClose();
-    }
+    };
+
+    const handleEsc = (event) => {
+      if (event.key === "Escape") onClose?.();
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEsc);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEsc);
+    };
+  }, [onClose]);
+
+  const handleDone = () => {
+    if (progress < 100) return;
+    onUploadComplete?.(assignment?.id);
+    onClose?.();
   };
 
   return (
-    <section className="fixed inset-0 flex items-center justify-center bg-black/50 z-50">
-      <div className="bg-white text-gray-700 w-full max-w-[600px] rounded-2xl shadow-xl p-6 flex flex-col gap-6">
+    <section className="fixed inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm z-50">
+      <div
+        ref={modalRef}
+        className="bg-white text-gray-700 w-full max-w-[600px] max-h-[90vh] overflow-y-auto rounded-2xl mx-5 md:mx-0 shadow-xl p-6 flex flex-col gap-6"
+      >
         <h1 className="text-xl font-semibold text-center text-gray-900">
           File Upload
         </h1>

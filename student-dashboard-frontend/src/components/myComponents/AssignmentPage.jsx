@@ -53,11 +53,11 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
                 <aside className="flex lg:gap-3 md:gap-4 gap-1 items-center">
                   <MdOutlineTimer />
                   {a.status === "pending" ? (
-                    <Badge className="bg-(--color-project-red) text-white md:text-[15px]">
+                    <Badge className="bg-(--color-project-red) text-white md:text-[15px] w-[80px]">
                       Pending
                     </Badge>
                   ) : (
-                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px]">
+                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px] w-[80px]">
                       Completed
                     </Badge>
                   )}
@@ -66,19 +66,19 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
             </div>
 
             <div className="flex lg:gap-3 gap-2 ">
-              <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
+              <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] lg:w-[120px] md:w-[120px] w-[80px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
                 Download
               </button>
 
               {a.status === "pending" ? (
                 <button
-                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90"
+                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] lg:w-[120px] md:w-[120px] w-[80px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90"
                   onClick={() => setSelectedAssignment(a)}
                 >
                   Upload
                 </button>
               ) : (
-                <button className="lg:px-4 lg:py-2 rounded-md text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] bg-green-100 text-green-700 cursor-not-allowed">
+                <button className="lg:px-4 lg:py-2 rounded-md text-[11px] lg:w-[120px] md:w-[120px] w-[80px] px-3 py-2 lg:text-[15.059px] md:text-[16px] bg-green-100 text-green-700 cursor-not-allowed">
                   Submitted
                 </button>
               )}
