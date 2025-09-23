@@ -147,21 +147,21 @@
 @layer utilities {
   /* quiz */
   .quiz-background {
-    @apply min-h-screen flex items-center justify-center;
+    @apply py-20 md:py-0 md:min-h-screen flex items-center justify-center;
     background: var(--color-quiz-bg-gradient);
   }
 
   .quiz-container {
-    @apply max-w-[80%];
+    @apply w-[95%] md:max-w-[80%];
   }
 
   /* quiz heading */
   .quiz-heading-container {
-    @apply text-center mb-10;
+    @apply text-center mb-5 md:mb-7 lg:mb-10;
   }
 
   .quiz-heading-title {
-    @apply mb-4;
+    @apply mb-2 md:mb-4;
   }
 
   .quiz-purple-blend-text {
@@ -177,20 +177,20 @@
   }
 
   .quiz-heading-text {
-    @apply text-4xl font-bold;
+    @apply text-[26px] md:text-4xl font-bold;
   }
 
   .quiz-heading-paragraph {
-    @apply text-lg text-[var(--color-gray-700)];
+    @apply text-base md:text-lg text-[var(--color-gray-700)];
   }
 
   /* quiz subjects */
   .quiz-subject-btn-container {
-    @apply flex justify-center items-center flex-wrap gap-x-4 gap-y-8;
+    @apply flex justify-center items-center flex-wrap gap-x-4 gap-y-4 md:gap-y-6 lg:gap-y-8;
   }
 
   .quiz-subject-btn {
-    @apply relative inline-flex items-center justify-center min-w-50 min-h-13 bg-transparent text-black rounded-[18px] border border-transparent overflow-hidden;
+    @apply relative inline-flex items-center justify-center min-w-[80%] md:min-w-50 min-h-13 bg-transparent text-black rounded-[18px] border border-transparent overflow-hidden;
     background: linear-gradient(white, white) padding-box,
       linear-gradient(
           233deg,
@@ -245,11 +245,11 @@
 
   /* quiz begin study */
   .quiz-begin-study-btn-container {
-    @apply flex justify-center mt-12;
+    @apply flex justify-center mt-5 md:mt-7 lg:mt-10;
   }
 
   .quiz-begin-study-btn {
-    @apply relative inline-flex items-center justify-center min-w-50 min-h-13 bg-transparent text-black rounded-[18px] overflow-hidden;
+    @apply relative inline-flex items-center justify-center min-w-[80%] md:min-w-50 min-h-13 bg-transparent text-black rounded-[18px] overflow-hidden;
     background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
     color: var(--color-white);
     transition: all 0.3s ease-in-out;
@@ -257,5 +257,10 @@
 
   .quiz-begin-study-btn:hover {
     opacity: 0.8;
+  }
+
+  /* loading modal */
+  .loading-modal-container {
+    @apply fixed inset-0 bg-[#4e4b4b]/50 flex items-center justify-center z-50;
   }
 }

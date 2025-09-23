@@ -37,11 +37,11 @@ export default function LoadingModal({ open, onClose }) {
 
   return (
     <div
-      className='fixed inset-0 bg-[#4e4b4b]/50 bg-opacity-70 flex items-center justify-center z-50'
+      className='loading-modal-container'
       onClick={onClose} // backdrop click
     >
       <div
-        className='w-[30%] h-[30px] text-center'
+        className='w-[80%] lg:w-[30%] h-[30px] text-center'
         onClick={(e) => e.stopPropagation()} // prevent closing when clicking inside
       >
         <Progress
