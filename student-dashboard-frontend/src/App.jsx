@@ -1,18 +1,12 @@
-import Assignment from './pages/Assignment';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import StudyAi from './pages/StudyAi';
-import TakeQuiz from './pages/TakeQuiz';
+import React from 'react';
+import SideBar from './components/SideBarForStudent/sideBar';
+
 
 function App() {
   return (
-    <>
-      <Login />
-      <Dashboard />
-      <TakeQuiz />
-      <Assignment />
-      <StudyAi />
-    </>
+     <div>
+      <SideBar/>
+     </div>
   );
 }
 
