@@ -1,34 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { Progress } from '../ui/progress';
 
-export default function LoadingModal({ open, onClose }) {
-  const [progress, setProgress] = useState(0);
-
-  useEffect(() => {
-    if (!open) return; // reset only when open
-
-    setProgress(0);
-
-    const interval = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(interval);
-          return 100;
-        }
-        return prev + 10;
-      });
-    }, 200);
-
-    return () => clearInterval(interval);
-  }, [open]);
-
+export default function LoadingModal({ open, onClose, progress = 0 }) {
+  // Close on Escape key
   useEffect(() => {
     if (!open) return;
+
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
         onClose?.();
       }
     }
+
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [open, onClose]);
@@ -38,7 +21,7 @@ export default function LoadingModal({ open, onClose }) {
   return (
     <div
       className='loading-modal-container'
-      onClick={onClose} // backdrop click
+      onClick={onClose} // backdrop click closes modal
     >
       <div
         className='w-[80%] lg:w-[30%] h-[30px] text-center'

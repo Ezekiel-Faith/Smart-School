@@ -1,16 +1,13 @@
 import React, { useRef } from 'react';
 import { Button } from './ui/button';
 
-export default function SubjectButton({ icon: Icon, label, href, onClick }) {
-  // return (
-  //   <Button asChild className={` quiz-btn `}>
-  //     <a href={href} className='flex items-center gap-2 '>
-  //       {Icon && <Icon className='w-5 h-5' />}
-  //       <span className='text-[17px] '>{label}</span>
-  //     </a>
-  //   </Button>
-  // );
-
+export default function SubjectButton({
+  icon: Icon,
+  label,
+  href,
+  onClick,
+  className = '',
+}) {
   const btnRef = useRef(null);
 
   function handleMouseEnter(e) {
@@ -40,9 +37,9 @@ export default function SubjectButton({ icon: Icon, label, href, onClick }) {
         ref={btnRef}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-        className='quiz-subject-btn'
+        className={`quiz-subject-btn ${className}`}
         onClick={(e) => {
-          e.preventDefault(); // stop navigation if you want modal first
+          e.preventDefault();
           onClick?.();
         }}
         style={{ '--origin': 'left' }}

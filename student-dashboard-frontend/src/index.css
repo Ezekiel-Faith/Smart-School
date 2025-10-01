@@ -60,6 +60,8 @@
     #ed7884 -127.38%,
     #9055ff 108.2%
   );
+  --color-lavender-light: #eee9ff;
+  --color-off-white: #fafafa;
 }
 
 @theme inline {
@@ -235,6 +237,18 @@
     color: #fff;
   }
 
+  .quiz-subject-btn.selected {
+    color: #fff; /* same as hover text */
+  }
+
+  .quiz-subject-btn.selected::before {
+    transform: scaleX(1); /* keep the gradient expanded */
+  }
+
+  /* .quiz-subject-btn.selected {
+    border: 2px solid var(--color-purple); 
+  } */
+
   .quiz-subject-btn-icn {
     @apply w-5 h-5;
   }
@@ -262,5 +276,89 @@
   /* loading modal */
   .loading-modal-container {
     @apply fixed inset-0 bg-[#4e4b4b]/50 flex items-center justify-center z-50;
+  }
+
+  /* quiz question */
+  .quiz-question-container {
+    @apply w-full max-w-7xl p-5 grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3 gap-8 bg-[var(--color-off-white)];
+  }
+
+  .quiz-question-title {
+    @apply text-2xl font-extrabold;
+  }
+
+  .quiz-question-subject {
+    @apply mt-4 text-3xl font-semibold text-[var(--color-black)];
+  }
+
+  /* question card */
+  .question-card-container {
+    @apply mb-6 rounded-xl;
+  }
+
+  .question-card-question {
+    @apply text-lg font-bold leading-relaxed mb-[-10px];
+  }
+
+  .question-option-btn {
+    @apply w-full flex items-center space-x-3 p-4 rounded-lg transition-transform;
+  }
+
+  .question-option-btn-default {
+    @apply bg-[var(--color-lavender-light)];
+  }
+
+  .question-option-btn-selected {
+    @apply bg-[color-lavender-light] transform scale-[1.01] border-1;
+
+    border-color: var(--color-purple);
+  }
+
+  .question-option-btn-default:hover {
+    position: relative;
+    z-index: 0;
+    cursor: pointer;
+  }
+
+  .question-option-btn-default:hover::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px; /* border thickness */
+    border-radius: 0.5rem; /* match rounded-lg */
+    background: linear-gradient(
+      233deg,
+      var(--color-pink) -127.38%,
+      var(--color-purple) 108.2%
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    z-index: -1;
+  }
+
+  .question-option {
+    @apply text-lg font-bold;
+  }
+
+  .question-navigation-container {
+    @apply flex justify-between mt-8 pt-4 border-t;
+  }
+
+  .question-navigation-btn {
+    @apply hover:cursor-pointer;
+    background: linear-gradient(233deg, #ed7884 -127.38%, #9055ff 108.2%);
+    color: var(--color-white);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .question-navigation-btn:hover {
+    opacity: 0.8;
+  }
+
+  .questions-answered-card {
+    @apply rounded-2xl p-6 text-white;
+    background: var(--color-purple-blend);
   }
 }
