@@ -37,14 +37,14 @@ export default function SideBar() {
     <div className="flex">
       {/* Sidebar */}
       <div
-        className={`fixed top-0 left-0 h-full w-60 md:w-90 lg:w-65 
+        className={`fixed top-0 left-0 h-full w-[100%] md:w-90 lg:w-65 
           flex flex-col text-white
           bg-[linear-gradient(to_top,rgba(100,30,230,0.7),#222222)]
           transition-transform duration-300 z-50 rounded-tr-4xl
           ${isOpen ? "translate-x-0" : "-translate-x-full"} lg:translate-x-0`}
       >
         {/* Logo */}
-        <div className="mb-8 pl-4 md:pl-8 lg:pl-6">
+        <div className=" mb-8 pl-10 md:pl-8 lg:pl-6">
           <img
             src={SmartSchoolLogo}
             alt="Smart school logo"
@@ -57,7 +57,7 @@ export default function SideBar() {
         </div>
 
         {/* Navigation */}
-        <div className="px-4 py-4 md:py-15 lg:py-4">
+        <div className="px-10 md:px-4 py-4  md:py-15 lg:py-4">
           <nav className="flex flex-col flex-1">
             {navItems.map(({ icon: Icon, label }) => (
               <a
@@ -76,7 +76,7 @@ export default function SideBar() {
             ))}
 
             <button
-              className="mt-[7px] mb-[92px] sm:mb-[90] md:mb-[190px] lg:mb-[90px]
+              className="mt-[7px] mb-[92px] sm:mb-[90px] md:mb-[190px] lg:mb-[90px] 
                          py-4 md:py-6 lg:py-1
                          font-semibold rounded-lg
                          md:text-2xl lg:text-sm
@@ -88,7 +88,7 @@ export default function SideBar() {
           </nav>
 
           {/* Settings & Logout */}
-          <div className="flex flex-col gap-0 mt-auto">
+          <div className="flex flex-col gap-0 mt-auto  md:mt-8 lg:mt-6 xl:mt-40">
             <p className="px-2 py-1 md:px-4 md:py-0 lg:px-2 lg:py-1 
                           md:text-2xl lg:text-sm">
               SETTINGS
@@ -99,7 +99,7 @@ export default function SideBar() {
                 key={label}
                 href="#"
                 className={`flex items-center gap-2 md:gap-2 lg:gap-1 
-                           px-2 py-1 md:px-5 md:py-3 lg:px-2 lg:py-1
+                           px-2 py-1 sm:px-1 md:px-5 md:py-2 lg:px-2 lg:py-1
                            text-lg md:text-2xl lg:text-sm
                            hover:bg-purple-600 ${extra || ""}`}
               >
