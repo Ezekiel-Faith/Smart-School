@@ -15,3 +15,5 @@ export default App;
 // 2. Grading system
 // 3. Generate results summary per subject selected
 // 4. Make question and options random, not static
+// 5. confirmation question when the go back btn is pressed while quiz is active
+// 6. expand quiz area
