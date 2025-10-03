@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { PiGraduationCap } from "react-icons/pi";
+import { PiGraduationCap} from "react-icons/pi";
 import { Calendar } from "../components/ui/calendar";
 import { Timer } from "lucide-react";
 import StudyResource from "@/components/util/StudyResource";
+import { FaClipboard } from "react-icons/fa";
 
 const Dashboard = () => {
   const indicators = [
@@ -12,10 +13,16 @@ const Dashboard = () => {
     { type: "performance", grade: 20 },
   ];
 
+  const boxes = [
+    { title: "subject enrolled", value: "12", sub: "enrolled", icon: <PiGraduationCap className="text-xl sm:text-2xl text-[#8c55d3]" /> },
+    { title: "Assignment", value: "2", sub: "enrolled", icon:  <FaClipboard className="text-xl sm:text-2xl text-[#8c55d3]"/>  },
+    { title: "Assignment", value: "English", sub: "10:00AM", icon:  <FaClipboard className="text-xl sm:text-2xl text-[#8c55d3]"/>  },
+  ]
+
   const assignments = [
     { subject: "Mathematics", dueDate: "Mon Sep 21 2025", status: "pending" },
     { subject: "English Language", dueDate: "Wed Sep 24 2025", status: "completed" },
-    { subject: "Biology", dueDate: "Mon Sep 21 2025", status: "pending" },
+    { subject: "Biology", dueDate: "Mon Sep 21 2025", status: "pending", icon: <FaClipboard className="text-xl sm:text-2xl bg-gradient-to-r from-[#8c55d3] to-black bg-clip-text"/>   },
   ];
 
   const formatDate = (dateString) => {
@@ -70,11 +77,7 @@ const Dashboard = () => {
             <div className="lg:col-span-2 flex flex-col">
               {/* Stats cards */}
               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-6">
-                {[
-                  { title: "subject enrolled", value: "12", sub: "enrolled" },
-                  { title: "Assignment", value: "2", sub: "enrolled" },
-                  { title: "Assignment", value: "English", sub: "10:00AM" },
-                ].map((box, index) => (
+                {boxes.map((box, index) => (
                   <div
                     key={index}
                     className="h-36 sm:h-40 rounded-lg bg-[#eaeaea] flex justify-center items-center flex-col p-3"
@@ -88,7 +91,7 @@ const Dashboard = () => {
                     <p className="bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent text-xs sm:text-sm">
                       {box.sub}
                     </p>
-                    <PiGraduationCap className="text-xl sm:text-2xl bg-gradient-to-r from-[#8c55d3] to-black bg-clip-text" />
+                    {box.icon}
                   </div>
                 ))}
               </div>
