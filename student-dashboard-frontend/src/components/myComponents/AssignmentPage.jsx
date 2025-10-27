@@ -66,13 +66,13 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
             </div>
 
             <div className="flex lg:gap-3 gap-2 btnHolderCss">
-              <button className="lg:px-[24.2px] lg:py-[11.116px] rounded-[7.53px] lg:w-[120px] md:w-[120px] w-[80px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
+              <button className="lg:px-[24.2px] lg:py-[11.116px] cursor-pointer rounded-[7.53px] lg:w-[120px] md:w-[120px] w-[80px] bg-gray-100 text-(--color-darkgray) text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:bg-gray-200">
                 Download
               </button>
 
               {a.status === "pending" ? (
                 <button
-                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] lg:w-[120px] md:w-[120px] w-[80px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90 buttonCss"
+                  className="lg:px-[22.6px] lg:py-[11.3px] rounded-[7.529px] lg:w-[120px] md:w-[120px] w-[80px] bg-(--color-purple) cursor-pointer text-white text-[11px] px-3 py-2 lg:text-[15.059px] md:text-[16px] hover:opacity-90 buttonCss "
                   onClick={() => setSelectedAssignment(a)}
                 >
                   Upload
