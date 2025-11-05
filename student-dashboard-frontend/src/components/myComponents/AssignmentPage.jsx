@@ -7,6 +7,7 @@ import { MdOutlineTimer } from "react-icons/md";
 import Pdf from "../../assets/Frame.svg";
 import UploadModal from "./UploadModal";
 import "@/components/util/css/breakpoint.css";
+
 const ITEMS_PER_PAGE = 4;
 
 const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
@@ -25,7 +26,7 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
   );
 
   return (
-    <section className="md:max-w-[1072px] md:max-h-[760px] mx-auto">
+    <section className="flex flex-col min-h-screen md:max-w-[1072px] mx-auto">
       <FilterBar
         filter={filter}
         setFilter={(tab) => {
@@ -34,7 +35,8 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
         }}
       />
 
-      <div className="flex flex-col md:gap-[32px] gap-6 holderCss">
+      {/* Content must expand to push pagination to the bottom */}
+      <div className="flex flex-col md:gap-[32px] gap-6 holderCss flex-grow">
         {currentAssignments.map((a) => (
           <div
             key={a.id}
@@ -53,11 +55,11 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
                 <aside className="flex lg:gap-3 md:gap-4 gap-1 items-center ">
                   <MdOutlineTimer />
                   {a.status === "pending" ? (
-                    <Badge className="bg-(--color-project-red) text-white md:text-[15px] w-[80px] badgeCss">
+                    <Badge className="bg-(--color-project-red) text-white md:text-[15px] w-[86px] badgeCss">
                       Pending
                     </Badge>
                   ) : (
-                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[15px] w-[80px] badgeCss">
+                    <Badge className="bg-(--color-project-green) text-(--color-darkgray) md:text-[14px] w-[86px] badgeCss">
                       Completed
                     </Badge>
                   )}
@@ -87,7 +89,8 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
         ))}
       </div>
 
-      <div className="mt-6 flex justify-center">
+      {/* Pagination stays at bottom */}
+      <div className="mt-auto pt-6 flex justify-center">
         <MyPagination
           totalItems={filtered.length}
           itemsPerPage={ITEMS_PER_PAGE}
@@ -99,7 +102,6 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
         <UploadModal
           assignment={selectedAssignment}
           onClose={() => setSelectedAssignment(null)}
-          // important: we pass an id to the parent updater
           onUploadComplete={(assignmentId) => {
             if (typeof onAssignmentCompleted === "function") {
               onAssignmentCompleted(assignmentId);

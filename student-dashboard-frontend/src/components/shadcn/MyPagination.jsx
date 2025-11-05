@@ -48,7 +48,7 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
   };
 
   return (
-    <Pagination>
+    <Pagination className="">
       <PaginationContent>
         {/* Previous */}
         <PaginationItem>
