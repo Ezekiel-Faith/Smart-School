@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+// components/shadcn/MyPagination.jsx
+import React, { useEffect, useState } from "react";
 import {
   Pagination,
   PaginationContent,
@@ -9,16 +10,30 @@ import {
   PaginationPrevious,
 } from "@/components/ui/pagination";
 
-const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
-  const [currentPage, setCurrentPage] = useState(1);
+const MyPagination = ({
+  totalItems,
+  itemsPerPage = 4,
+  onPageChange,
+  currentPage: currentPageProp,
+}) => {
+  const [currentPage, setCurrentPage] = useState(currentPageProp || 1);
 
-  const totalPages = Math.ceil(totalItems / itemsPerPage);
+  const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
 
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-    if (onPageChange) {
-      onPageChange(page);
+  // sync external currentPage prop into internal state
+  useEffect(() => {
+    if (typeof currentPageProp === "number") {
+      // clamp to valid range
+      const clamped = Math.min(Math.max(1, currentPageProp), totalPages);
+      setCurrentPage(clamped);
     }
+  }, [currentPageProp, totalPages]);
+
+  // keep parent informed when internal page changes
+  const handlePageChange = (page) => {
+    const clamped = Math.min(Math.max(1, page), totalPages);
+    setCurrentPage(clamped);
+    if (onPageChange) onPageChange(clamped);
   };
 
   // Smart pagination range logic
@@ -27,10 +42,9 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
     const maxVisible = 5; // how many numbers to show around current
 
     if (totalPages <= maxVisible + 2) {
-      // If pages are few, show all
       for (let i = 1; i <= totalPages; i++) pages.push(i);
     } else {
-      pages.push(1); // always show first page
+      pages.push(1);
 
       if (currentPage > 3) pages.push("left-ellipsis");
 
@@ -41,7 +55,7 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
 
       if (currentPage < totalPages - 2) pages.push("right-ellipsis");
 
-      pages.push(totalPages); // always show last page
+      pages.push(totalPages);
     }
 
     return pages;
@@ -50,7 +64,6 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
   return (
     <Pagination className="">
       <PaginationContent>
-        {/* Previous */}
         <PaginationItem>
           <PaginationPrevious
             href="#"
@@ -64,7 +77,6 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
           />
         </PaginationItem>
 
-        {/* Page numbers with ellipsis */}
         {getPageNumbers().map((p, i) => {
           if (typeof p === "string") {
             return (
@@ -92,7 +104,6 @@ const MyPagination = ({ totalItems, itemsPerPage = 4, onPageChange }) => {
           );
         })}
 
-        {/* Next */}
         <PaginationItem>
           <PaginationNext
             href="#"

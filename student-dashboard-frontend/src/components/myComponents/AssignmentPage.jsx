@@ -1,5 +1,5 @@
 // components/myComponents/AssignmentPage.jsx
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import FilterBar from "./FilterBar";
 import MyPagination from "../shadcn/MyPagination";
 import { Badge } from "../ui/badge";
@@ -9,15 +9,52 @@ import UploadModal from "./UploadModal";
 import "@/components/util/css/breakpoint.css";
 
 const ITEMS_PER_PAGE = 4;
+const STORAGE_KEY = "assignment_page_by_filter_v1";
 
 const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
   const [filter, setFilter] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
+  // pageByFilter stores page numbers for each filter key: { all:1, pending:1, completed:1 }
+  const [pageByFilter, setPageByFilter] = useState({
+    all: 1,
+    pending: 1,
+    completed: 1,
+  });
   const [selectedAssignment, setSelectedAssignment] = useState(null);
+
+  // load persisted page map on mount
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (raw) {
+        const parsed = JSON.parse(raw);
+        setPageByFilter((prev) => ({ ...prev, ...parsed }));
+      }
+    } catch (e) {
+      // ignore parse errors
+    }
+  }, []);
+
+  // persist whenever pageByFilter changes
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(pageByFilter));
+    } catch (e) {}
+  }, [pageByFilter]);
+
+  const currentPage = pageByFilter[filter] || 1;
 
   const filtered = assignments.filter((a) =>
     filter === "all" ? true : a.status === filter
   );
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+  // ensure current page is not beyond totalPages
+  useEffect(() => {
+    if (currentPage > totalPages) {
+      // clamp it
+      setPageByFilter((prev) => ({ ...prev, [filter]: totalPages }));
+    }
+  }, [totalPages, filter]); // eslint-disable-line
 
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const currentAssignments = filtered.slice(
@@ -25,18 +62,22 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
     startIndex + ITEMS_PER_PAGE
   );
 
+  // when pagination changes, update map for current filter
+  const handlePageChangeForFilter = (page) => {
+    setPageByFilter((prev) => ({ ...prev, [filter]: page }));
+  };
+
   return (
-    <section className="flex flex-col min-h-screen md:max-w-[1072px] mx-auto">
+    <section className="md:max-w-[1072px] mx-auto">
       <FilterBar
         filter={filter}
         setFilter={(tab) => {
+          // do NOT reset to 1 — just switch to the stored page for that tab
           setFilter(tab);
-          setCurrentPage(1);
         }}
       />
 
-      {/* Content must expand to push pagination to the bottom */}
-      <div className="flex flex-col md:gap-[32px] gap-6 holderCss flex-grow">
+      <div className="flex flex-col md:gap-[32px] gap-6 holderCss pb-24">
         {currentAssignments.map((a) => (
           <div
             key={a.id}
@@ -89,12 +130,13 @@ const AssignmentPage = ({ assignments = [], onAssignmentCompleted }) => {
         ))}
       </div>
 
-      {/* Pagination stays at bottom */}
-      <div className="mt-auto pt-6 flex justify-center">
+      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 backdrop-blur border rounded-xl shadow-lg px-4 py-3">
         <MyPagination
           totalItems={filtered.length}
           itemsPerPage={ITEMS_PER_PAGE}
-          onPageChange={setCurrentPage}
+          // pass the current page for the active filter so it remains in-sync
+          currentPage={currentPage}
+          onPageChange={handlePageChangeForFilter}
         />
       </div>
 
