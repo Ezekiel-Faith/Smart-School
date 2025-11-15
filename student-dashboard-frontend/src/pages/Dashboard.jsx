@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { PiGraduationCap } from "react-icons/pi";
 import { Calendar } from "../components/ui/calendar";
 import StudyResource from "@/components/util/StudyResource";
-import { FaClipboard } from "react-icons/fa";
+import { FaBookOpen, FaClipboard } from "react-icons/fa";
 import { Timer } from "lucide-react";
 import BoxCard from "@/components/BoxCard";
 import PerformanceBox from "@/components/PerformanceBox";
-// import Assignment from "./Assignment";
+import { GiOpenBook } from "react-icons/gi";
+import { BsClock } from "react-icons/bs";
 
 const Dashboard = () => {
   const indicators = [
@@ -14,7 +15,29 @@ const Dashboard = () => {
     { type: "assignment", grade: 16 },
     { type: "assignment", grade: 10 },
     { type: "performance", grade: 20 },
+    { type: "assignment", grade: 16 },
+    { type: "assignment", grade: 16 },
+    { type: "assignment", grade: 16 },
+    { type: "assignment", grade: 16 },
   ];
+
+  const Videos = [
+    {
+        video: "JucSVDuV0mg",
+        grade: "9",
+        subject: "mathematics"     
+    },
+    {
+        video: "-6PYKm_UCNo",
+        grade: "9",
+        subject: "English"     
+    },
+     {
+        video: "JucSVDuV0mg",
+        grade: "9",
+        subject: "mathematics"     
+    },
+  ]
 
   const boxes = [
     {
@@ -27,13 +50,13 @@ const Dashboard = () => {
       title: "Assignment",
       value: "2",
       sub: "enrolled",
-      icon: <FaClipboard className="text-xl sm:text-2xl text-[#8c55d3]" />,
+      icon: <GiOpenBook className="text-xl sm:text-2xl text-[#8c55d3]" />,
     },
     {
       title: "Assignment",
       value: "English",
       sub: "10:00AM",
-      icon: <FaClipboard className="text-xl sm:text-2xl text-[#8c55d3]" />,
+      icon: <Timer className="text-xl sm:text-2xl text-[#8c55d3]" />,
     },
   ];
 
@@ -66,6 +89,7 @@ const Dashboard = () => {
 
   const [calendarDate, setCalendarDate] = useState(new Date());
   const [display, setDisplay] = useState("");
+  const [showMore, setShowMore] = useState(false)
 
   useEffect(() => {
     const confirmDate = () => {
@@ -104,10 +128,11 @@ const Dashboard = () => {
 
           {/* Main grid: Stats + Performance + Calendar */}
           <div className="grid grid-cols-1 lg:grid-cols-3 md:max-w-[95%]">
+            
             {/* Left Section (Stats + Performance) */}
-            <div className="lg:col-span-2 flex flex-col">
+            <div className=" lg:col-span-2 flex flex-col max-w-[670px] ">
               {/* Stats cards */}
-              <div className="flex gap-6 flex-wrap -3 mb-6 ">
+              <div className="flex gap-6 flex-wrap mb-6 max-w-[650px]">
                 {boxes.map((box, index) => (
                   <BoxCard box={box} key={index} />
                 ))}
@@ -115,13 +140,13 @@ const Dashboard = () => {
 
               {/* /////////////////////////////////////////////////////// */}
               {/* Performance indicators */}
-              <div>
+              <div className=" max-w-[650px] ">
                 <p className="text-lg md:text-xl lg:text-2xl capitalize mb-3 bg-gradient-to-r from-[#35185c] to-black bg-clip-text text-transparent font-bold">
                   performance indicator
                 </p>
-                <div className="w-full">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:max-w-[620px] ">
-                    {indicators.map((indicator, index) => (
+                <div className=" ">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:max-w-[620px] transition-transform duration-1000 ease-in-out  ">
+                    {indicators.slice(0, showMore? indicators.length : 4 ).map((indicator, index) => (
                       <PerformanceBox
                         indicator={indicator}
                         handlePercentage={handlePercentage}
@@ -131,12 +156,28 @@ const Dashboard = () => {
                   </div>
                 </div>
               </div>
+              <div className=" py-3 ">
+                <button className=" underline cursor-pointer " onClick={()=>showMore == false? setShowMore(true) : setShowMore(false)}>{showMore? 'Show less': 'Show more'}</button>
+              </div>
+              {/* Study Resources */}
+          <div className="w-full">
+            <p className="text-lg md:text-xl lg:text-2xl font-medium capitalize bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent">
+              study resources
+            </p>
+            <div className="w-full flex gap-3 mt-3 overflow-x-scroll">
+                  {
+                    Videos.map((item, index)=>(
+                      <StudyResource video={item.video} grade={item.grade} subject={item.subject} key={index}/>
+                    ))
+                  }
+            </div>
+          </div>
             </div>
 
             {/* ///////////////////////////////////////////////////////////////// */}
 
             {/* Right Section (Calendar + Assignments) */}
-            <div className="flex flex-col items-center  ">
+            <div className="flex flex-col items-left md:items-center my-10 lg:m-0 ">
               <Calendar
                 mode="single"
                 selected={calendarDate}
@@ -149,7 +190,7 @@ const Dashboard = () => {
               />
 
               {/* Assignments list */}
-              <div className="mt-5 w-[290px] max-w-sm rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.2)] shadow-amber-200 p-6">
+              <div className="mt-5 w-[300px] max-w-sm rounded-lg shadow-[0_0_15px_rgba(0,0,0,0.2)] shadow-amber-200 px-6 py-4">
                 <p className="text-lg font-medium mb-3">Assignments</p>
                 {assignments.map((assignment, index) => (
                   <div className="flex justify-between items-center mb-3">
@@ -200,19 +241,7 @@ const Dashboard = () => {
             </div>
           </div>
 
-          {/* Study Resources */}
-          <div className="w-full">
-            <p className="text-lg md:text-xl lg:text-2xl font-medium capitalize bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent">
-              study resources
-            </p>
-            <div className="w-full mt-3">
-              <StudyResource
-                youtubeId="jZuSSWXhQbc"
-                grade="9"
-                subject="mathematics"
-              />
-            </div>
-          </div>
+          
         </div>
       </div>
     </div>

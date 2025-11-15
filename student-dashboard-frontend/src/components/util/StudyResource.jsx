@@ -30,7 +30,7 @@ const StudyResource = ({video, grade, subject}) => {
   }, [])
 
   const opts = {
-    height: "200",
+    height: "120",
     width: "100%",
     playerVars: { 
       autoplay: 0,
@@ -40,7 +40,7 @@ const StudyResource = ({video, grade, subject}) => {
   }
 
   return (
-    <div className="w-65">
+    <div className="w-55 shrink-0">
       {/* Video Preview */}
       <div className="w-full h-40 bg-black rounded-2xl overflow-hidden">
         <YouTube
@@ -57,19 +57,19 @@ const StudyResource = ({video, grade, subject}) => {
       </div>
 
       {/* Card Body */}
-      <div className="mt-4">
+      <div className="mt-2">
         {/* Category Badge */}
         <span className="inline-flex items-center text-xs font-medium px-2 py-1 rounded-md bg-purple-100 text-purple-600 mb-2">
           <span className="mr-1 text-sm">{"</>"}</span> {subject}
         </span>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-1">
-           Grade {grade + subject}
+        <h3 className="text-lg font-semibold text-gray-900 mb-1 line-clamp-1">
+           Grade {grade + ' ' + subject}
         </h3>
 
         {/* Progress bar */}
-        <div className="w-full mb-3">
+        <div className="w-full mb-2">
           <Progress value={progress} className="h-1.5 [&>div]:bg-purple-500" />
         </div>
 

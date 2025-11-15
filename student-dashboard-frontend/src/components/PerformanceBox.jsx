@@ -1,12 +1,12 @@
 const PerformanceBox = ({ indicator, handlePercentage }) => {
   return (
-    <div className="border-2 border-[#FFDD55] rounded-2xl p-3 w-[300px] ">
-      <div className="w-[170px] h-8 flex justify-center items-center bg-[#F7E0FF] px-2 rounded-lg mb-2">
+    <div className="border-2 flex flex-col border-[#FFDD55] rounded-2xl p-3 w-[300px]  ">
+      <div className="  flex justify-center items-center bg-[#F7E0FF] h-[20px] w-[120px] rounded-sm mb-2">
         <p className="uppercase text-xs">
           {"</>"} {indicator.type}
         </p>
       </div>
-      <p className="text-lg sm:text-xl font-bold mb-2 text-[#9B59F0]">
+      <p className=" sm:text-3xl font-bold mb-2 text-[#9B59F0]">
         {indicator.grade}/20
       </p>
       <div className="w-full h-6 rounded-[20px] bg-[#d7d7d7] relative">
