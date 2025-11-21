@@ -6,17 +6,16 @@ import LeftDiv from "./leftDiv";
 
 export default function LoginPage() {
   return (
-    <div className="relative flex items-center justify-center min-h-screen">
+    <div className="relative flex items-center justify-center min-h-screen border border-red-700">
       <img
         src={BackgroundImage}
         alt="Background"
-        className="absolute inset-0 w-full h-full object-cover"
+        className="absolute inset-0 w-full h-full object-fill"
       />
       <div className="absolute inset-0 bg-black/30"></div>
 
       {/* Updated container */}
-      <div className="relative bg-white/[0.87] shadow-lg 
-       max-w-[300px] md:max-w-[700px] flex overflow-hidden  backdrop-blur-sm ">
+      <div className="relative shadow-2xl flex backdrop-blur-md bg-white/25  border ">
         {/* LeftDiv always visible */}
         <LeftDiv />
 

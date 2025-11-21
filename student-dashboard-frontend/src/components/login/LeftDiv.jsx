@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FiEye, FiEyeOff } from "react-icons/fi";
+import "../../index.css";
 
 export default function LeftDiv() {
   const [formData, setFormData] = useState({ username: "", password: "" });
@@ -20,7 +21,7 @@ export default function LeftDiv() {
       isValid = false;
     } else if (
       !/^[A-Za-z]+$/.test(formData.username) && // plain name
-      !/\S+@\S+\.\S+/.test(formData.username)   // or email
+      !/\S+@\S+\.\S+/.test(formData.username) // or email
     ) {
       newErrors.username = "Enter a valid username or email address";
       isValid = false;
@@ -64,11 +65,17 @@ export default function LeftDiv() {
   };
 
   return (
-    <div className="p-8 flex-1 flex flex-col justify-center bg-purple-200 rounded-l-2xl">
-      <h2 className="text-2xl md:text-4xl lg:text-2xl font-semibold text-gray-800 mb-2 text-center mt-2 lg:mt-0">
+    <div
+      className="
+        p-8 md:p-3 flex-1 flex flex-col justify-center
+        w-[385px] h-[555px]
+        leftdiv 
+      "
+    >
+      <h2 className="text-2xl md:text-4xl lg:text-2xl font-semibold text-black mb-2 text-center mt-2 lg:mt-0">
         Login
       </h2>
-      <p className="text-sm md:text-2xl lg:text-sm text-gray-500 mb-6 text-center">
+      <p className="text-sm md:text-2xl lg:text-sm text-black mb-6 text-center">
         Enter your login details
       </p>
 
@@ -77,7 +84,7 @@ export default function LeftDiv() {
         className="space-y-3 md:space-y-10 lg:space-y-2 px-3 md:px-6 lg:px-10 md:text-2xl lg:text-sm"
       >
         {/* Username */}
-        <div>
+        <div className="">
           {errors.username && (
             <p className="text-red-500 text-xs mb-1">{errors.username}</p>
           )}
@@ -87,10 +94,14 @@ export default function LeftDiv() {
             placeholder="Username or Email"
             value={formData.username}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-lg md:h-20 lg:h-10 
+            className={`w-full px-4 py-2 border rounded-lg md:h-20 text-purple-700 lg:h-10 
               focus:ring-2 focus:ring-purple-400 outline-none
-              ${formData.username ? "bg-white" : "bg-transparent"}
-              ${errors.username ? "border-red-500" : "border-gray-500"}`}
+              ${
+                formData.username
+                  ? "backdrop-blur-md bg-white/60"
+                  : "bg-transparent"
+              }
+              ${errors.username ? "border-red-500" : "border-purple-500"}`}
           />
         </div>
 
@@ -106,17 +117,17 @@ export default function LeftDiv() {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-lg md:h-20 lg:h-10 pr-10 
+              className={`w-full px-4 py-2 border rounded-lg md:h-20 lg:h-10 text-purple-700 pr-10 
                 focus:ring-2 focus:ring-purple-400 outline-none
                 ${formData.password ? "bg-white" : "bg-transparent"}
-                ${errors.password ? "border-red-500" : "border-gray-500"}`}
+                ${errors.password ? "border-red-500" : "border-purple-500"}`}
             />
             {formData.password && (
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-3 top-1/2 -translate-y-1/2 flex items-center 
-                text-gray-500 hover:text-purple-600"
+                text-purple-500 hover:text-purple-600"
               >
                 {showPassword ? <FiEye size={12} /> : <FiEyeOff size={12} />}
               </button>
@@ -128,14 +139,14 @@ export default function LeftDiv() {
         <div className="flex flex-2 space-x-5 md:space-x-15 text-left">
           <button
             type="button"
-            className="text-sm md:text-2xl lg:text-sm py-2 text-gray-400
+            className="text-sm md:text-2xl lg:text-sm py-2 text-black
              hover:text-purple-600 hover:underline "
           >
             Forgot password?
           </button>
           <button
             type="button"
-            className="text-sm md:text-2xl lg:text-sm py-2 text-gray-400
+            className="text-sm md:text-2xl lg:text-sm py-2 text-black
              hover:text-purple-600 hover:underline "
           >
             Sign up

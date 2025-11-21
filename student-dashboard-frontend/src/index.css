@@ -1,5 +1,5 @@
-@import 'tailwindcss';
-@import 'tw-animate-css';
+@import "tailwindcss";
+@import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -129,8 +129,12 @@
     @apply border-border outline-ring/50;
   }
   body {
-    font-family: 'Space Grotesk';
+    font-family: "Space Grotesk";
   }
+}
+.leftdiv {
+  backdrop-filter: blur(5px); /* main blur */
+  -webkit-backdrop-filter: blur(5px);
 }
 
 /* ✅ Fix Chrome autofill light-blue background */

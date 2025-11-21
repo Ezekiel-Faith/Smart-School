@@ -4,8 +4,7 @@ import LoginImage from "../../Asset/LoginImage.png";
 
 export default function RightDiv() {
   return (
-    <div className="flex-1 flex flex-col items-start p-4 bg-white 
-    rounded-r-2xl shadow-lg">
+    <div className="flex-1 flex w-[385px] h-[555px] flex-col items-start p-4 backdrop-blur-lg bg-white/70 shadow-lg">
       <h2 className="text-3xl font-bold text-gray-800 mt-8">Welcome to</h2>
       <p className="text-2xl font-semibold text-gray-600 ">Student portal</p>
 
