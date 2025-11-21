@@ -139,14 +139,14 @@ export default function LeftDiv() {
         <div className="flex flex-2 space-x-5 md:space-x-15 text-left">
           <button
             type="button"
-            className="text-sm md:text-2xl lg:text-sm py-2 text-black
+            className="text-sm md:text-2xl lg:text-sm py-2 cursor-pointer text-black
              hover:text-purple-600 hover:underline "
           >
             Forgot password?
           </button>
           <button
             type="button"
-            className="text-sm md:text-2xl lg:text-sm py-2 text-black
+            className="text-sm md:text-2xl lg:text-sm py-2 cursor-pointer text-black
              hover:text-purple-600 hover:underline "
           >
             Sign up
@@ -157,7 +157,7 @@ export default function LeftDiv() {
         <button
           type="submit"
           className="w-full bg-gradient-to-r from-[#8a2be2] to-[#6a0dad]
-           text-white py-3 rounded-lg font-semibold hover:opacity-90 
+           text-white py-3 rounded-lg cursor-pointer font-semibold hover:opacity-90 
            transition md:h-20 lg:h-10"
         >
           Login
