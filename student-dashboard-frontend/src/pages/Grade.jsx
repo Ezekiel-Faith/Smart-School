@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dropdown from "@/components/DropDown";
 import GradeTable from "@/components/GradeTable";
 import { sessionData, termData, gradeData } from "@/lib/data.js";
+import Bottom from "@/components/Bottom";
 
 const Grade = () => {
   const [selectedSession, setSelectedSession] = useState(null);
@@ -35,14 +36,21 @@ const Grade = () => {
           <Dropdown
             label="Select Session"
             options={Object.keys(sessionData)}
-            onSelect={setSelectedSession}
+            value={selectedSession}
+            onSelect={(value) => {
+              setSelectedSession(value);
+              setShowResults(false); // reset results if changed
+            }}
           />
 
-          {/* TERM DROPDOWN */}
           <Dropdown
             label="Select Term"
             options={Object.keys(termData)}
-            onSelect={setSelectedTerm}
+            value={selectedTerm}
+            onSelect={(value) => {
+              setSelectedTerm(value);
+              setShowResults(false);
+            }}
           />
 
           <button
@@ -68,6 +76,8 @@ const Grade = () => {
           <GradeTable grades={currentGrades} />
         </div>
       </div>
+
+      <Bottom />
     </section>
   );
 };
