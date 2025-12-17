@@ -1,6 +1,7 @@
 // src/components/rightDiv.jsx
 import React from "react";
-import LoginImage from "../../Asset/LoginImage.png";
+import LoginImage from "../../Asset/Layer.png";
+import "../../index.css";
 
 export default function RightDiv() {
   return (
@@ -11,7 +12,7 @@ export default function RightDiv() {
       <img
         src={LoginImage}
         alt="Login Illustration"
-        className="w-full h-auto px-4"
+        className="w-full h-auto px-4 slow-bounce "
       />
     </div>
   );

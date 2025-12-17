@@ -68,11 +68,11 @@ export default function LeftDiv() {
     <div
       className="
         p-8 md:p-3 flex-1 flex flex-col justify-center
-        w-[385px] h-[555px]
+        lg:w-[385px] lg:h-[555px] md:w-[680px] md:h-[700px] 
         leftdiv 
       "
     >
-      <h2 className="text-2xl md:text-4xl lg:text-2xl font-semibold text-black mb-2 text-center mt-2 lg:mt-0">
+      <h2 className="text-2xl md:text-5xl lg:text-2xl font-semibold text-black mb-2 text-center mt-2 lg:mt-0">
         Login
       </h2>
       <p className="text-sm md:text-2xl lg:text-sm text-black mb-6 text-center">
@@ -94,14 +94,14 @@ export default function LeftDiv() {
             placeholder="Username or Email"
             value={formData.username}
             onChange={handleChange}
-            className={`w-full px-4 py-2 border rounded-lg md:h-20 text-purple-700 lg:h-10 
-              focus:ring-2 focus:ring-purple-400 outline-none
+            className={`w-full px-4 py-2 border rounded-lg font-bold md:h-20 text-purple-700 lg:h-10 
+              focus:ring-2 focus:ring-purple-600 outline-none
               ${
                 formData.username
                   ? "backdrop-blur-md bg-white/60"
                   : "bg-transparent"
               }
-              ${errors.username ? "border-red-500" : "border-purple-500"}`}
+              ${errors.username ? "border-red-500" : "border-purple-600"}`}
           />
         </div>
 
@@ -117,10 +117,10 @@ export default function LeftDiv() {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
-              className={`w-full px-4 py-2 border rounded-lg md:h-20 lg:h-10 text-purple-700 pr-10 
+              className={`w-full px-4 font-bold py-2 border rounded-lg md:h-20 lg:h-10 text-purple-700 pr-10 
                 focus:ring-2 focus:ring-purple-400 outline-none
                 ${formData.password ? "bg-white" : "bg-transparent"}
-                ${errors.password ? "border-red-500" : "border-purple-500"}`}
+                ${errors.password ? "border-red-500" : "border-purple-600"}`}
             />
             {formData.password && (
               <button
