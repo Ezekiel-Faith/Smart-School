@@ -37,7 +37,7 @@ const FilterBar = ({ filter, setFilter }) => {
   return (
     <div className="w-full mb-6">
       {/* Desktop / Tablet View */}
-      <div className="hidden  md:flex text-center flex lg:gap-4 gap-2.5 lg:px-[111px] md:px-[90px] lg:py-[14px] md:py-[12px] rounded-[11.3px] justify-between items-center lg:max-w-[1072px] bg-white text-(--color-darkgray) text-[14px] md:text-[18px] lg:text-[20px]">
+      <div className="hidden  md:flex text-center lg:gap-4 gap-2.5 lg:px-[111px] md:px-[90px] lg:py-[14px] md:py-[12px] rounded-[11.3px] justify-between items-center lg:max-w-[1072px] bg-white text-(--color-darkgray) text-[14px] md:text-[18px] lg:text-[20px]">
         {tabs.map((tab) => (
           <button
             key={tab.key}
