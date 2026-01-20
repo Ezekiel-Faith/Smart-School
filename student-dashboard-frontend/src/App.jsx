@@ -1,19 +1,9 @@
-import StudyResource from './components/util/StudyResource';
-import Assignment from './pages/Assignment';
-import Dashboard from './pages/Dashboard';
-import Login from './pages/Login';
-import StudyAi from './pages/StudyAi';
-import TakeQuiz from './pages/TakeQuiz';
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
     <>
-      {/* <Login /> */}
       <Dashboard />
-      {/* <TakeQuiz />
-      <Assignment />
-      <StudyAi /> */}
-
     </>
   );
 }
