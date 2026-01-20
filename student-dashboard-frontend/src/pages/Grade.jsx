@@ -9,12 +9,6 @@ const Grade = () => {
   const [selectedTerm, setSelectedTerm] = useState(null);
   const [showResults, setShowResults] = useState(false);
 
-  // get student class from the sessionData object
-  const studentClass = selectedSession ? sessionData[selectedSession] : null;
-
-  // get term result from termData object
-  const termResult = selectedTerm ? termData[selectedTerm] : null;
-
   // Get grades for selected session and term
   const currentGrades =
     showResults && selectedSession && selectedTerm
@@ -28,33 +22,49 @@ const Grade = () => {
   };
 
   return (
-    <section className="w-[1000px] m-auto">
-      <div className="space-y-3.5 ">
+    <section className="max-w-[1000px] mx-auto w-full px-2 sm:px-0">
+      <div className="space-y-4">
         <h1 className="px-5 text-2xl font-medium">Check Grades</h1>
-        <section className="p-5 flex gap-6 justify-between">
-          {/* SESSION DROPDOWN  */}
-          <Dropdown
-            label="Select Session"
-            options={Object.keys(sessionData)}
-            value={selectedSession}
-            onSelect={(value) => {
-              setSelectedSession(value);
-              setShowResults(false); // reset results if changed
-            }}
-          />
 
-          <Dropdown
-            label="Select Term"
-            options={Object.keys(termData)}
-            value={selectedTerm}
-            onSelect={(value) => {
-              setSelectedTerm(value);
-              setShowResults(false);
-            }}
-          />
+        {/* ===================== */}
+        {/* DROPDOWNS + BUTTON */}
+        {/* ===================== */}
+        <section className="p-5 flex flex-col sm:flex-row items-stretch sm:items-end gap-3 sm:gap-4 max-w-full overflow-visible">
+          {/* SESSION DROPDOWN */}
+          <div className="w-full sm:w-48 flex-shrink-0">
+            <p className="text-xs font-bold text-purple-900 mb-1 ml-1 sm:block hidden">
+              Session
+            </p>
+            <Dropdown
+              label="Select Session"
+              options={Object.keys(sessionData)}
+              value={selectedSession}
+              onSelect={(value) => {
+                setSelectedSession(value);
+                setShowResults(false);
+              }}
+            />
+          </div>
 
+          {/* TERM DROPDOWN */}
+          <div className="w-full sm:w-48 flex-shrink-0">
+            <p className="text-xs font-bold text-purple-900 mb-1 ml-1 sm:block hidden">
+              Term
+            </p>
+            <Dropdown
+              label="Select Term"
+              options={Object.keys(termData)}
+              value={selectedTerm}
+              onSelect={(value) => {
+                setSelectedTerm(value);
+                setShowResults(false);
+              }}
+            />
+          </div>
+
+          {/* CHECK RESULTS BUTTON */}
           <button
-            className="bg-purple-700 text-white px-5 py-2 rounded-xl hover:bg-purple-800 transition-colors disabled:bg-gray-400 disabled:cursor-not-allowed"
+            className="w-full sm:w-auto h-[44px] bg-purple-700 text-white px-6 rounded-xl whitespace-nowrap hover:bg-purple-800 transition-colors disabled:bg-gray-400 font-bold"
             onClick={handleCheckResults}
             disabled={!selectedSession || !selectedTerm}
           >
@@ -62,16 +72,20 @@ const Grade = () => {
           </button>
         </section>
 
-        {/* Display selected term info */}
+        {/* ===================== */}
+        {/* TERM INFO */}
+        {/* ===================== */}
         {selectedTerm && showResults && (
-          <div className="px-5 mb-2">
+          <div className="px-5">
             <h2 className="text-lg font-semibold text-gray-800">
-              {termData[selectedTerm]} - {selectedSession}
+              {termData[selectedTerm]} – {selectedSession}
             </h2>
           </div>
         )}
 
+        {/* ===================== */}
         {/* GRADE TABLE */}
+        {/* ===================== */}
         <div className="px-5">
           <GradeTable grades={currentGrades} />
         </div>
