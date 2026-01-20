@@ -5,13 +5,20 @@ const TimeTable = () => {
 
   return (
     <div className="flex justify-end">
-      <div className="overflow-x-auto bg-gradient-to-br from-white to-purple-300 ">
+      <div className="overflow-x-auto bg-gradient-to-br from-white to-purple-300">
         <table className="w-full max-w-5xl border-collapse">
           <thead className="bg-purple-700 text-white">
             <tr>
-              <th className="p-3 text-left">Time</th>
+              {/* TIME HEADER – STICKY ON MOBILE */}
+              <th className="px-2 py-2 md:p-3 text-left sticky left-0 bg-purple-700 z-20 whitespace-nowrap">
+                Time
+              </th>
+
               {days.map((day) => (
-                <th key={day} className="p-3 text-left">
+                <th
+                  key={day}
+                  className="px-2 py-2 md:p-3 text-left whitespace-nowrap"
+                >
                   {day}
                 </th>
               ))}
@@ -20,8 +27,9 @@ const TimeTable = () => {
 
           <tbody>
             {periods.map((time, periodIndex) => (
-              <tr key={time} className="">
-                <td className="p-3 font-semibold text-purple-900 whitespace-nowrap text-left">
+              <tr key={time}>
+                {/* TIME CELL – STICKY ON MOBILE */}
+                <td className="px-2 py-2 md:p-3 font-semibold text-purple-900 text-sm md:text-base whitespace-nowrap text-left sticky left-0 bg-white z-10">
                   {time}
                 </td>
 
@@ -31,7 +39,7 @@ const TimeTable = () => {
                   return (
                     <td
                       key={day + periodIndex}
-                      className={`p-3 text-left font-medium ${
+                      className={`px-2 py-2 md:p-3 text-sm md:text-base text-left font-medium whitespace-nowrap ${
                         subject === "Break"
                           ? "text-purple-800 bg-purple-100/70"
                           : "text-gray-800"
