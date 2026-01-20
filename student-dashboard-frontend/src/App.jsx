@@ -1,9 +1,9 @@
-import Grade from "./pages/Grade";
+import TimeTablePage from "./pages/TimeTablePage";
 
 function App() {
   return (
     <>
-      <Grade />
+      <TimeTablePage />
     </>
   );
 }
