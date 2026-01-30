@@ -1,10 +1,11 @@
-import TakeQuiz from './pages/TakeQuiz';
+import React from 'react';
+import SideBar from './components/SideBarForStudent/sideBar';
 
 function App() {
   return (
-    <>
-      <TakeQuiz />
-    </>
+    <div>
+      <SideBar />
+    </div>
   );
 }
 
