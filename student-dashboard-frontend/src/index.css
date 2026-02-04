@@ -147,6 +147,10 @@
 }
 
 @layer utilities {
+  /* dashboard */
+  .nav-btns {
+    background: var(--color-purple-blend);
+  }
   /* quiz */
   .quiz-background {
     @apply py-20 md:py-0 md:min-h-screen flex items-center justify-center;
@@ -193,7 +197,8 @@
 
   .quiz-subject-btn {
     @apply relative inline-flex items-center justify-center min-w-[80%] md:min-w-50 min-h-13 bg-transparent text-black rounded-[18px] border border-transparent overflow-hidden;
-    background: linear-gradient(white, white) padding-box,
+    background:
+      linear-gradient(white, white) padding-box,
       linear-gradient(
           233deg,
           var(--color-pink) -127.38%,
@@ -331,7 +336,8 @@
       var(--color-pink) -127.38%,
       var(--color-purple) 108.2%
     );
-    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
       linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
