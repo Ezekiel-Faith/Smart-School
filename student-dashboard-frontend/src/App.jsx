@@ -1,30 +1,15 @@
-// import React from 'react';
-// import SideBar from './components/SideBarForStudent/sideBar';
-// import Dashboard from './pages/Dashboard';
-
-// function App() {
-//   return (
-//     <div className='flex '>
-//       <SideBar />
-//       <Dashboard />
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import SideBar from './components/SideBarForStudent/sideBar';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <div className=''>
+    <div>
       <SideBar />
 
-      <main className='flex-1 lg:ml-60'>
+      <main className='lg:ml-[13%]'>
         <Routes>
-          <Route index element={<Dashboard />} />
+          <Route index element={<Navigate to='/dashboard' replace />} />
 
           <Route path='dashboard' element={<Dashboard />} />
         </Routes>

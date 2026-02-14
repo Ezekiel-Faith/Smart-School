@@ -1,4 +1,3 @@
-// Sidebar.jsx
 import React, { useState } from 'react';
 import SmartSchoolLogo from '../../Asset/smart-school-logo.png';
 import {
@@ -73,20 +72,6 @@ export default function SideBar() {
                 {label}
               </NavLink>
             ))}
-
-            {/* {navItems.map(({ icon: Icon, label }) => (
-              <NavLink
-                to='/dashboard'
-                className={({ isActive }) =>
-                  `flex items-center gap-3 py-2 md:p-4 lg:p-2
-              //              rounded-lg text-lg md:text-2xl lg:text-sm
-     ${isActive ? 'bg-red-700' : 'hover:bg-purple-600 hover:cursor-pointer'}`
-                }
-              >
-                <Icon className='w-5 h-5' />
-                {label}
-              </NavLink>
-            ))} */}
 
             <button
               className='mt-[7px] mb-[92px] sm:mb-[90px] md:mb-[190px] lg:mb-[90px] 
