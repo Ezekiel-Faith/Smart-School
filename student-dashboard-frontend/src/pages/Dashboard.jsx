@@ -112,7 +112,7 @@ const Dashboard = () => {
   }, [calendarDate]);
 
   return (
-    <div className='mx-auto w-[90%] border-2 border-red-500 p-5'>
+    <div className='mx-auto w-[90%] py-20'>
       <div className='flex flex-col'>
         <div>
           <p className='font-bold text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent'>
@@ -124,11 +124,11 @@ const Dashboard = () => {
         </div>
 
         {/* Main: Stats + Performance + Calendar */}
-        <div className='flex flex-col lg:flex-row xl:justify-between'>
+        <div className='flex flex-col gap-y-5 xl:flex-row xl:justify-between'>
           {/* Left Section (Stats + Performance) */}
-          <div className='flex flex-col border'>
+          <div className='flex flex-col'>
             {/* Stats cards */}
-            <div className='flex flex-col md:flex-row gap-6 mb-6 border-3 border-red-500'>
+            <div className='flex flex-col md:flex-row gap-6 mb-6'>
               {boxes.map((box, index) => (
                 <div className=''>
                   <BoxCard box={box} key={index} />
@@ -138,7 +138,7 @@ const Dashboard = () => {
 
             {/* /////////////////////////////////////////////////////// */}
             {/* Performance indicators */}
-            <div className=' max-w-[650px] '>
+            <div className=''>
               <p className='text-lg md:text-xl lg:text-2xl capitalize mb-3 bg-gradient-to-r from-[#35185c] to-black bg-clip-text text-transparent font-bold'>
                 performance indicator
               </p>
@@ -156,7 +156,8 @@ const Dashboard = () => {
                 </div>
               </div>
             </div>
-            <div className=' py-3 '>
+
+            <div className=' py-3'>
               <button
                 className=' underline cursor-pointer '
                 onClick={() =>
@@ -167,7 +168,7 @@ const Dashboard = () => {
               </button>
             </div>
             {/* Study Resources */}
-            <div className='w-full'>
+            <div className='w-full my-5'>
               <p className='text-lg md:text-xl lg:text-2xl font-medium capitalize bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent'>
                 study resources
               </p>
@@ -187,16 +188,16 @@ const Dashboard = () => {
           {/* ///////////////////////////////////////////////////////////////// */}
 
           {/* Right Section (Calendar + Assignments) */}
-          <div className='flex flex-col items-left md:items-center my-10 lg:m-0 '>
+          <div className='flex flex-col md:flex-row xl:flex-col gap-7 items-center md:justify-between lg:justify-normal'>
             <Calendar
               mode='single'
               selected={calendarDate}
               onSelect={setCalendarDate}
-              classNames={{
-                day_selected:
-                  ' bg-gradient-to-r from-[#8c55d3] to-black text-white hover:from-pink-600 hover:to-purple-600 focus:from-pink-600 focus:to-purple-600',
-                day_today: 'border border-pink-400 font-bold ',
-              }}
+              classNames={`w-full{
+                  day_selected:
+                    ' bg-gradient-to-r from-[#8c55d3] to-black text-white hover:from-pink-600 hover:to-purple-600 focus:from-pink-600 focus:to-purple-600',
+                  day_today: 'border border-pink-400 font-bold ',
+                }`}
             />
 
             {/* Assignments list */}

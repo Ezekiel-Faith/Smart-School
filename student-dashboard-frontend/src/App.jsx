@@ -19,7 +19,7 @@ import Dashboard from './pages/Dashboard';
 
 function App() {
   return (
-    <div className='flex'>
+    <div className=''>
       <SideBar />
 
       <main className='flex-1 lg:ml-60'>
