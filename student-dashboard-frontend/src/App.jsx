@@ -1,34 +1,3 @@
-// import SideBar from './components/SideBarForStudent/sideBar';
-// import { Routes, Route, Navigate } from 'react-router-dom';
-// import Dashboard from './pages/Dashboard';
-// import Header from './components/SchoolHeader/Header';
-
-// function App() {
-//   return (
-//     <div className=''>
-//       <SideBar />
-
-//       <main className=' lg:ml-64'>
-//         <Header
-//           user={{
-//             name: 'Lionel Messi',
-//             image:
-//               'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFVTiTn7i7yJu9CZAeh5WqEz74iC21kCqhsw&s',
-//           }}
-//         />
-
-//         <Routes>
-//           <Route index element={<Navigate to='/dashboard' replace />} />
-
-//           <Route path='dashboard' element={<Dashboard />} />
-//         </Routes>
-//       </main>
-//     </div>
-//   );
-// }
-
-// export default App;
-
 import SideBar from './components/SideBarForStudent/sideBar';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
