@@ -30,14 +30,14 @@ export default function MobileSidebar({ isOpen, toggleSidebar }) {
 
   return (
     <div
-      className={`fixed top-0 left-0 h-full w-[85%] md:w-90 lg:w-65 
-        flex flex-col text-white
+      className={`fixed top-0 left-0 w-[85%] h-screen md:w-90 lg:w-65 
+        flex flex-col text-white overflow-y-auto
         bg-[linear-gradient(to_top,rgba(100,30,230,0.7),#222222)]
         transition-transform duration-300 z-40 rounded-tr-4xl
         ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
     >
       {/* Logo */}
-      <div className='mb-8 px-10 md:px-4 '>
+      <div className='mb-8 px-10 md:px-4'>
         <img
           src={SmartSchoolLogo}
           alt='Smart school logo'

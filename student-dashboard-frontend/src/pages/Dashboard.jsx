@@ -112,7 +112,7 @@ const Dashboard = () => {
   }, [calendarDate]);
 
   return (
-    <div className='mx-auto w-[90%] py-20'>
+    <div className='mx-auto w-[90%]'>
       <div className='flex flex-col'>
         <div>
           <p className='font-bold text-xl md:text-2xl lg:text-3xl bg-gradient-to-r from-[#451f78] to-black bg-clip-text text-transparent'>
