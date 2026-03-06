@@ -37,7 +37,7 @@ export default function MobileSidebar({ isOpen, toggleSidebar }) {
         ${isOpen ? 'translate-x-0' : '-translate-x-full'} lg:translate-x-0`}
     >
       {/* Logo */}
-      <div className='mb-8 pl-[180px] lg:pl-6'>
+      <div className='mb-8 px-10 md:px-4 '>
         <img
           src={SmartSchoolLogo}
           alt='Smart school logo'
