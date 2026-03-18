@@ -367,4 +367,17 @@
     @apply rounded-2xl p-6 text-white;
     background: var(--color-purple-blend);
   }
+
+  /* dashboard */
+  @media (min-width: 1280px) and (max-width: 1500px) {
+    .dashboard-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-container {
+      display: flex;
+      flex-direction: row;
+    }
+  }
 }

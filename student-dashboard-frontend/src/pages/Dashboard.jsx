@@ -124,7 +124,7 @@ const Dashboard = () => {
         </div>
 
         {/* Main: Stats + Performance + Calendar */}
-        <div className='flex flex-col gap-y-5 xl:flex-row xl:justify-between'>
+        <div className='flex flex-col gap-y-5 xl:flex-row xl:justify-between dashboard-container'>
           {/* Left Section (Stats + Performance) */}
           <div className='flex flex-col'>
             {/* Stats cards */}
@@ -188,7 +188,7 @@ const Dashboard = () => {
           {/* ///////////////////////////////////////////////////////////////// */}
 
           {/* Right Section (Calendar + Assignments) */}
-          <div className='flex flex-col md:flex-row xl:flex-col gap-7 items-center md:justify-between lg:justify-normal'>
+          <div className='flex flex-col md:flex-row xl:flex-col gap-7 items-center md:justify-between lg:justify-normal calendar-container'>
             <Calendar
               mode='single'
               selected={calendarDate}
